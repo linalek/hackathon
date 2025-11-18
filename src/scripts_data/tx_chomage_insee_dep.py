@@ -143,7 +143,7 @@ if __name__ == "__main__":
     # ==========================================
     
     # 1. Nom du fichier (doit être dans data/)
-    NOM_CSV = "tx_chomage_insee_dep.csv"
+    NOM_CSV = "tx_chomage_departements.csv"
     
     # 2. Ligne des titres (0 = 1ère ligne)
     LIGNE_TITRES = 2
@@ -159,7 +159,7 @@ if __name__ == "__main__":
     # 5. Les autres colonnes à extraire et leur type
     # Format : [ ("Nom_Col1", "type"), ("Nom_Col2", "type") ]
     INFO_COLONNES = [
-	("Libellé","nom_commune", "str"),
+	("Libellé","nom_departement", "str"),
 	("Taux de chômage annuel moyen 2024", "tx_chomage_moyen", "float"),
 	("Taux de chômage annuel moyen des 15 à 24 ans 2024", "tx_chomage_moyen_15_24_ans", "float"),
 	("Taux de chômage annuel moyen des 25 à 49 ans 2024", "tx_chomage_moyen_25_49_ans", "float"),
