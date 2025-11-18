@@ -2,9 +2,8 @@
 
 ## Sommaire
 - [Description du projet](#description-du-projet)
-- [Préparation de l'environnement](#préparation-de-l'environnement)
-- [Téléchargement des données](#téléchargement-des-données)
-- [Lancer l'application](#lancer-lapplication)
+- [Préparation de l'environnement](#préparation-de-lenvironnement)
+- [Acquisition des données](#acquisition-des-données)
 - [Utilisation](#utilisation)
 - [Contributeurs](#contributeurs)
 - [Licence](#licence)
@@ -28,13 +27,10 @@
     pip install -r requirements.txt
     ```
 
-## Téléchargement des données
-Dans un dossier ./data/, télécharger les fichiers suivants :
-- dans un dossier APL, télécharger les données sur les chirurgiens dentistes, infirmières, kinésithérapeutes, médecins généralistes et sage-femmes, depuis: 
-https://defis.data.gouv.fr/datasets/62263314072c63d4d53e0c50 
-- télécharger les données sur les communes pour créer la carte depuis : https://geoservices.ign.fr/adminexpress#telechargement (en sélectionnant l'édition 2025 et nommer le fichier communes.gpkg)
+## Acquisition des données
 
-## Lancer l'application
+
+## Utilisation
 1. Assurez-vous que l'environnement virtuel est activé.
 2. Exécutez le script principal :
    ```bash
@@ -45,3 +41,5 @@ https://defis.data.gouv.fr/datasets/62263314072c63d4d53e0c50
 - Maxence AGRA
 - Lucine GIRAUD
 - Lina LEKBOURI
+
+## Licence
