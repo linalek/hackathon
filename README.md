@@ -3,6 +3,8 @@
 ## Sommaire
 - [Description du projet](#description-du-projet)
 - [Préparation de l'environnement](#préparation-de-l'environnement)
+- [Téléchargement des données](#téléchargement-des-données)
+- [Lancer l'application](#lancer-lapplication)
 - [Utilisation](#utilisation)
 - [Contributeurs](#contributeurs)
 - [Licence](#licence)
@@ -12,7 +14,9 @@
 ## Préparation de l'environnement
 1. Cloner le dépôt GitHub :
    ```bash
-   git clone```
+   git clone [URL_DU_DEPOT]
+   cd hackathon
+   ```
 
 2. Création et activation d'un environnement virtuel Python :
    ```bash
@@ -29,6 +33,13 @@ Dans un dossier ./data/, télécharger les fichiers suivants :
 - dans un dossier APL, télécharger les données sur les chirurgiens dentistes, infirmières, kinésithérapeutes, médecins généralistes et sage-femmes, depuis: 
 https://defis.data.gouv.fr/datasets/62263314072c63d4d53e0c50 
 - télécharger les données sur les communes pour créer la carte depuis : https://geoservices.ign.fr/adminexpress#telechargement (en sélectionnant l'édition 2025 et nommer le fichier communes.gpkg)
+
+## Lancer l'application
+1. Assurez-vous que l'environnement virtuel est activé.
+2. Exécutez le script principal :
+   ```bash
+   Streamlit run app.py
+   ```
 
 ## Contributeurs
 - Maxence AGRA
