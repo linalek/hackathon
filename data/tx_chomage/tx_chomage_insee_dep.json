@@ -1,0 +1,902 @@
+{
+    "01": {
+        "nom_commune": "Ain",
+        "tx_chomage_moyen": 5.6,
+        "tx_chomage_moyen_15_24_ans": 14.3,
+        "tx_chomage_moyen_25_49_ans": 5.1,
+        "tx_chomage_moyen_50_ans_plus": 3.7,
+        "tx_chomage_moyen_femmes": 5.7,
+        "tx_chomage_moyen_hommes": 5.5
+    },
+    "02": {
+        "nom_commune": "Aisne",
+        "tx_chomage_moyen": 10.5,
+        "tx_chomage_moyen_15_24_ans": 28.6,
+        "tx_chomage_moyen_25_49_ans": 9.0,
+        "tx_chomage_moyen_50_ans_plus": 6.6,
+        "tx_chomage_moyen_femmes": 10.3,
+        "tx_chomage_moyen_hommes": 10.7
+    },
+    "03": {
+        "nom_commune": "Allier",
+        "tx_chomage_moyen": 7.9,
+        "tx_chomage_moyen_15_24_ans": 20.5,
+        "tx_chomage_moyen_25_49_ans": 7.2,
+        "tx_chomage_moyen_50_ans_plus": 5.3,
+        "tx_chomage_moyen_femmes": 7.6,
+        "tx_chomage_moyen_hommes": 8.3
+    },
+    "04": {
+        "nom_commune": "Alpes-de-Haute-Provence",
+        "tx_chomage_moyen": 7.9,
+        "tx_chomage_moyen_15_24_ans": 21.5,
+        "tx_chomage_moyen_25_49_ans": 7.4,
+        "tx_chomage_moyen_50_ans_plus": 5.2,
+        "tx_chomage_moyen_femmes": 7.9,
+        "tx_chomage_moyen_hommes": 7.9
+    },
+    "05": {
+        "nom_commune": "Hautes-Alpes",
+        "tx_chomage_moyen": 6.2,
+        "tx_chomage_moyen_15_24_ans": 16.3,
+        "tx_chomage_moyen_25_49_ans": 6.0,
+        "tx_chomage_moyen_50_ans_plus": 4.0,
+        "tx_chomage_moyen_femmes": 6.2,
+        "tx_chomage_moyen_hommes": 6.3
+    },
+    "06": {
+        "nom_commune": "Alpes-Maritimes",
+        "tx_chomage_moyen": 6.8,
+        "tx_chomage_moyen_15_24_ans": 17.4,
+        "tx_chomage_moyen_25_49_ans": 6.4,
+        "tx_chomage_moyen_50_ans_plus": 4.7,
+        "tx_chomage_moyen_femmes": 6.8,
+        "tx_chomage_moyen_hommes": 6.7
+    },
+    "07": {
+        "nom_commune": "Ardèche",
+        "tx_chomage_moyen": 7.8,
+        "tx_chomage_moyen_15_24_ans": 21.4,
+        "tx_chomage_moyen_25_49_ans": 7.0,
+        "tx_chomage_moyen_50_ans_plus": 5.4,
+        "tx_chomage_moyen_femmes": 7.8,
+        "tx_chomage_moyen_hommes": 7.8
+    },
+    "08": {
+        "nom_commune": "Ardennes",
+        "tx_chomage_moyen": 9.8,
+        "tx_chomage_moyen_15_24_ans": 26.0,
+        "tx_chomage_moyen_25_49_ans": 8.7,
+        "tx_chomage_moyen_50_ans_plus": 6.4,
+        "tx_chomage_moyen_femmes": 9.6,
+        "tx_chomage_moyen_hommes": 10.0
+    },
+    "09": {
+        "nom_commune": "Ariège",
+        "tx_chomage_moyen": 9.2,
+        "tx_chomage_moyen_15_24_ans": 23.2,
+        "tx_chomage_moyen_25_49_ans": 8.9,
+        "tx_chomage_moyen_50_ans_plus": 5.8,
+        "tx_chomage_moyen_femmes": 9.0,
+        "tx_chomage_moyen_hommes": 9.4
+    },
+    "10": {
+        "nom_commune": "Aube",
+        "tx_chomage_moyen": 9.7,
+        "tx_chomage_moyen_15_24_ans": 25.0,
+        "tx_chomage_moyen_25_49_ans": 8.8,
+        "tx_chomage_moyen_50_ans_plus": 5.9,
+        "tx_chomage_moyen_femmes": 9.7,
+        "tx_chomage_moyen_hommes": 9.6
+    },
+    "11": {
+        "nom_commune": "Aude",
+        "tx_chomage_moyen": 10.3,
+        "tx_chomage_moyen_15_24_ans": 27.7,
+        "tx_chomage_moyen_25_49_ans": 9.1,
+        "tx_chomage_moyen_50_ans_plus": 7.0,
+        "tx_chomage_moyen_femmes": 10.2,
+        "tx_chomage_moyen_hommes": 10.4
+    },
+    "12": {
+        "nom_commune": "Aveyron",
+        "tx_chomage_moyen": 5.6,
+        "tx_chomage_moyen_15_24_ans": 16.4,
+        "tx_chomage_moyen_25_49_ans": 5.2,
+        "tx_chomage_moyen_50_ans_plus": 3.5,
+        "tx_chomage_moyen_femmes": 5.5,
+        "tx_chomage_moyen_hommes": 5.7
+    },
+    "13": {
+        "nom_commune": "Bouches-du-Rhône",
+        "tx_chomage_moyen": 8.5,
+        "tx_chomage_moyen_15_24_ans": 20.8,
+        "tx_chomage_moyen_25_49_ans": 7.9,
+        "tx_chomage_moyen_50_ans_plus": 5.5,
+        "tx_chomage_moyen_femmes": 8.3,
+        "tx_chomage_moyen_hommes": 8.7
+    },
+    "14": {
+        "nom_commune": "Calvados",
+        "tx_chomage_moyen": 6.6,
+        "tx_chomage_moyen_15_24_ans": 16.9,
+        "tx_chomage_moyen_25_49_ans": 5.9,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 6.2,
+        "tx_chomage_moyen_hommes": 7.0
+    },
+    "15": {
+        "nom_commune": "Cantal",
+        "tx_chomage_moyen": 4.2,
+        "tx_chomage_moyen_15_24_ans": 12.6,
+        "tx_chomage_moyen_25_49_ans": 3.9,
+        "tx_chomage_moyen_50_ans_plus": 2.7,
+        "tx_chomage_moyen_femmes": 4.1,
+        "tx_chomage_moyen_hommes": 4.4
+    },
+    "16": {
+        "nom_commune": "Charente",
+        "tx_chomage_moyen": 7.4,
+        "tx_chomage_moyen_15_24_ans": 20.4,
+        "tx_chomage_moyen_25_49_ans": 6.8,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 7.2,
+        "tx_chomage_moyen_hommes": 7.5
+    },
+    "17": {
+        "nom_commune": "Charente-Maritime",
+        "tx_chomage_moyen": 6.9,
+        "tx_chomage_moyen_15_24_ans": 18.8,
+        "tx_chomage_moyen_25_49_ans": 6.1,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 6.7,
+        "tx_chomage_moyen_hommes": 7.1
+    },
+    "18": {
+        "nom_commune": "Cher",
+        "tx_chomage_moyen": 7.1,
+        "tx_chomage_moyen_15_24_ans": 20.1,
+        "tx_chomage_moyen_25_49_ans": 6.5,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 7.0,
+        "tx_chomage_moyen_hommes": 7.2
+    },
+    "19": {
+        "nom_commune": "Corrèze",
+        "tx_chomage_moyen": 5.9,
+        "tx_chomage_moyen_15_24_ans": 16.1,
+        "tx_chomage_moyen_25_49_ans": 5.5,
+        "tx_chomage_moyen_50_ans_plus": 3.8,
+        "tx_chomage_moyen_femmes": 6.0,
+        "tx_chomage_moyen_hommes": 5.9
+    },
+    "21": {
+        "nom_commune": "Côte-d'Or",
+        "tx_chomage_moyen": 5.8,
+        "tx_chomage_moyen_15_24_ans": 14.6,
+        "tx_chomage_moyen_25_49_ans": 5.3,
+        "tx_chomage_moyen_50_ans_plus": 3.6,
+        "tx_chomage_moyen_femmes": 5.5,
+        "tx_chomage_moyen_hommes": 6.0
+    },
+    "22": {
+        "nom_commune": "Côtes-d'Armor",
+        "tx_chomage_moyen": 6.2,
+        "tx_chomage_moyen_15_24_ans": 15.9,
+        "tx_chomage_moyen_25_49_ans": 5.6,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 5.9,
+        "tx_chomage_moyen_hommes": 6.5
+    },
+    "23": {
+        "nom_commune": "Creuse",
+        "tx_chomage_moyen": 7.1,
+        "tx_chomage_moyen_15_24_ans": 19.1,
+        "tx_chomage_moyen_25_49_ans": 7.1,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 6.6,
+        "tx_chomage_moyen_hommes": 7.5
+    },
+    "24": {
+        "nom_commune": "Dordogne",
+        "tx_chomage_moyen": 7.1,
+        "tx_chomage_moyen_15_24_ans": 20.6,
+        "tx_chomage_moyen_25_49_ans": 6.7,
+        "tx_chomage_moyen_50_ans_plus": 4.5,
+        "tx_chomage_moyen_femmes": 6.9,
+        "tx_chomage_moyen_hommes": 7.4
+    },
+    "25": {
+        "nom_commune": "Doubs",
+        "tx_chomage_moyen": 6.9,
+        "tx_chomage_moyen_15_24_ans": 17.0,
+        "tx_chomage_moyen_25_49_ans": 6.2,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 6.5,
+        "tx_chomage_moyen_hommes": 7.2
+    },
+    "26": {
+        "nom_commune": "Drôme",
+        "tx_chomage_moyen": 7.9,
+        "tx_chomage_moyen_15_24_ans": 20.4,
+        "tx_chomage_moyen_25_49_ans": 7.1,
+        "tx_chomage_moyen_50_ans_plus": 5.2,
+        "tx_chomage_moyen_femmes": 7.9,
+        "tx_chomage_moyen_hommes": 7.8
+    },
+    "27": {
+        "nom_commune": "Eure",
+        "tx_chomage_moyen": 7.1,
+        "tx_chomage_moyen_15_24_ans": 21.0,
+        "tx_chomage_moyen_25_49_ans": 6.1,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 6.9,
+        "tx_chomage_moyen_hommes": 7.2
+    },
+    "28": {
+        "nom_commune": "Eure-et-Loir",
+        "tx_chomage_moyen": 6.9,
+        "tx_chomage_moyen_15_24_ans": 18.7,
+        "tx_chomage_moyen_25_49_ans": 6.2,
+        "tx_chomage_moyen_50_ans_plus": 4.5,
+        "tx_chomage_moyen_femmes": 6.9,
+        "tx_chomage_moyen_hommes": 7.0
+    },
+    "29": {
+        "nom_commune": "Finistère",
+        "tx_chomage_moyen": 6.2,
+        "tx_chomage_moyen_15_24_ans": 15.9,
+        "tx_chomage_moyen_25_49_ans": 5.5,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 6.1,
+        "tx_chomage_moyen_hommes": 6.3
+    },
+    "2A": {
+        "nom_commune": "Corse-du-Sud",
+        "tx_chomage_moyen": 6.1,
+        "tx_chomage_moyen_15_24_ans": 19.6,
+        "tx_chomage_moyen_25_49_ans": 5.7,
+        "tx_chomage_moyen_50_ans_plus": 3.9,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 5.9
+    },
+    "2B": {
+        "nom_commune": "Haute-Corse",
+        "tx_chomage_moyen": 6.8,
+        "tx_chomage_moyen_15_24_ans": 21.8,
+        "tx_chomage_moyen_25_49_ans": 6.2,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 7.5,
+        "tx_chomage_moyen_hommes": 6.2
+    },
+    "30": {
+        "nom_commune": "Gard",
+        "tx_chomage_moyen": 9.9,
+        "tx_chomage_moyen_15_24_ans": 26.5,
+        "tx_chomage_moyen_25_49_ans": 8.7,
+        "tx_chomage_moyen_50_ans_plus": 6.6,
+        "tx_chomage_moyen_femmes": 9.6,
+        "tx_chomage_moyen_hommes": 10.1
+    },
+    "31": {
+        "nom_commune": "Haute-Garonne",
+        "tx_chomage_moyen": 7.6,
+        "tx_chomage_moyen_15_24_ans": 20.8,
+        "tx_chomage_moyen_25_49_ans": 6.8,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 7.7,
+        "tx_chomage_moyen_hommes": 7.5
+    },
+    "32": {
+        "nom_commune": "Gers",
+        "tx_chomage_moyen": 5.6,
+        "tx_chomage_moyen_15_24_ans": 16.4,
+        "tx_chomage_moyen_25_49_ans": 5.2,
+        "tx_chomage_moyen_50_ans_plus": 3.8,
+        "tx_chomage_moyen_femmes": 5.4,
+        "tx_chomage_moyen_hommes": 5.7
+    },
+    "33": {
+        "nom_commune": "Gironde",
+        "tx_chomage_moyen": 6.8,
+        "tx_chomage_moyen_15_24_ans": 17.5,
+        "tx_chomage_moyen_25_49_ans": 6.0,
+        "tx_chomage_moyen_50_ans_plus": 4.5,
+        "tx_chomage_moyen_femmes": 6.7,
+        "tx_chomage_moyen_hommes": 6.9
+    },
+    "34": {
+        "nom_commune": "Hérault",
+        "tx_chomage_moyen": 10.2,
+        "tx_chomage_moyen_15_24_ans": 26.1,
+        "tx_chomage_moyen_25_49_ans": 9.1,
+        "tx_chomage_moyen_50_ans_plus": 6.5,
+        "tx_chomage_moyen_femmes": 9.8,
+        "tx_chomage_moyen_hommes": 10.7
+    },
+    "35": {
+        "nom_commune": "Ille-et-Vilaine",
+        "tx_chomage_moyen": 5.8,
+        "tx_chomage_moyen_15_24_ans": 14.6,
+        "tx_chomage_moyen_25_49_ans": 5.3,
+        "tx_chomage_moyen_50_ans_plus": 3.3,
+        "tx_chomage_moyen_femmes": 5.6,
+        "tx_chomage_moyen_hommes": 6.0
+    },
+    "36": {
+        "nom_commune": "Indre",
+        "tx_chomage_moyen": 6.9,
+        "tx_chomage_moyen_15_24_ans": 19.2,
+        "tx_chomage_moyen_25_49_ans": 6.2,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 6.6,
+        "tx_chomage_moyen_hommes": 7.2
+    },
+    "37": {
+        "nom_commune": "Indre-et-Loire",
+        "tx_chomage_moyen": 6.6,
+        "tx_chomage_moyen_15_24_ans": 17.4,
+        "tx_chomage_moyen_25_49_ans": 5.8,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 6.3,
+        "tx_chomage_moyen_hommes": 6.9
+    },
+    "38": {
+        "nom_commune": "Isère",
+        "tx_chomage_moyen": 6.0,
+        "tx_chomage_moyen_15_24_ans": 15.5,
+        "tx_chomage_moyen_25_49_ans": 5.4,
+        "tx_chomage_moyen_50_ans_plus": 3.7,
+        "tx_chomage_moyen_femmes": 6.0,
+        "tx_chomage_moyen_hommes": 6.0
+    },
+    "39": {
+        "nom_commune": "Jura",
+        "tx_chomage_moyen": 5.3,
+        "tx_chomage_moyen_15_24_ans": 13.9,
+        "tx_chomage_moyen_25_49_ans": 4.9,
+        "tx_chomage_moyen_50_ans_plus": 3.3,
+        "tx_chomage_moyen_femmes": 5.1,
+        "tx_chomage_moyen_hommes": 5.5
+    },
+    "40": {
+        "nom_commune": "Landes",
+        "tx_chomage_moyen": 6.7,
+        "tx_chomage_moyen_15_24_ans": 18.7,
+        "tx_chomage_moyen_25_49_ans": 6.0,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 6.8,
+        "tx_chomage_moyen_hommes": 6.6
+    },
+    "41": {
+        "nom_commune": "Loir-et-Cher",
+        "tx_chomage_moyen": 6.2,
+        "tx_chomage_moyen_15_24_ans": 16.9,
+        "tx_chomage_moyen_25_49_ans": 5.4,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 5.9,
+        "tx_chomage_moyen_hommes": 6.4
+    },
+    "42": {
+        "nom_commune": "Loire",
+        "tx_chomage_moyen": 7.6,
+        "tx_chomage_moyen_15_24_ans": 19.2,
+        "tx_chomage_moyen_25_49_ans": 6.7,
+        "tx_chomage_moyen_50_ans_plus": 4.9,
+        "tx_chomage_moyen_femmes": 7.6,
+        "tx_chomage_moyen_hommes": 7.7
+    },
+    "43": {
+        "nom_commune": "Haute-Loire",
+        "tx_chomage_moyen": 5.6,
+        "tx_chomage_moyen_15_24_ans": 14.2,
+        "tx_chomage_moyen_25_49_ans": 4.9,
+        "tx_chomage_moyen_50_ans_plus": 3.9,
+        "tx_chomage_moyen_femmes": 5.5,
+        "tx_chomage_moyen_hommes": 5.7
+    },
+    "44": {
+        "nom_commune": "Loire-Atlantique",
+        "tx_chomage_moyen": 5.6,
+        "tx_chomage_moyen_15_24_ans": 14.5,
+        "tx_chomage_moyen_25_49_ans": 4.9,
+        "tx_chomage_moyen_50_ans_plus": 3.5,
+        "tx_chomage_moyen_femmes": 5.4,
+        "tx_chomage_moyen_hommes": 5.7
+    },
+    "45": {
+        "nom_commune": "Loiret",
+        "tx_chomage_moyen": 7.4,
+        "tx_chomage_moyen_15_24_ans": 19.5,
+        "tx_chomage_moyen_25_49_ans": 6.5,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 7.4,
+        "tx_chomage_moyen_hommes": 7.4
+    },
+    "46": {
+        "nom_commune": "Lot",
+        "tx_chomage_moyen": 7.2,
+        "tx_chomage_moyen_15_24_ans": 20.2,
+        "tx_chomage_moyen_25_49_ans": 7.0,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 6.8,
+        "tx_chomage_moyen_hommes": 7.7
+    },
+    "47": {
+        "nom_commune": "Lot-et-Garonne",
+        "tx_chomage_moyen": 7.3,
+        "tx_chomage_moyen_15_24_ans": 18.9,
+        "tx_chomage_moyen_25_49_ans": 6.9,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 7.3,
+        "tx_chomage_moyen_hommes": 7.3
+    },
+    "48": {
+        "nom_commune": "Lozère",
+        "tx_chomage_moyen": 4.8,
+        "tx_chomage_moyen_15_24_ans": 14.3,
+        "tx_chomage_moyen_25_49_ans": 4.5,
+        "tx_chomage_moyen_50_ans_plus": 2.8,
+        "tx_chomage_moyen_femmes": 4.6,
+        "tx_chomage_moyen_hommes": 4.9
+    },
+    "49": {
+        "nom_commune": "Maine-et-Loire",
+        "tx_chomage_moyen": 6.4,
+        "tx_chomage_moyen_15_24_ans": 15.3,
+        "tx_chomage_moyen_25_49_ans": 5.5,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 6.4
+    },
+    "50": {
+        "nom_commune": "Manche",
+        "tx_chomage_moyen": 5.3,
+        "tx_chomage_moyen_15_24_ans": 13.9,
+        "tx_chomage_moyen_25_49_ans": 4.7,
+        "tx_chomage_moyen_50_ans_plus": 3.4,
+        "tx_chomage_moyen_femmes": 5.2,
+        "tx_chomage_moyen_hommes": 5.5
+    },
+    "51": {
+        "nom_commune": "Marne",
+        "tx_chomage_moyen": 7.3,
+        "tx_chomage_moyen_15_24_ans": 18.5,
+        "tx_chomage_moyen_25_49_ans": 6.6,
+        "tx_chomage_moyen_50_ans_plus": 4.5,
+        "tx_chomage_moyen_femmes": 7.0,
+        "tx_chomage_moyen_hommes": 7.5
+    },
+    "52": {
+        "nom_commune": "Haute-Marne",
+        "tx_chomage_moyen": 6.6,
+        "tx_chomage_moyen_15_24_ans": 18.3,
+        "tx_chomage_moyen_25_49_ans": 5.8,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 6.6,
+        "tx_chomage_moyen_hommes": 6.7
+    },
+    "53": {
+        "nom_commune": "Mayenne",
+        "tx_chomage_moyen": 5.1,
+        "tx_chomage_moyen_15_24_ans": 13.9,
+        "tx_chomage_moyen_25_49_ans": 4.4,
+        "tx_chomage_moyen_50_ans_plus": 2.8,
+        "tx_chomage_moyen_femmes": 5.0,
+        "tx_chomage_moyen_hommes": 5.1
+    },
+    "54": {
+        "nom_commune": "Meurthe-et-Moselle",
+        "tx_chomage_moyen": 7.0,
+        "tx_chomage_moyen_15_24_ans": 17.4,
+        "tx_chomage_moyen_25_49_ans": 6.1,
+        "tx_chomage_moyen_50_ans_plus": 4.8,
+        "tx_chomage_moyen_femmes": 6.6,
+        "tx_chomage_moyen_hommes": 7.3
+    },
+    "55": {
+        "nom_commune": "Meuse",
+        "tx_chomage_moyen": 7.3,
+        "tx_chomage_moyen_15_24_ans": 19.0,
+        "tx_chomage_moyen_25_49_ans": 6.3,
+        "tx_chomage_moyen_50_ans_plus": 5.2,
+        "tx_chomage_moyen_femmes": 7.3,
+        "tx_chomage_moyen_hommes": 7.3
+    },
+    "56": {
+        "nom_commune": "Morbihan",
+        "tx_chomage_moyen": 5.8,
+        "tx_chomage_moyen_15_24_ans": 14.0,
+        "tx_chomage_moyen_25_49_ans": 5.3,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 5.7,
+        "tx_chomage_moyen_hommes": 5.9
+    },
+    "57": {
+        "nom_commune": "Moselle",
+        "tx_chomage_moyen": 7.2,
+        "tx_chomage_moyen_15_24_ans": 18.8,
+        "tx_chomage_moyen_25_49_ans": 6.3,
+        "tx_chomage_moyen_50_ans_plus": 5.0,
+        "tx_chomage_moyen_femmes": 7.0,
+        "tx_chomage_moyen_hommes": 7.3
+    },
+    "58": {
+        "nom_commune": "Nièvre",
+        "tx_chomage_moyen": 6.8,
+        "tx_chomage_moyen_15_24_ans": 19.3,
+        "tx_chomage_moyen_25_49_ans": 6.1,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 6.3,
+        "tx_chomage_moyen_hommes": 7.2
+    },
+    "59": {
+        "nom_commune": "Nord",
+        "tx_chomage_moyen": 9.6,
+        "tx_chomage_moyen_15_24_ans": 23.7,
+        "tx_chomage_moyen_25_49_ans": 8.4,
+        "tx_chomage_moyen_50_ans_plus": 6.2,
+        "tx_chomage_moyen_femmes": 9.4,
+        "tx_chomage_moyen_hommes": 9.8
+    },
+    "60": {
+        "nom_commune": "Oise",
+        "tx_chomage_moyen": 7.4,
+        "tx_chomage_moyen_15_24_ans": 20.7,
+        "tx_chomage_moyen_25_49_ans": 6.5,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 7.4,
+        "tx_chomage_moyen_hommes": 7.4
+    },
+    "61": {
+        "nom_commune": "Orne",
+        "tx_chomage_moyen": 6.9,
+        "tx_chomage_moyen_15_24_ans": 17.7,
+        "tx_chomage_moyen_25_49_ans": 6.4,
+        "tx_chomage_moyen_50_ans_plus": 4.0,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 7.3
+    },
+    "62": {
+        "nom_commune": "Pas-de-Calais",
+        "tx_chomage_moyen": 8.5,
+        "tx_chomage_moyen_15_24_ans": 24.0,
+        "tx_chomage_moyen_25_49_ans": 7.0,
+        "tx_chomage_moyen_50_ans_plus": 5.2,
+        "tx_chomage_moyen_femmes": 8.4,
+        "tx_chomage_moyen_hommes": 8.7
+    },
+    "63": {
+        "nom_commune": "Puy-de-Dôme",
+        "tx_chomage_moyen": 6.4,
+        "tx_chomage_moyen_15_24_ans": 16.5,
+        "tx_chomage_moyen_25_49_ans": 5.7,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 6.5
+    },
+    "64": {
+        "nom_commune": "Pyrénées-Atlantiques",
+        "tx_chomage_moyen": 5.7,
+        "tx_chomage_moyen_15_24_ans": 15.4,
+        "tx_chomage_moyen_25_49_ans": 5.3,
+        "tx_chomage_moyen_50_ans_plus": 3.8,
+        "tx_chomage_moyen_femmes": 5.7,
+        "tx_chomage_moyen_hommes": 5.8
+    },
+    "65": {
+        "nom_commune": "Hautes-Pyrénées",
+        "tx_chomage_moyen": 7.7,
+        "tx_chomage_moyen_15_24_ans": 20.2,
+        "tx_chomage_moyen_25_49_ans": 7.1,
+        "tx_chomage_moyen_50_ans_plus": 5.1,
+        "tx_chomage_moyen_femmes": 7.5,
+        "tx_chomage_moyen_hommes": 7.8
+    },
+    "66": {
+        "nom_commune": "Pyrénées-Orientales",
+        "tx_chomage_moyen": 12.2,
+        "tx_chomage_moyen_15_24_ans": 31.5,
+        "tx_chomage_moyen_25_49_ans": 10.9,
+        "tx_chomage_moyen_50_ans_plus": 8.2,
+        "tx_chomage_moyen_femmes": 11.5,
+        "tx_chomage_moyen_hommes": 12.9
+    },
+    "67": {
+        "nom_commune": "Bas-Rhin",
+        "tx_chomage_moyen": 6.5,
+        "tx_chomage_moyen_15_24_ans": 15.9,
+        "tx_chomage_moyen_25_49_ans": 5.9,
+        "tx_chomage_moyen_50_ans_plus": 4.1,
+        "tx_chomage_moyen_femmes": 6.3,
+        "tx_chomage_moyen_hommes": 6.6
+    },
+    "68": {
+        "nom_commune": "Haut-Rhin",
+        "tx_chomage_moyen": 7.2,
+        "tx_chomage_moyen_15_24_ans": 18.4,
+        "tx_chomage_moyen_25_49_ans": 6.5,
+        "tx_chomage_moyen_50_ans_plus": 4.9,
+        "tx_chomage_moyen_femmes": 6.8,
+        "tx_chomage_moyen_hommes": 7.5
+    },
+    "69": {
+        "nom_commune": "Rhône",
+        "tx_chomage_moyen": 6.5,
+        "tx_chomage_moyen_15_24_ans": 14.6,
+        "tx_chomage_moyen_25_49_ans": 6.0,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 6.7
+    },
+    "70": {
+        "nom_commune": "Haute-Saône",
+        "tx_chomage_moyen": 6.6,
+        "tx_chomage_moyen_15_24_ans": 17.7,
+        "tx_chomage_moyen_25_49_ans": 5.8,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 6.8
+    },
+    "71": {
+        "nom_commune": "Saône-et-Loire",
+        "tx_chomage_moyen": 6.6,
+        "tx_chomage_moyen_15_24_ans": 16.4,
+        "tx_chomage_moyen_25_49_ans": 6.0,
+        "tx_chomage_moyen_50_ans_plus": 4.4,
+        "tx_chomage_moyen_femmes": 6.6,
+        "tx_chomage_moyen_hommes": 6.6
+    },
+    "72": {
+        "nom_commune": "Sarthe",
+        "tx_chomage_moyen": 7.3,
+        "tx_chomage_moyen_15_24_ans": 19.9,
+        "tx_chomage_moyen_25_49_ans": 6.2,
+        "tx_chomage_moyen_50_ans_plus": 4.2,
+        "tx_chomage_moyen_femmes": 7.1,
+        "tx_chomage_moyen_hommes": 7.4
+    },
+    "73": {
+        "nom_commune": "Savoie",
+        "tx_chomage_moyen": 5.3,
+        "tx_chomage_moyen_15_24_ans": 12.2,
+        "tx_chomage_moyen_25_49_ans": 5.0,
+        "tx_chomage_moyen_50_ans_plus": 3.5,
+        "tx_chomage_moyen_femmes": 5.4,
+        "tx_chomage_moyen_hommes": 5.2
+    },
+    "74": {
+        "nom_commune": "Haute-Savoie",
+        "tx_chomage_moyen": 5.5,
+        "tx_chomage_moyen_15_24_ans": 13.1,
+        "tx_chomage_moyen_25_49_ans": 5.3,
+        "tx_chomage_moyen_50_ans_plus": 3.5,
+        "tx_chomage_moyen_femmes": 5.4,
+        "tx_chomage_moyen_hommes": 5.6
+    },
+    "75": {
+        "nom_commune": "Paris",
+        "tx_chomage_moyen": 5.7,
+        "tx_chomage_moyen_15_24_ans": 12.0,
+        "tx_chomage_moyen_25_49_ans": 5.3,
+        "tx_chomage_moyen_50_ans_plus": 4.8,
+        "tx_chomage_moyen_femmes": 5.4,
+        "tx_chomage_moyen_hommes": 6.0
+    },
+    "76": {
+        "nom_commune": "Seine-Maritime",
+        "tx_chomage_moyen": 8.0,
+        "tx_chomage_moyen_15_24_ans": 20.9,
+        "tx_chomage_moyen_25_49_ans": 7.0,
+        "tx_chomage_moyen_50_ans_plus": 4.8,
+        "tx_chomage_moyen_femmes": 7.8,
+        "tx_chomage_moyen_hommes": 8.2
+    },
+    "77": {
+        "nom_commune": "Seine-et-Marne",
+        "tx_chomage_moyen": 6.9,
+        "tx_chomage_moyen_15_24_ans": 17.8,
+        "tx_chomage_moyen_25_49_ans": 6.1,
+        "tx_chomage_moyen_50_ans_plus": 4.4,
+        "tx_chomage_moyen_femmes": 6.8,
+        "tx_chomage_moyen_hommes": 6.9
+    },
+    "78": {
+        "nom_commune": "Yvelines",
+        "tx_chomage_moyen": 6.5,
+        "tx_chomage_moyen_15_24_ans": 16.2,
+        "tx_chomage_moyen_25_49_ans": 6.1,
+        "tx_chomage_moyen_50_ans_plus": 4.3,
+        "tx_chomage_moyen_femmes": 6.4,
+        "tx_chomage_moyen_hommes": 6.6
+    },
+    "79": {
+        "nom_commune": "Deux-Sèvres",
+        "tx_chomage_moyen": 5.5,
+        "tx_chomage_moyen_15_24_ans": 15.2,
+        "tx_chomage_moyen_25_49_ans": 4.7,
+        "tx_chomage_moyen_50_ans_plus": 3.4,
+        "tx_chomage_moyen_femmes": 5.3,
+        "tx_chomage_moyen_hommes": 5.7
+    },
+    "80": {
+        "nom_commune": "Somme",
+        "tx_chomage_moyen": 8.4,
+        "tx_chomage_moyen_15_24_ans": 22.3,
+        "tx_chomage_moyen_25_49_ans": 7.2,
+        "tx_chomage_moyen_50_ans_plus": 5.1,
+        "tx_chomage_moyen_femmes": 8.1,
+        "tx_chomage_moyen_hommes": 8.7
+    },
+    "81": {
+        "nom_commune": "Tarn",
+        "tx_chomage_moyen": 7.9,
+        "tx_chomage_moyen_15_24_ans": 22.5,
+        "tx_chomage_moyen_25_49_ans": 7.0,
+        "tx_chomage_moyen_50_ans_plus": 5.0,
+        "tx_chomage_moyen_femmes": 7.6,
+        "tx_chomage_moyen_hommes": 8.2
+    },
+    "82": {
+        "nom_commune": "Tarn-et-Garonne",
+        "tx_chomage_moyen": 8.6,
+        "tx_chomage_moyen_15_24_ans": 22.7,
+        "tx_chomage_moyen_25_49_ans": 7.8,
+        "tx_chomage_moyen_50_ans_plus": 5.4,
+        "tx_chomage_moyen_femmes": 8.8,
+        "tx_chomage_moyen_hommes": 8.5
+    },
+    "83": {
+        "nom_commune": "Var",
+        "tx_chomage_moyen": 7.2,
+        "tx_chomage_moyen_15_24_ans": 19.4,
+        "tx_chomage_moyen_25_49_ans": 6.6,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 7.3,
+        "tx_chomage_moyen_hommes": 7.1
+    },
+    "84": {
+        "nom_commune": "Vaucluse",
+        "tx_chomage_moyen": 9.7,
+        "tx_chomage_moyen_15_24_ans": 22.8,
+        "tx_chomage_moyen_25_49_ans": 9.0,
+        "tx_chomage_moyen_50_ans_plus": 6.6,
+        "tx_chomage_moyen_femmes": 10.0,
+        "tx_chomage_moyen_hommes": 9.4
+    },
+    "85": {
+        "nom_commune": "Vendée",
+        "tx_chomage_moyen": 5.4,
+        "tx_chomage_moyen_15_24_ans": 13.6,
+        "tx_chomage_moyen_25_49_ans": 4.4,
+        "tx_chomage_moyen_50_ans_plus": 4.0,
+        "tx_chomage_moyen_femmes": 5.4,
+        "tx_chomage_moyen_hommes": 5.3
+    },
+    "86": {
+        "nom_commune": "Vienne",
+        "tx_chomage_moyen": 6.3,
+        "tx_chomage_moyen_15_24_ans": 17.1,
+        "tx_chomage_moyen_25_49_ans": 5.5,
+        "tx_chomage_moyen_50_ans_plus": 3.5,
+        "tx_chomage_moyen_femmes": 5.9,
+        "tx_chomage_moyen_hommes": 6.7
+    },
+    "87": {
+        "nom_commune": "Haute-Vienne",
+        "tx_chomage_moyen": 6.8,
+        "tx_chomage_moyen_15_24_ans": 18.4,
+        "tx_chomage_moyen_25_49_ans": 6.2,
+        "tx_chomage_moyen_50_ans_plus": 3.9,
+        "tx_chomage_moyen_femmes": 6.3,
+        "tx_chomage_moyen_hommes": 7.2
+    },
+    "88": {
+        "nom_commune": "Vosges",
+        "tx_chomage_moyen": 7.7,
+        "tx_chomage_moyen_15_24_ans": 19.4,
+        "tx_chomage_moyen_25_49_ans": 6.7,
+        "tx_chomage_moyen_50_ans_plus": 5.4,
+        "tx_chomage_moyen_femmes": 7.5,
+        "tx_chomage_moyen_hommes": 7.9
+    },
+    "89": {
+        "nom_commune": "Yonne",
+        "tx_chomage_moyen": 7.2,
+        "tx_chomage_moyen_15_24_ans": 19.7,
+        "tx_chomage_moyen_25_49_ans": 6.6,
+        "tx_chomage_moyen_50_ans_plus": 4.5,
+        "tx_chomage_moyen_femmes": 6.9,
+        "tx_chomage_moyen_hommes": 7.6
+    },
+    "90": {
+        "nom_commune": "Territoire de Belfort",
+        "tx_chomage_moyen": 8.8,
+        "tx_chomage_moyen_15_24_ans": 21.1,
+        "tx_chomage_moyen_25_49_ans": 8.1,
+        "tx_chomage_moyen_50_ans_plus": 5.5,
+        "tx_chomage_moyen_femmes": 8.7,
+        "tx_chomage_moyen_hommes": 8.9
+    },
+    "91": {
+        "nom_commune": "Essonne",
+        "tx_chomage_moyen": 6.5,
+        "tx_chomage_moyen_15_24_ans": 17.3,
+        "tx_chomage_moyen_25_49_ans": 5.8,
+        "tx_chomage_moyen_50_ans_plus": 3.9,
+        "tx_chomage_moyen_femmes": 6.5,
+        "tx_chomage_moyen_hommes": 6.5
+    },
+    "92": {
+        "nom_commune": "Hauts-de-Seine",
+        "tx_chomage_moyen": 6.0,
+        "tx_chomage_moyen_15_24_ans": 14.3,
+        "tx_chomage_moyen_25_49_ans": 5.5,
+        "tx_chomage_moyen_50_ans_plus": 4.6,
+        "tx_chomage_moyen_femmes": 5.8,
+        "tx_chomage_moyen_hommes": 6.3
+    },
+    "93": {
+        "nom_commune": "Seine-Saint-Denis",
+        "tx_chomage_moyen": 10.3,
+        "tx_chomage_moyen_15_24_ans": 22.2,
+        "tx_chomage_moyen_25_49_ans": 9.2,
+        "tx_chomage_moyen_50_ans_plus": 7.8,
+        "tx_chomage_moyen_femmes": 10.4,
+        "tx_chomage_moyen_hommes": 10.3
+    },
+    "94": {
+        "nom_commune": "Val-de-Marne",
+        "tx_chomage_moyen": 7.3,
+        "tx_chomage_moyen_15_24_ans": 16.9,
+        "tx_chomage_moyen_25_49_ans": 6.6,
+        "tx_chomage_moyen_50_ans_plus": 5.2,
+        "tx_chomage_moyen_femmes": 7.1,
+        "tx_chomage_moyen_hommes": 7.4
+    },
+    "95": {
+        "nom_commune": "Val-d'Oise",
+        "tx_chomage_moyen": 8.0,
+        "tx_chomage_moyen_15_24_ans": 19.6,
+        "tx_chomage_moyen_25_49_ans": 7.1,
+        "tx_chomage_moyen_50_ans_plus": 5.4,
+        "tx_chomage_moyen_femmes": 8.0,
+        "tx_chomage_moyen_hommes": 8.0
+    },
+    "971": {
+        "nom_commune": "Guadeloupe",
+        "tx_chomage_moyen": 16.8,
+        "tx_chomage_moyen_15_24_ans": 38.4,
+        "tx_chomage_moyen_25_49_ans": 17.8,
+        "tx_chomage_moyen_50_ans_plus": 12.8,
+        "tx_chomage_moyen_femmes": 16.4,
+        "tx_chomage_moyen_hommes": 17.2
+    },
+    "972": {
+        "nom_commune": "Martinique",
+        "tx_chomage_moyen": 12.3,
+        "tx_chomage_moyen_15_24_ans": 35.8,
+        "tx_chomage_moyen_25_49_ans": 14.5,
+        "tx_chomage_moyen_50_ans_plus": 7.0,
+        "tx_chomage_moyen_femmes": 10.5,
+        "tx_chomage_moyen_hommes": 14.5
+    },
+    "973": {
+        "nom_commune": "Guyane",
+        "tx_chomage_moyen": 16.9,
+        "tx_chomage_moyen_15_24_ans": 39.8,
+        "tx_chomage_moyen_25_49_ans": 18.1,
+        "tx_chomage_moyen_50_ans_plus": 6.7,
+        "tx_chomage_moyen_femmes": 20.5,
+        "tx_chomage_moyen_hommes": 13.3
+    },
+    "974": {
+        "nom_commune": "La Réunion",
+        "tx_chomage_moyen": 17.3,
+        "tx_chomage_moyen_15_24_ans": 35.0,
+        "tx_chomage_moyen_25_49_ans": 15.9,
+        "tx_chomage_moyen_50_ans_plus": 13.5,
+        "tx_chomage_moyen_femmes": 15.7,
+        "tx_chomage_moyen_hommes": 18.9
+    }
+}
