@@ -1,386 +1,386 @@
 {
     "01": {
         "tx_pauvrete": 10.8,
-        "nom_dep": "Ain"
+        "nom_departements": "Ain"
     },
     "02": {
         "tx_pauvrete": 18.8,
-        "nom_dep": "Aisne"
+        "nom_departements": "Aisne"
     },
     "03": {
         "tx_pauvrete": 16.2,
-        "nom_dep": "Allier"
+        "nom_departements": "Allier"
     },
     "04": {
         "tx_pauvrete": 17.1,
-        "nom_dep": "Alpes-de-Haute-Provence"
+        "nom_departements": "Alpes-de-Haute-Provence"
     },
     "05": {
         "tx_pauvrete": 14.7,
-        "nom_dep": "Hautes-Alpes"
+        "nom_departements": "Hautes-Alpes"
     },
     "06": {
         "tx_pauvrete": 16.4,
-        "nom_dep": "Alpes-Maritimes"
+        "nom_departements": "Alpes-Maritimes"
     },
     "07": {
         "tx_pauvrete": 14.9,
-        "nom_dep": "Ardèche"
+        "nom_departements": "Ardèche"
     },
     "08": {
         "tx_pauvrete": 19.4,
-        "nom_dep": "Ardennes"
+        "nom_departements": "Ardennes"
     },
     "09": {
         "tx_pauvrete": 19.0,
-        "nom_dep": "Ariège"
+        "nom_departements": "Ariège"
     },
     "10": {
         "tx_pauvrete": 16.9,
-        "nom_dep": "Aube"
+        "nom_departements": "Aube"
     },
     "11": {
         "tx_pauvrete": 20.8,
-        "nom_dep": "Aude"
+        "nom_departements": "Aude"
     },
     "12": {
         "tx_pauvrete": 14.5,
-        "nom_dep": "Aveyron"
+        "nom_departements": "Aveyron"
     },
     "13": {
         "tx_pauvrete": 18.5,
-        "nom_dep": "Bouches-du-Rhône"
+        "nom_departements": "Bouches-du-Rhône"
     },
     "14": {
         "tx_pauvrete": 12.5,
-        "nom_dep": "Calvados"
+        "nom_departements": "Calvados"
     },
     "15": {
         "tx_pauvrete": 14.2,
-        "nom_dep": "Cantal"
+        "nom_departements": "Cantal"
     },
     "16": {
         "tx_pauvrete": 15.1,
-        "nom_dep": "Charente"
+        "nom_departements": "Charente"
     },
     "17": {
         "tx_pauvrete": 12.5,
-        "nom_dep": "Charente-Maritime"
+        "nom_departements": "Charente-Maritime"
     },
     "18": {
         "tx_pauvrete": 14.7,
-        "nom_dep": "Cher"
+        "nom_departements": "Cher"
     },
     "19": {
         "tx_pauvrete": 13.7,
-        "nom_dep": "Corrèze"
+        "nom_departements": "Corrèze"
     },
     "21": {
         "tx_pauvrete": 11.8,
-        "nom_dep": "Côte-d'Or"
+        "nom_departements": "Côte-d'Or"
     },
     "22": {
         "tx_pauvrete": 11.8,
-        "nom_dep": "Côtes-d'Armor"
+        "nom_departements": "Côtes-d'Armor"
     },
     "23": {
         "tx_pauvrete": 19.2,
-        "nom_dep": "Creuse"
+        "nom_departements": "Creuse"
     },
     "24": {
         "tx_pauvrete": 16.6,
-        "nom_dep": "Dordogne"
+        "nom_departements": "Dordogne"
     },
     "25": {
         "tx_pauvrete": 13.1,
-        "nom_dep": "Doubs"
+        "nom_departements": "Doubs"
     },
     "26": {
         "tx_pauvrete": 14.8,
-        "nom_dep": "Drôme"
+        "nom_departements": "Drôme"
     },
     "27": {
         "tx_pauvrete": 12.7,
-        "nom_dep": "Eure"
+        "nom_departements": "Eure"
     },
     "28": {
         "tx_pauvrete": 12.1,
-        "nom_dep": "Eure-et-Loir"
+        "nom_departements": "Eure-et-Loir"
     },
     "29": {
         "tx_pauvrete": 10.8,
-        "nom_dep": "Finistère"
+        "nom_departements": "Finistère"
     },
     "2A": {
         "tx_pauvrete": 15.8,
-        "nom_dep": "Corse-du-Sud"
+        "nom_departements": "Corse-du-Sud"
     },
     "2B": {
         "tx_pauvrete": 20.2,
-        "nom_dep": "Haute-Corse"
+        "nom_departements": "Haute-Corse"
     },
     "30": {
         "tx_pauvrete": 20.0,
-        "nom_dep": "Gard"
+        "nom_departements": "Gard"
     },
     "31": {
         "tx_pauvrete": 14.3,
-        "nom_dep": "Haute-Garonne"
+        "nom_departements": "Haute-Garonne"
     },
     "32": {
         "tx_pauvrete": 15.3,
-        "nom_dep": "Gers"
+        "nom_departements": "Gers"
     },
     "33": {
         "tx_pauvrete": 12.8,
-        "nom_dep": "Gironde"
+        "nom_departements": "Gironde"
     },
     "34": {
         "tx_pauvrete": 19.4,
-        "nom_dep": "Hérault"
+        "nom_departements": "Hérault"
     },
     "35": {
         "tx_pauvrete": 10.8,
-        "nom_dep": "Ille-et-Vilaine"
+        "nom_departements": "Ille-et-Vilaine"
     },
     "36": {
         "tx_pauvrete": 15.4,
-        "nom_dep": "Indre"
+        "nom_departements": "Indre"
     },
     "37": {
         "tx_pauvrete": 12.8,
-        "nom_dep": "Indre-et-Loire"
+        "nom_departements": "Indre-et-Loire"
     },
     "38": {
         "tx_pauvrete": 11.8,
-        "nom_dep": "Isère"
+        "nom_departements": "Isère"
     },
     "39": {
         "tx_pauvrete": 11.8,
-        "nom_dep": "Jura"
+        "nom_departements": "Jura"
     },
     "40": {
         "tx_pauvrete": 11.7,
-        "nom_dep": "Landes"
+        "nom_departements": "Landes"
     },
     "41": {
         "tx_pauvrete": 13.2,
-        "nom_dep": "Loir-et-Cher"
+        "nom_departements": "Loir-et-Cher"
     },
     "42": {
         "tx_pauvrete": 15.8,
-        "nom_dep": "Loire"
+        "nom_departements": "Loire"
     },
     "43": {
         "tx_pauvrete": 12.3,
-        "nom_dep": "Haute-Loire"
+        "nom_departements": "Haute-Loire"
     },
     "44": {
         "tx_pauvrete": 10.5,
-        "nom_dep": "Loire-Atlantique"
+        "nom_departements": "Loire-Atlantique"
     },
     "45": {
         "tx_pauvrete": 13.9,
-        "nom_dep": "Loiret"
+        "nom_departements": "Loiret"
     },
     "46": {
         "tx_pauvrete": 15.3,
-        "nom_dep": "Lot"
+        "nom_departements": "Lot"
     },
     "47": {
         "tx_pauvrete": 17.7,
-        "nom_dep": "Lot-et-Garonne"
+        "nom_departements": "Lot-et-Garonne"
     },
     "48": {
         "tx_pauvrete": 15.5,
-        "nom_dep": "Lozère"
+        "nom_departements": "Lozère"
     },
     "49": {
         "tx_pauvrete": 11.5,
-        "nom_dep": "Maine-et-Loire"
+        "nom_departements": "Maine-et-Loire"
     },
     "50": {
         "tx_pauvrete": 11.7,
-        "nom_dep": "Manche"
+        "nom_departements": "Manche"
     },
     "51": {
         "tx_pauvrete": 15.0,
-        "nom_dep": "Marne"
+        "nom_departements": "Marne"
     },
     "52": {
         "tx_pauvrete": 15.3,
-        "nom_dep": "Haute-Marne"
+        "nom_departements": "Haute-Marne"
     },
     "53": {
         "tx_pauvrete": 11.5,
-        "nom_dep": "Mayenne"
+        "nom_departements": "Mayenne"
     },
     "54": {
         "tx_pauvrete": 15.3,
-        "nom_dep": "Meurthe-et-Moselle"
+        "nom_departements": "Meurthe-et-Moselle"
     },
     "55": {
         "tx_pauvrete": 14.8,
-        "nom_dep": "Meuse"
+        "nom_departements": "Meuse"
     },
     "56": {
         "tx_pauvrete": 11.1,
-        "nom_dep": "Morbihan"
+        "nom_departements": "Morbihan"
     },
     "57": {
         "tx_pauvrete": 15.9,
-        "nom_dep": "Moselle"
+        "nom_departements": "Moselle"
     },
     "58": {
         "tx_pauvrete": 16.1,
-        "nom_dep": "Nièvre"
+        "nom_departements": "Nièvre"
     },
     "59": {
         "tx_pauvrete": 19.5,
-        "nom_dep": "Nord"
+        "nom_departements": "Nord"
     },
     "60": {
         "tx_pauvrete": 13.4,
-        "nom_dep": "Oise"
+        "nom_departements": "Oise"
     },
     "61": {
         "tx_pauvrete": 15.6,
-        "nom_dep": "Orne"
+        "nom_departements": "Orne"
     },
     "62": {
         "tx_pauvrete": 18.4,
-        "nom_dep": "Pas-de-Calais"
+        "nom_departements": "Pas-de-Calais"
     },
     "63": {
         "tx_pauvrete": 13.9,
-        "nom_dep": "Puy-de-Dôme"
+        "nom_departements": "Puy-de-Dôme"
     },
     "64": {
         "tx_pauvrete": 12.6,
-        "nom_dep": "Pyrénées-Atlantiques"
+        "nom_departements": "Pyrénées-Atlantiques"
     },
     "65": {
         "tx_pauvrete": 16.0,
-        "nom_dep": "Hautes-Pyrénées"
+        "nom_departements": "Hautes-Pyrénées"
     },
     "66": {
         "tx_pauvrete": 21.2,
-        "nom_dep": "Pyrénées-Orientales"
+        "nom_departements": "Pyrénées-Orientales"
     },
     "67": {
         "tx_pauvrete": 13.5,
-        "nom_dep": "Bas-Rhin"
+        "nom_departements": "Bas-Rhin"
     },
     "68": {
         "tx_pauvrete": 13.7,
-        "nom_dep": "Haut-Rhin"
+        "nom_departements": "Haut-Rhin"
     },
     "69": {
         "tx_pauvrete": 14.8,
-        "nom_dep": "Rhône"
+        "nom_departements": "Rhône"
     },
     "70": {
         "tx_pauvrete": 13.6,
-        "nom_dep": "Haute-Saône"
+        "nom_departements": "Haute-Saône"
     },
     "71": {
         "tx_pauvrete": 13.3,
-        "nom_dep": "Saône-et-Loire"
+        "nom_departements": "Saône-et-Loire"
     },
     "72": {
         "tx_pauvrete": 13.5,
-        "nom_dep": "Sarthe"
+        "nom_departements": "Sarthe"
     },
     "73": {
         "tx_pauvrete": 11.2,
-        "nom_dep": "Savoie"
+        "nom_departements": "Savoie"
     },
     "74": {
         "tx_pauvrete": 9.5,
-        "nom_dep": "Haute-Savoie"
+        "nom_departements": "Haute-Savoie"
     },
     "75": {
         "tx_pauvrete": 15.6,
-        "nom_dep": "Paris"
+        "nom_departements": "Paris"
     },
     "76": {
         "tx_pauvrete": 15.4,
-        "nom_dep": "Seine-Maritime"
+        "nom_departements": "Seine-Maritime"
     },
     "77": {
         "tx_pauvrete": 12.4,
-        "nom_dep": "Seine-et-Marne"
+        "nom_departements": "Seine-et-Marne"
     },
     "78": {
         "tx_pauvrete": 10.5,
-        "nom_dep": "Yvelines"
+        "nom_departements": "Yvelines"
     },
     "79": {
         "tx_pauvrete": 12.4,
-        "nom_dep": "Deux-Sèvres"
+        "nom_departements": "Deux-Sèvres"
     },
     "80": {
         "tx_pauvrete": 16.4,
-        "nom_dep": "Somme"
+        "nom_departements": "Somme"
     },
     "81": {
         "tx_pauvrete": 15.7,
-        "nom_dep": "Tarn"
+        "nom_departements": "Tarn"
     },
     "82": {
         "tx_pauvrete": 16.7,
-        "nom_dep": "Tarn-et-Garonne"
+        "nom_departements": "Tarn-et-Garonne"
     },
     "83": {
         "tx_pauvrete": 15.6,
-        "nom_dep": "Var"
+        "nom_departements": "Var"
     },
     "84": {
         "tx_pauvrete": 19.9,
-        "nom_dep": "Vaucluse"
+        "nom_departements": "Vaucluse"
     },
     "85": {
         "tx_pauvrete": 9.1,
-        "nom_dep": "Vendée"
+        "nom_departements": "Vendée"
     },
     "86": {
         "tx_pauvrete": 14.7,
-        "nom_dep": "Vienne"
+        "nom_departements": "Vienne"
     },
     "87": {
         "tx_pauvrete": 16.1,
-        "nom_dep": "Haute-Vienne"
+        "nom_departements": "Haute-Vienne"
     },
     "88": {
         "tx_pauvrete": 15.3,
-        "nom_dep": "Vosges"
+        "nom_departements": "Vosges"
     },
     "89": {
         "tx_pauvrete": 14.9,
-        "nom_dep": "Yonne"
+        "nom_departements": "Yonne"
     },
     "90": {
         "tx_pauvrete": 16.3,
-        "nom_dep": "Territoire de Belfort"
+        "nom_departements": "Territoire de Belfort"
     },
     "91": {
         "tx_pauvrete": 13.9,
-        "nom_dep": "Essonne"
+        "nom_departements": "Essonne"
     },
     "92": {
         "tx_pauvrete": 12.4,
-        "nom_dep": "Hauts-de-Seine"
+        "nom_departements": "Hauts-de-Seine"
     },
     "93": {
         "tx_pauvrete": 28.4,
-        "nom_dep": "Seine-Saint-Denis"
+        "nom_departements": "Seine-Saint-Denis"
     },
     "94": {
         "tx_pauvrete": 17.2,
-        "nom_dep": "Val-de-Marne"
+        "nom_departements": "Val-de-Marne"
     },
     "95": {
         "tx_pauvrete": 17.7,
-        "nom_dep": "Val-d'Oise"
+        "nom_departements": "Val-d'Oise"
     }
 }
