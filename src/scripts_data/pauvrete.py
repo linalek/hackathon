@@ -70,9 +70,10 @@ def calculer_taux_departement(chemin_excel):
     """
     df = pd.read_excel(
         chemin_excel,
-        usecols=['Code', 'Taux de pauvreté 2021']
+        usecols=['Code', 'Libellé', 'Taux de pauvreté 2021']
     ).rename(columns={
         'Code': 'DEP',
+        'Libellé': 'nom_dep',
         'Taux de pauvreté 2021': 'tx_pauvrete'
     })
 
@@ -81,10 +82,20 @@ def calculer_taux_departement(chemin_excel):
     
     df['tx_pauvrete'] = df['tx_pauvrete'].where(pd.notnull(df['tx_pauvrete']), None)
     
-    # Construction directe du dictionnaire au format souhaité
-    resultat_dict = df.set_index('DEP')['tx_pauvrete'].to_dict()
-    cv_final = {code: {"tx_pauvrete": tx} for code, tx in resultat_dict.items()}
+    cv_final = {}
     
+    for index, row in df.iterrows():
+        float_tx = None
+        if row['tx_pauvrete'] is not None:
+            try:
+                float_tx = float(row['tx_pauvrete'])
+            except ValueError:
+                float_tx = None
+                
+        cv_final[row['DEP']] = {
+            "tx_pauvrete": float_tx,
+            "nom_dep": row['nom_dep']
+        }
     return cv_final
 
 
