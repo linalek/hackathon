@@ -1,5 +1,6 @@
 import numpy as np
-from src.variables import SOCIO_VARIABLES, ACCESS_PROFESSIONS
+from src.variables import SOCIO_VARIABLES, COLOR_RANGE
+import pandas as pd
 
 # ===========================
 # Fonctions utilitaires
@@ -82,3 +83,18 @@ def compute_double_vulnerability(df, alpha=0.5):
 
     tmp["score_double"] = alpha * tmp["score_socio"] + (1 - alpha) * tmp["score_acces"]
     return tmp
+
+
+def get_color_scale(value, min_val, max_val, color_range=COLOR_RANGE):
+    """Calcule la couleur basée sur la valeur dans la plage min/max."""
+    if pd.isna(value) or max_val == min_val:
+        return [128, 128, 128, 100] # Gris pour les données manquantes ou si le range est nul
+
+    # Normalisation de la valeur entre 0 et 1
+    normalized = (value - min_val) / (max_val - min_val)
+    
+    # Trouver l'index dans la plage de couleurs
+    index = int(normalized * (len(color_range) - 1))
+    
+    # Simplement retourner la couleur à cet index (sans interpolation linéaire pour simplifier)
+    return color_range[index]

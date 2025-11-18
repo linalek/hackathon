@@ -44,31 +44,3 @@ def load_data(chemin_communes, chemin_departements):
         print(f"❌ Erreur lors du chargement de {chemin_departements} : {e}")
         
     return data_communes, data_departements
-
-
-@st.cache_data
-def load_data_2():
-    """
-    TODO : charger ici les données agrégées au niveau départemental.
-
-    Idéalement :
-      - un GeoDataFrame avec une ligne par département
-      - colonnes :
-          - code_dep, nom_dep, population
-          - colonnes socio-éco (tx_pauvrete, fdep, etc.)
-          - colonnes accès aux soins (apl_medecins, apl_infirmiers, etc.)
-          - géométrie (polygones des départements)
-    """
-    # Exemple structure (à remplacer par ton vrai chargement) :
-    # gdf = gpd.read_file("data/departements_indices.parquet")
-    # return gdf
-
-    # Squelette : dataframe vide pour éviter de crasher si quelqu’un lance tel quel
-    gdf = gpd.GeoDataFrame(
-        {
-            "code_dep": [],
-            "nom_dep": [],
-            # "geometry": []  # quand tu auras tes géométries
-        }
-    )
-    return gdf
