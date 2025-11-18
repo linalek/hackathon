@@ -1,0 +1,290 @@
+{
+    "01": {
+        "tx_pauvrete": 10.8
+    },
+    "02": {
+        "tx_pauvrete": 18.8
+    },
+    "03": {
+        "tx_pauvrete": 16.2
+    },
+    "04": {
+        "tx_pauvrete": 17.1
+    },
+    "05": {
+        "tx_pauvrete": 14.7
+    },
+    "06": {
+        "tx_pauvrete": 16.4
+    },
+    "07": {
+        "tx_pauvrete": 14.9
+    },
+    "08": {
+        "tx_pauvrete": 19.4
+    },
+    "09": {
+        "tx_pauvrete": 19
+    },
+    "10": {
+        "tx_pauvrete": 16.9
+    },
+    "11": {
+        "tx_pauvrete": 20.8
+    },
+    "12": {
+        "tx_pauvrete": 14.5
+    },
+    "13": {
+        "tx_pauvrete": 18.5
+    },
+    "14": {
+        "tx_pauvrete": 12.5
+    },
+    "15": {
+        "tx_pauvrete": 14.2
+    },
+    "16": {
+        "tx_pauvrete": 15.1
+    },
+    "17": {
+        "tx_pauvrete": 12.5
+    },
+    "18": {
+        "tx_pauvrete": 14.7
+    },
+    "19": {
+        "tx_pauvrete": 13.7
+    },
+    "21": {
+        "tx_pauvrete": 11.8
+    },
+    "22": {
+        "tx_pauvrete": 11.8
+    },
+    "23": {
+        "tx_pauvrete": 19.2
+    },
+    "24": {
+        "tx_pauvrete": 16.6
+    },
+    "25": {
+        "tx_pauvrete": 13.1
+    },
+    "26": {
+        "tx_pauvrete": 14.8
+    },
+    "27": {
+        "tx_pauvrete": 12.7
+    },
+    "28": {
+        "tx_pauvrete": 12.1
+    },
+    "29": {
+        "tx_pauvrete": 10.8
+    },
+    "2A": {
+        "tx_pauvrete": 15.8
+    },
+    "2B": {
+        "tx_pauvrete": 20.2
+    },
+    "30": {
+        "tx_pauvrete": 20
+    },
+    "31": {
+        "tx_pauvrete": 14.3
+    },
+    "32": {
+        "tx_pauvrete": 15.3
+    },
+    "33": {
+        "tx_pauvrete": 12.8
+    },
+    "34": {
+        "tx_pauvrete": 19.4
+    },
+    "35": {
+        "tx_pauvrete": 10.8
+    },
+    "36": {
+        "tx_pauvrete": 15.4
+    },
+    "37": {
+        "tx_pauvrete": 12.8
+    },
+    "38": {
+        "tx_pauvrete": 11.8
+    },
+    "39": {
+        "tx_pauvrete": 11.8
+    },
+    "40": {
+        "tx_pauvrete": 11.7
+    },
+    "41": {
+        "tx_pauvrete": 13.2
+    },
+    "42": {
+        "tx_pauvrete": 15.8
+    },
+    "43": {
+        "tx_pauvrete": 12.3
+    },
+    "44": {
+        "tx_pauvrete": 10.5
+    },
+    "45": {
+        "tx_pauvrete": 13.9
+    },
+    "46": {
+        "tx_pauvrete": 15.3
+    },
+    "47": {
+        "tx_pauvrete": 17.7
+    },
+    "48": {
+        "tx_pauvrete": 15.5
+    },
+    "49": {
+        "tx_pauvrete": 11.5
+    },
+    "50": {
+        "tx_pauvrete": 11.7
+    },
+    "51": {
+        "tx_pauvrete": 15
+    },
+    "52": {
+        "tx_pauvrete": 15.3
+    },
+    "53": {
+        "tx_pauvrete": 11.5
+    },
+    "54": {
+        "tx_pauvrete": 15.3
+    },
+    "55": {
+        "tx_pauvrete": 14.8
+    },
+    "56": {
+        "tx_pauvrete": 11.1
+    },
+    "57": {
+        "tx_pauvrete": 15.9
+    },
+    "58": {
+        "tx_pauvrete": 16.1
+    },
+    "59": {
+        "tx_pauvrete": 19.5
+    },
+    "60": {
+        "tx_pauvrete": 13.4
+    },
+    "61": {
+        "tx_pauvrete": 15.6
+    },
+    "62": {
+        "tx_pauvrete": 18.4
+    },
+    "63": {
+        "tx_pauvrete": 13.9
+    },
+    "64": {
+        "tx_pauvrete": 12.6
+    },
+    "65": {
+        "tx_pauvrete": 16
+    },
+    "66": {
+        "tx_pauvrete": 21.2
+    },
+    "67": {
+        "tx_pauvrete": 13.5
+    },
+    "68": {
+        "tx_pauvrete": 13.7
+    },
+    "69": {
+        "tx_pauvrete": 14.8
+    },
+    "70": {
+        "tx_pauvrete": 13.6
+    },
+    "71": {
+        "tx_pauvrete": 13.3
+    },
+    "72": {
+        "tx_pauvrete": 13.5
+    },
+    "73": {
+        "tx_pauvrete": 11.2
+    },
+    "74": {
+        "tx_pauvrete": 9.5
+    },
+    "75": {
+        "tx_pauvrete": 15.6
+    },
+    "76": {
+        "tx_pauvrete": 15.4
+    },
+    "77": {
+        "tx_pauvrete": 12.4
+    },
+    "78": {
+        "tx_pauvrete": 10.5
+    },
+    "79": {
+        "tx_pauvrete": 12.4
+    },
+    "80": {
+        "tx_pauvrete": 16.4
+    },
+    "81": {
+        "tx_pauvrete": 15.7
+    },
+    "82": {
+        "tx_pauvrete": 16.7
+    },
+    "83": {
+        "tx_pauvrete": 15.6
+    },
+    "84": {
+        "tx_pauvrete": 19.9
+    },
+    "85": {
+        "tx_pauvrete": 9.1
+    },
+    "86": {
+        "tx_pauvrete": 14.7
+    },
+    "87": {
+        "tx_pauvrete": 16.1
+    },
+    "88": {
+        "tx_pauvrete": 15.3
+    },
+    "89": {
+        "tx_pauvrete": 14.9
+    },
+    "90": {
+        "tx_pauvrete": 16.3
+    },
+    "91": {
+        "tx_pauvrete": 13.9
+    },
+    "92": {
+        "tx_pauvrete": 12.4
+    },
+    "93": {
+        "tx_pauvrete": 28.4
+    },
+    "94": {
+        "tx_pauvrete": 17.2
+    },
+    "95": {
+        "tx_pauvrete": 17.7
+    }
+}
