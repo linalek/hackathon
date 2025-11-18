@@ -94,7 +94,7 @@ def calculer_taux_departement(chemin_excel):
                 
         cv_final[row['DEP']] = {
             "tx_pauvrete": float_tx,
-            "nom_dep": row['nom_dep']
+            "nom_departements": row['nom_dep']
         }
     return cv_final
 
