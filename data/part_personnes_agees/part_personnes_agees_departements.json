@@ -1,0 +1,402 @@
+{
+    "01": {
+        "nom_departement": "Ain",
+        "part_personnes_agees_75_plus": 8.6
+    },
+    "02": {
+        "nom_departement": "Aisne",
+        "part_personnes_agees_75_plus": 9.6
+    },
+    "03": {
+        "nom_departement": "Allier",
+        "part_personnes_agees_75_plus": 14.1
+    },
+    "04": {
+        "nom_departement": "Alpes-de-Haute-Provence",
+        "part_personnes_agees_75_plus": 13.2
+    },
+    "05": {
+        "nom_departement": "Hautes-Alpes",
+        "part_personnes_agees_75_plus": 12.4
+    },
+    "06": {
+        "nom_departement": "Alpes-Maritimes",
+        "part_personnes_agees_75_plus": 13.0
+    },
+    "07": {
+        "nom_departement": "Ardèche",
+        "part_personnes_agees_75_plus": 12.2
+    },
+    "08": {
+        "nom_departement": "Ardennes",
+        "part_personnes_agees_75_plus": 10.1
+    },
+    "09": {
+        "nom_departement": "Ariège",
+        "part_personnes_agees_75_plus": 13.2
+    },
+    "10": {
+        "nom_departement": "Aube",
+        "part_personnes_agees_75_plus": 10.6
+    },
+    "11": {
+        "nom_departement": "Aude",
+        "part_personnes_agees_75_plus": 12.8
+    },
+    "12": {
+        "nom_departement": "Aveyron",
+        "part_personnes_agees_75_plus": 14.1
+    },
+    "13": {
+        "nom_departement": "Bouches-du-Rhône",
+        "part_personnes_agees_75_plus": 10.3
+    },
+    "14": {
+        "nom_departement": "Calvados",
+        "part_personnes_agees_75_plus": 10.5
+    },
+    "15": {
+        "nom_departement": "Cantal",
+        "part_personnes_agees_75_plus": 14.2
+    },
+    "16": {
+        "nom_departement": "Charente",
+        "part_personnes_agees_75_plus": 12.8
+    },
+    "17": {
+        "nom_departement": "Charente-Maritime",
+        "part_personnes_agees_75_plus": 13.7
+    },
+    "18": {
+        "nom_departement": "Cher",
+        "part_personnes_agees_75_plus": 12.9
+    },
+    "19": {
+        "nom_departement": "Corrèze",
+        "part_personnes_agees_75_plus": 14.0
+    },
+    "21": {
+        "nom_departement": "Côte-d'Or",
+        "part_personnes_agees_75_plus": 10.4
+    },
+    "22": {
+        "nom_departement": "Côtes-d'Armor",
+        "part_personnes_agees_75_plus": 12.9
+    },
+    "23": {
+        "nom_departement": "Creuse",
+        "part_personnes_agees_75_plus": 15.2
+    },
+    "24": {
+        "nom_departement": "Dordogne",
+        "part_personnes_agees_75_plus": 14.3
+    },
+    "25": {
+        "nom_departement": "Doubs",
+        "part_personnes_agees_75_plus": 9.7
+    },
+    "26": {
+        "nom_departement": "Drôme",
+        "part_personnes_agees_75_plus": 10.9
+    },
+    "27": {
+        "nom_departement": "Eure",
+        "part_personnes_agees_75_plus": 9.0
+    },
+    "28": {
+        "nom_departement": "Eure-et-Loir",
+        "part_personnes_agees_75_plus": 10.0
+    },
+    "29": {
+        "nom_departement": "Finistère",
+        "part_personnes_agees_75_plus": 11.4
+    },
+    "2A": {
+        "nom_departement": "Corse-du-Sud",
+        "part_personnes_agees_75_plus": 11.8
+    },
+    "2B": {
+        "nom_departement": "Haute-Corse",
+        "part_personnes_agees_75_plus": 11.9
+    },
+    "30": {
+        "nom_departement": "Gard",
+        "part_personnes_agees_75_plus": 11.2
+    },
+    "31": {
+        "nom_departement": "Haute-Garonne",
+        "part_personnes_agees_75_plus": 8.2
+    },
+    "32": {
+        "nom_departement": "Gers",
+        "part_personnes_agees_75_plus": 14.3
+    },
+    "33": {
+        "nom_departement": "Gironde",
+        "part_personnes_agees_75_plus": 9.4
+    },
+    "34": {
+        "nom_departement": "Hérault",
+        "part_personnes_agees_75_plus": 10.7
+    },
+    "35": {
+        "nom_departement": "Ille-et-Vilaine",
+        "part_personnes_agees_75_plus": 8.9
+    },
+    "36": {
+        "nom_departement": "Indre",
+        "part_personnes_agees_75_plus": 14.5
+    },
+    "37": {
+        "nom_departement": "Indre-et-Loire",
+        "part_personnes_agees_75_plus": 11.0
+    },
+    "38": {
+        "nom_departement": "Isère",
+        "part_personnes_agees_75_plus": 9.1
+    },
+    "39": {
+        "nom_departement": "Jura",
+        "part_personnes_agees_75_plus": 12.0
+    },
+    "40": {
+        "nom_departement": "Landes",
+        "part_personnes_agees_75_plus": 12.2
+    },
+    "41": {
+        "nom_departement": "Loir-et-Cher",
+        "part_personnes_agees_75_plus": 12.7
+    },
+    "42": {
+        "nom_departement": "Loire",
+        "part_personnes_agees_75_plus": 11.5
+    },
+    "43": {
+        "nom_departement": "Haute-Loire",
+        "part_personnes_agees_75_plus": 12.0
+    },
+    "44": {
+        "nom_departement": "Loire-Atlantique",
+        "part_personnes_agees_75_plus": 8.8
+    },
+    "45": {
+        "nom_departement": "Loiret",
+        "part_personnes_agees_75_plus": 9.9
+    },
+    "46": {
+        "nom_departement": "Lot",
+        "part_personnes_agees_75_plus": 15.0
+    },
+    "47": {
+        "nom_departement": "Lot-et-Garonne",
+        "part_personnes_agees_75_plus": 13.6
+    },
+    "48": {
+        "nom_departement": "Lozère",
+        "part_personnes_agees_75_plus": 12.6
+    },
+    "49": {
+        "nom_departement": "Maine-et-Loire",
+        "part_personnes_agees_75_plus": 10.1
+    },
+    "50": {
+        "nom_departement": "Manche",
+        "part_personnes_agees_75_plus": 12.5
+    },
+    "51": {
+        "nom_departement": "Marne",
+        "part_personnes_agees_75_plus": 9.4
+    },
+    "52": {
+        "nom_departement": "Haute-Marne",
+        "part_personnes_agees_75_plus": 12.2
+    },
+    "53": {
+        "nom_departement": "Mayenne",
+        "part_personnes_agees_75_plus": 11.3
+    },
+    "54": {
+        "nom_departement": "Meurthe-et-Moselle",
+        "part_personnes_agees_75_plus": 9.5
+    },
+    "55": {
+        "nom_departement": "Meuse",
+        "part_personnes_agees_75_plus": 11.0
+    },
+    "56": {
+        "nom_departement": "Morbihan",
+        "part_personnes_agees_75_plus": 11.9
+    },
+    "57": {
+        "nom_departement": "Moselle",
+        "part_personnes_agees_75_plus": 9.3
+    },
+    "58": {
+        "nom_departement": "Nièvre",
+        "part_personnes_agees_75_plus": 14.8
+    },
+    "59": {
+        "nom_departement": "Nord",
+        "part_personnes_agees_75_plus": 7.9
+    },
+    "60": {
+        "nom_departement": "Oise",
+        "part_personnes_agees_75_plus": 7.8
+    },
+    "61": {
+        "nom_departement": "Orne",
+        "part_personnes_agees_75_plus": 13.2
+    },
+    "62": {
+        "nom_departement": "Pas-de-Calais",
+        "part_personnes_agees_75_plus": 8.6
+    },
+    "63": {
+        "nom_departement": "Puy-de-Dôme",
+        "part_personnes_agees_75_plus": 10.6
+    },
+    "64": {
+        "nom_departement": "Pyrénées-Atlantiques",
+        "part_personnes_agees_75_plus": 12.4
+    },
+    "65": {
+        "nom_departement": "Hautes-Pyrénées",
+        "part_personnes_agees_75_plus": 13.8
+    },
+    "66": {
+        "nom_departement": "Pyrénées-Orientales",
+        "part_personnes_agees_75_plus": 13.1
+    },
+    "67": {
+        "nom_departement": "Bas-Rhin",
+        "part_personnes_agees_75_plus": 8.9
+    },
+    "68": {
+        "nom_departement": "Haut-Rhin",
+        "part_personnes_agees_75_plus": 9.6
+    },
+    "69": {
+        "nom_departement": "Rhône",
+        "part_personnes_agees_75_plus": 8.7
+    },
+    "70": {
+        "nom_departement": "Haute-Saône",
+        "part_personnes_agees_75_plus": 11.0
+    },
+    "71": {
+        "nom_departement": "Saône-et-Loire",
+        "part_personnes_agees_75_plus": 13.1
+    },
+    "72": {
+        "nom_departement": "Sarthe",
+        "part_personnes_agees_75_plus": 11.0
+    },
+    "73": {
+        "nom_departement": "Savoie",
+        "part_personnes_agees_75_plus": 10.2
+    },
+    "74": {
+        "nom_departement": "Haute-Savoie",
+        "part_personnes_agees_75_plus": 8.2
+    },
+    "75": {
+        "nom_departement": "Paris",
+        "part_personnes_agees_75_plus": 8.4
+    },
+    "76": {
+        "nom_departement": "Seine-Maritime",
+        "part_personnes_agees_75_plus": 9.7
+    },
+    "77": {
+        "nom_departement": "Seine-et-Marne",
+        "part_personnes_agees_75_plus": 6.7
+    },
+    "78": {
+        "nom_departement": "Yvelines",
+        "part_personnes_agees_75_plus": 8.1
+    },
+    "79": {
+        "nom_departement": "Deux-Sèvres",
+        "part_personnes_agees_75_plus": 11.9
+    },
+    "80": {
+        "nom_departement": "Somme",
+        "part_personnes_agees_75_plus": 9.5
+    },
+    "81": {
+        "nom_departement": "Tarn",
+        "part_personnes_agees_75_plus": 13.2
+    },
+    "82": {
+        "nom_departement": "Tarn-et-Garonne",
+        "part_personnes_agees_75_plus": 11.0
+    },
+    "83": {
+        "nom_departement": "Var",
+        "part_personnes_agees_75_plus": 13.4
+    },
+    "84": {
+        "nom_departement": "Vaucluse",
+        "part_personnes_agees_75_plus": 11.1
+    },
+    "85": {
+        "nom_departement": "Vendée",
+        "part_personnes_agees_75_plus": 11.8
+    },
+    "86": {
+        "nom_departement": "Vienne",
+        "part_personnes_agees_75_plus": 11.2
+    },
+    "87": {
+        "nom_departement": "Haute-Vienne",
+        "part_personnes_agees_75_plus": 12.5
+    },
+    "88": {
+        "nom_departement": "Vosges",
+        "part_personnes_agees_75_plus": 11.7
+    },
+    "89": {
+        "nom_departement": "Yonne",
+        "part_personnes_agees_75_plus": 11.9
+    },
+    "90": {
+        "nom_departement": "Territoire de Belfort",
+        "part_personnes_agees_75_plus": 9.7
+    },
+    "91": {
+        "nom_departement": "Essonne",
+        "part_personnes_agees_75_plus": 7.4
+    },
+    "92": {
+        "nom_departement": "Hauts-de-Seine",
+        "part_personnes_agees_75_plus": 7.6
+    },
+    "93": {
+        "nom_departement": "Seine-Saint-Denis",
+        "part_personnes_agees_75_plus": 5.3
+    },
+    "94": {
+        "nom_departement": "Val-de-Marne",
+        "part_personnes_agees_75_plus": 7.3
+    },
+    "95": {
+        "nom_departement": "Val-d'Oise",
+        "part_personnes_agees_75_plus": 6.2
+    },
+    "971": {
+        "nom_departement": "Guadeloupe",
+        "part_personnes_agees_75_plus": 9.3
+    },
+    "972": {
+        "nom_departement": "Martinique",
+        "part_personnes_agees_75_plus": 10.5
+    },
+    "973": {
+        "nom_departement": "Guyane",
+        "part_personnes_agees_75_plus": 2.2
+    },
+    "974": {
+        "nom_departement": "La Réunion",
+        "part_personnes_agees_75_plus": 5.3
+    }
+}

@@ -1,0 +1,402 @@
+{
+    "01": {
+        "nom_departement": "Ain",
+        "part_familles_monoparentales": 13.8
+    },
+    "02": {
+        "nom_departement": "Aisne",
+        "part_familles_monoparentales": 16.9
+    },
+    "03": {
+        "nom_departement": "Allier",
+        "part_familles_monoparentales": 14.7
+    },
+    "04": {
+        "nom_departement": "Alpes-de-Haute-Provence",
+        "part_familles_monoparentales": 17.5
+    },
+    "05": {
+        "nom_departement": "Hautes-Alpes",
+        "part_familles_monoparentales": 15.2
+    },
+    "06": {
+        "nom_departement": "Alpes-Maritimes",
+        "part_familles_monoparentales": 19.0
+    },
+    "07": {
+        "nom_departement": "Ardèche",
+        "part_familles_monoparentales": 14.4
+    },
+    "08": {
+        "nom_departement": "Ardennes",
+        "part_familles_monoparentales": 15.9
+    },
+    "09": {
+        "nom_departement": "Ariège",
+        "part_familles_monoparentales": 18.0
+    },
+    "10": {
+        "nom_departement": "Aube",
+        "part_familles_monoparentales": 17.8
+    },
+    "11": {
+        "nom_departement": "Aude",
+        "part_familles_monoparentales": 18.0
+    },
+    "12": {
+        "nom_departement": "Aveyron",
+        "part_familles_monoparentales": 12.6
+    },
+    "13": {
+        "nom_departement": "Bouches-du-Rhône",
+        "part_familles_monoparentales": 20.7
+    },
+    "14": {
+        "nom_departement": "Calvados",
+        "part_familles_monoparentales": 15.0
+    },
+    "15": {
+        "nom_departement": "Cantal",
+        "part_familles_monoparentales": 12.8
+    },
+    "16": {
+        "nom_departement": "Charente",
+        "part_familles_monoparentales": 15.1
+    },
+    "17": {
+        "nom_departement": "Charente-Maritime",
+        "part_familles_monoparentales": 14.2
+    },
+    "18": {
+        "nom_departement": "Cher",
+        "part_familles_monoparentales": 15.3
+    },
+    "19": {
+        "nom_departement": "Corrèze",
+        "part_familles_monoparentales": 14.2
+    },
+    "21": {
+        "nom_departement": "Côte-d'Or",
+        "part_familles_monoparentales": 14.9
+    },
+    "22": {
+        "nom_departement": "Côtes-d'Armor",
+        "part_familles_monoparentales": 13.9
+    },
+    "23": {
+        "nom_departement": "Creuse",
+        "part_familles_monoparentales": 14.9
+    },
+    "24": {
+        "nom_departement": "Dordogne",
+        "part_familles_monoparentales": 14.7
+    },
+    "25": {
+        "nom_departement": "Doubs",
+        "part_familles_monoparentales": 15.6
+    },
+    "26": {
+        "nom_departement": "Drôme",
+        "part_familles_monoparentales": 15.4
+    },
+    "27": {
+        "nom_departement": "Eure",
+        "part_familles_monoparentales": 15.3
+    },
+    "28": {
+        "nom_departement": "Eure-et-Loir",
+        "part_familles_monoparentales": 14.7
+    },
+    "29": {
+        "nom_departement": "Finistère",
+        "part_familles_monoparentales": 14.2
+    },
+    "2A": {
+        "nom_departement": "Corse-du-Sud",
+        "part_familles_monoparentales": 17.7
+    },
+    "2B": {
+        "nom_departement": "Haute-Corse",
+        "part_familles_monoparentales": 21.3
+    },
+    "30": {
+        "nom_departement": "Gard",
+        "part_familles_monoparentales": 17.7
+    },
+    "31": {
+        "nom_departement": "Haute-Garonne",
+        "part_familles_monoparentales": 17.6
+    },
+    "32": {
+        "nom_departement": "Gers",
+        "part_familles_monoparentales": 14.8
+    },
+    "33": {
+        "nom_departement": "Gironde",
+        "part_familles_monoparentales": 16.5
+    },
+    "34": {
+        "nom_departement": "Hérault",
+        "part_familles_monoparentales": 18.7
+    },
+    "35": {
+        "nom_departement": "Ille-et-Vilaine",
+        "part_familles_monoparentales": 13.5
+    },
+    "36": {
+        "nom_departement": "Indre",
+        "part_familles_monoparentales": 15.4
+    },
+    "37": {
+        "nom_departement": "Indre-et-Loire",
+        "part_familles_monoparentales": 14.5
+    },
+    "38": {
+        "nom_departement": "Isère",
+        "part_familles_monoparentales": 15.1
+    },
+    "39": {
+        "nom_departement": "Jura",
+        "part_familles_monoparentales": 14.2
+    },
+    "40": {
+        "nom_departement": "Landes",
+        "part_familles_monoparentales": 14.3
+    },
+    "41": {
+        "nom_departement": "Loir-et-Cher",
+        "part_familles_monoparentales": 13.7
+    },
+    "42": {
+        "nom_departement": "Loire",
+        "part_familles_monoparentales": 14.7
+    },
+    "43": {
+        "nom_departement": "Haute-Loire",
+        "part_familles_monoparentales": 12.6
+    },
+    "44": {
+        "nom_departement": "Loire-Atlantique",
+        "part_familles_monoparentales": 13.9
+    },
+    "45": {
+        "nom_departement": "Loiret",
+        "part_familles_monoparentales": 15.8
+    },
+    "46": {
+        "nom_departement": "Lot",
+        "part_familles_monoparentales": 13.7
+    },
+    "47": {
+        "nom_departement": "Lot-et-Garonne",
+        "part_familles_monoparentales": 15.5
+    },
+    "48": {
+        "nom_departement": "Lozère",
+        "part_familles_monoparentales": 13.3
+    },
+    "49": {
+        "nom_departement": "Maine-et-Loire",
+        "part_familles_monoparentales": 12.4
+    },
+    "50": {
+        "nom_departement": "Manche",
+        "part_familles_monoparentales": 12.5
+    },
+    "51": {
+        "nom_departement": "Marne",
+        "part_familles_monoparentales": 16.1
+    },
+    "52": {
+        "nom_departement": "Haute-Marne",
+        "part_familles_monoparentales": 14.7
+    },
+    "53": {
+        "nom_departement": "Mayenne",
+        "part_familles_monoparentales": 11.0
+    },
+    "54": {
+        "nom_departement": "Meurthe-et-Moselle",
+        "part_familles_monoparentales": 17.0
+    },
+    "55": {
+        "nom_departement": "Meuse",
+        "part_familles_monoparentales": 14.5
+    },
+    "56": {
+        "nom_departement": "Morbihan",
+        "part_familles_monoparentales": 13.1
+    },
+    "57": {
+        "nom_departement": "Moselle",
+        "part_familles_monoparentales": 15.8
+    },
+    "58": {
+        "nom_departement": "Nièvre",
+        "part_familles_monoparentales": 15.0
+    },
+    "59": {
+        "nom_departement": "Nord",
+        "part_familles_monoparentales": 18.7
+    },
+    "60": {
+        "nom_departement": "Oise",
+        "part_familles_monoparentales": 16.8
+    },
+    "61": {
+        "nom_departement": "Orne",
+        "part_familles_monoparentales": 13.5
+    },
+    "62": {
+        "nom_departement": "Pas-de-Calais",
+        "part_familles_monoparentales": 16.6
+    },
+    "63": {
+        "nom_departement": "Puy-de-Dôme",
+        "part_familles_monoparentales": 15.5
+    },
+    "64": {
+        "nom_departement": "Pyrénées-Atlantiques",
+        "part_familles_monoparentales": 15.9
+    },
+    "65": {
+        "nom_departement": "Hautes-Pyrénées",
+        "part_familles_monoparentales": 16.9
+    },
+    "66": {
+        "nom_departement": "Pyrénées-Orientales",
+        "part_familles_monoparentales": 20.6
+    },
+    "67": {
+        "nom_departement": "Bas-Rhin",
+        "part_familles_monoparentales": 15.0
+    },
+    "68": {
+        "nom_departement": "Haut-Rhin",
+        "part_familles_monoparentales": 15.0
+    },
+    "69": {
+        "nom_departement": "Rhône",
+        "part_familles_monoparentales": 16.8
+    },
+    "70": {
+        "nom_departement": "Haute-Saône",
+        "part_familles_monoparentales": 13.8
+    },
+    "71": {
+        "nom_departement": "Saône-et-Loire",
+        "part_familles_monoparentales": 13.4
+    },
+    "72": {
+        "nom_departement": "Sarthe",
+        "part_familles_monoparentales": 14.2
+    },
+    "73": {
+        "nom_departement": "Savoie",
+        "part_familles_monoparentales": 15.1
+    },
+    "74": {
+        "nom_departement": "Haute-Savoie",
+        "part_familles_monoparentales": 15.1
+    },
+    "75": {
+        "nom_departement": "Paris",
+        "part_familles_monoparentales": 20.0
+    },
+    "76": {
+        "nom_departement": "Seine-Maritime",
+        "part_familles_monoparentales": 17.0
+    },
+    "77": {
+        "nom_departement": "Seine-et-Marne",
+        "part_familles_monoparentales": 18.7
+    },
+    "78": {
+        "nom_departement": "Yvelines",
+        "part_familles_monoparentales": 16.9
+    },
+    "79": {
+        "nom_departement": "Deux-Sèvres",
+        "part_familles_monoparentales": 12.4
+    },
+    "80": {
+        "nom_departement": "Somme",
+        "part_familles_monoparentales": 16.5
+    },
+    "81": {
+        "nom_departement": "Tarn",
+        "part_familles_monoparentales": 15.5
+    },
+    "82": {
+        "nom_departement": "Tarn-et-Garonne",
+        "part_familles_monoparentales": 15.9
+    },
+    "83": {
+        "nom_departement": "Var",
+        "part_familles_monoparentales": 16.8
+    },
+    "84": {
+        "nom_departement": "Vaucluse",
+        "part_familles_monoparentales": 17.1
+    },
+    "85": {
+        "nom_departement": "Vendée",
+        "part_familles_monoparentales": 10.3
+    },
+    "86": {
+        "nom_departement": "Vienne",
+        "part_familles_monoparentales": 14.9
+    },
+    "87": {
+        "nom_departement": "Haute-Vienne",
+        "part_familles_monoparentales": 15.0
+    },
+    "88": {
+        "nom_departement": "Vosges",
+        "part_familles_monoparentales": 15.8
+    },
+    "89": {
+        "nom_departement": "Yonne",
+        "part_familles_monoparentales": 15.8
+    },
+    "90": {
+        "nom_departement": "Territoire de Belfort",
+        "part_familles_monoparentales": 18.0
+    },
+    "91": {
+        "nom_departement": "Essonne",
+        "part_familles_monoparentales": 19.3
+    },
+    "92": {
+        "nom_departement": "Hauts-de-Seine",
+        "part_familles_monoparentales": 19.7
+    },
+    "93": {
+        "nom_departement": "Seine-Saint-Denis",
+        "part_familles_monoparentales": 25.3
+    },
+    "94": {
+        "nom_departement": "Val-de-Marne",
+        "part_familles_monoparentales": 22.8
+    },
+    "95": {
+        "nom_departement": "Val-d'Oise",
+        "part_familles_monoparentales": 20.5
+    },
+    "971": {
+        "nom_departement": "Guadeloupe",
+        "part_familles_monoparentales": 42.4
+    },
+    "972": {
+        "nom_departement": "Martinique",
+        "part_familles_monoparentales": 42.8
+    },
+    "973": {
+        "nom_departement": "Guyane",
+        "part_familles_monoparentales": 46.7
+    },
+    "974": {
+        "nom_departement": "La Réunion",
+        "part_familles_monoparentales": 34.2
+    }
+}

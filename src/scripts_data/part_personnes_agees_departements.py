@@ -25,10 +25,10 @@ def convertir_csv_json(nom_csv, index_ligne, info_cle, info_colonnes, delimiteur
     # --- 2. GESTION DES CHEMINS ---
     dossier_actuel = os.path.dirname(os.path.abspath(__file__))
     dossier_src = os.path.dirname(dossier_actuel)
-    chemin_entree = os.path.join(os.path.dirname(dossier_src), 'data', 'tx_chomage', nom_csv)
+    chemin_entree = os.path.join(os.path.dirname(dossier_src), 'data', 'part_personnes_agees', nom_csv)
     
     nom_json = os.path.splitext(nom_csv)[0] + ".json"
-    chemin_sortie = os.path.join(os.path.dirname(dossier_src), 'data', 'tx_chomage', nom_json)
+    chemin_sortie = os.path.join(os.path.dirname(dossier_src), 'data', 'part_personnes_agees', nom_json)
 
     if not os.path.exists(chemin_entree):
         print(f"Erreur FATALE : Fichier introuvable -> {chemin_entree}")
@@ -142,8 +142,8 @@ if __name__ == "__main__":
     # CONFIGURATION UTILISATEUR
     # ==========================================
     
-    # 1. Nom du fichier (doit être dans data/)
-    NOM_CSV = "tx_chomage_departements.csv"
+    # 1. Nom du fichier (doit être dans app/)
+    NOM_CSV = "part_personnes_agees_departements.csv"
     
     # 2. Ligne des titres (0 = 1ère ligne)
     LIGNE_TITRES = 2
@@ -160,12 +160,7 @@ if __name__ == "__main__":
     # Format : [ ("Nom_Col1", "type"), ("Nom_Col2", "type") ]
     INFO_COLONNES = [
 	("Libellé","nom_departement", "str"),
-	("Taux de chômage annuel moyen 2024", "tx_chomage_moyen", "float"),
-	("Taux de chômage annuel moyen des 15 à 24 ans 2024", "tx_chomage_moyen_15_24_ans", "float"),
-	("Taux de chômage annuel moyen des 25 à 49 ans 2024", "tx_chomage_moyen_25_49_ans", "float"),
-	("Taux de chômage annuel moyen des 50 ans ou plus 2024", "tx_chomage_moyen_50_ans_plus", "float"),
-	("Taux de chômage annuel moyen des femmes 2024", "tx_chomage_moyen_femmes", "float"),
-	("Taux de chômage annuel moyen des hommes 2024", "tx_chomage_moyen_hommes", "float")
+	("Part des pers. âgées de 75 ans ou + 2022", "part_personnes_agees_75_plus", "float"),
     ]
 
     # Lancement de la fonction
