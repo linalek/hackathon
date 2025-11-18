@@ -2,3 +2,6 @@ venv/
 *.xlsx
 *.gpkg
 src/__pycache__/
+*.csv
+*.
+.env/*
