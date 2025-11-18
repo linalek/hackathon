@@ -31,11 +31,11 @@ SOCIO_VARIABLES = {
 
 # Types de professions pour l'accès aux soins
 ACCESS_PROFESSIONS = {
-    "Médecins généralistes": "apl_medecins",
-    "Infirmiers": "apl_infirmiers",
     "Dentistes": "apl_dentistes",
     "Sages-femmes": "apl_sagesfemmes",
-    # etc.
+    "Médecins généralistes": "apl_medecins",
+    "Infirmiers": "apl_infirmiers",
+    "Kinésithérapeutes": "apl_kine",
 }
 
 # ===========================
