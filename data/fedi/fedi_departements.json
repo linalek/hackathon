@@ -1,0 +1,386 @@
+{
+    "01": {
+        "nom_departement": "Ain",
+        "EDI": 2.04
+    },
+    "02": {
+        "nom_departement": "Aisne",
+        "EDI": 5.69
+    },
+    "03": {
+        "nom_departement": "Allier",
+        "EDI": 3.63
+    },
+    "04": {
+        "nom_departement": "Alpes-de-Haute-Provence",
+        "EDI": 3.66
+    },
+    "05": {
+        "nom_departement": "Hautes-Alpes",
+        "EDI": 1.96
+    },
+    "06": {
+        "nom_departement": "Alpes-Maritimes",
+        "EDI": 5.04
+    },
+    "07": {
+        "nom_departement": "Ardèche",
+        "EDI": 2.31
+    },
+    "08": {
+        "nom_departement": "Ardennes",
+        "EDI": 5.44
+    },
+    "09": {
+        "nom_departement": "Ariège",
+        "EDI": 3.63
+    },
+    "10": {
+        "nom_departement": "Aube",
+        "EDI": 5.74
+    },
+    "11": {
+        "nom_departement": "Aude",
+        "EDI": 4.77
+    },
+    "12": {
+        "nom_departement": "Aveyron",
+        "EDI": 1.16
+    },
+    "13": {
+        "nom_departement": "Bouches-du-Rhône",
+        "EDI": 5.07
+    },
+    "14": {
+        "nom_departement": "Calvados",
+        "EDI": 2.95
+    },
+    "15": {
+        "nom_departement": "Cantal",
+        "EDI": 1.4
+    },
+    "16": {
+        "nom_departement": "Charente",
+        "EDI": 2.99
+    },
+    "17": {
+        "nom_departement": "Charente-Maritime",
+        "EDI": 2.32
+    },
+    "18": {
+        "nom_departement": "Cher",
+        "EDI": 3.24
+    },
+    "19": {
+        "nom_departement": "Corrèze",
+        "EDI": 2.09
+    },
+    "21": {
+        "nom_departement": "Côte-d'Or",
+        "EDI": 2.62
+    },
+    "22": {
+        "nom_departement": "Côtes-d'Armor",
+        "EDI": 1.13
+    },
+    "23": {
+        "nom_departement": "Creuse",
+        "EDI": 2.78
+    },
+    "24": {
+        "nom_departement": "Dordogne",
+        "EDI": 2.89
+    },
+    "25": {
+        "nom_departement": "Doubs",
+        "EDI": 3.18
+    },
+    "26": {
+        "nom_departement": "Drôme",
+        "EDI": 2.87
+    },
+    "27": {
+        "nom_departement": "Eure",
+        "EDI": 2.98
+    },
+    "28": {
+        "nom_departement": "Eure-et-Loir",
+        "EDI": 2.83
+    },
+    "29": {
+        "nom_departement": "Finistère",
+        "EDI": 0.87
+    },
+    "2A": {
+        "nom_departement": "Corse-du-Sud",
+        "EDI": 4.23
+    },
+    "2B": {
+        "nom_departement": "Haute-Corse",
+        "EDI": 5.61
+    },
+    "30": {
+        "nom_departement": "Gard",
+        "EDI": 4.4
+    },
+    "31": {
+        "nom_departement": "Haute-Garonne",
+        "EDI": 2.51
+    },
+    "32": {
+        "nom_departement": "Gers",
+        "EDI": 1.72
+    },
+    "33": {
+        "nom_departement": "Gironde",
+        "EDI": 3.03
+    },
+    "34": {
+        "nom_departement": "Hérault",
+        "EDI": 4.78
+    },
+    "35": {
+        "nom_departement": "Ille-et-Vilaine",
+        "EDI": 1.28
+    },
+    "36": {
+        "nom_departement": "Indre",
+        "EDI": 3.27
+    },
+    "37": {
+        "nom_departement": "Indre-et-Loire",
+        "EDI": 2.71
+    },
+    "38": {
+        "nom_departement": "Isère",
+        "EDI": 1.82
+    },
+    "39": {
+        "nom_departement": "Jura",
+        "EDI": 2.02
+    },
+    "40": {
+        "nom_departement": "Landes",
+        "EDI": 2.2
+    },
+    "41": {
+        "nom_departement": "Loir-et-Cher",
+        "EDI": 2.5
+    },
+    "42": {
+        "nom_departement": "Loire",
+        "EDI": 4.19
+    },
+    "43": {
+        "nom_departement": "Haute-Loire",
+        "EDI": 1.23
+    },
+    "44": {
+        "nom_departement": "Loire-Atlantique",
+        "EDI": 1.11
+    },
+    "45": {
+        "nom_departement": "Loiret",
+        "EDI": 3.43
+    },
+    "46": {
+        "nom_departement": "Lot",
+        "EDI": 1.94
+    },
+    "47": {
+        "nom_departement": "Lot-et-Garonne",
+        "EDI": 3.78
+    },
+    "48": {
+        "nom_departement": "Lozère",
+        "EDI": 1.82
+    },
+    "49": {
+        "nom_departement": "Maine-et-Loire",
+        "EDI": 2.23
+    },
+    "50": {
+        "nom_departement": "Manche",
+        "EDI": 2.14
+    },
+    "51": {
+        "nom_departement": "Marne",
+        "EDI": 4.73
+    },
+    "52": {
+        "nom_departement": "Haute-Marne",
+        "EDI": 4.12
+    },
+    "53": {
+        "nom_departement": "Mayenne",
+        "EDI": 1.5
+    },
+    "54": {
+        "nom_departement": "Meurthe-et-Moselle",
+        "EDI": 4.11
+    },
+    "55": {
+        "nom_departement": "Meuse",
+        "EDI": 3.44
+    },
+    "56": {
+        "nom_departement": "Morbihan",
+        "EDI": 1.26
+    },
+    "57": {
+        "nom_departement": "Moselle",
+        "EDI": 3.92
+    },
+    "58": {
+        "nom_departement": "Nièvre",
+        "EDI": 3.45
+    },
+    "59": {
+        "nom_departement": "Nord",
+        "EDI": 5.67
+    },
+    "60": {
+        "nom_departement": "Oise",
+        "EDI": 3.92
+    },
+    "61": {
+        "nom_departement": "Orne",
+        "EDI": 3.61
+    },
+    "62": {
+        "nom_departement": "Pas-de-Calais",
+        "EDI": 5.12
+    },
+    "63": {
+        "nom_departement": "Puy-de-Dôme",
+        "EDI": 2.47
+    },
+    "64": {
+        "nom_departement": "Pyrénées-Atlantiques",
+        "EDI": 2.02
+    },
+    "65": {
+        "nom_departement": "Hautes-Pyrénées",
+        "EDI": 3.16
+    },
+    "66": {
+        "nom_departement": "Pyrénées-Orientales",
+        "EDI": 5.5
+    },
+    "67": {
+        "nom_departement": "Bas-Rhin",
+        "EDI": 3.57
+    },
+    "68": {
+        "nom_departement": "Haut-Rhin",
+        "EDI": 4.04
+    },
+    "69": {
+        "nom_departement": "Rhône",
+        "EDI": 3.99
+    },
+    "70": {
+        "nom_departement": "Haute-Saône",
+        "EDI": 2.36
+    },
+    "71": {
+        "nom_departement": "Saône-et-Loire",
+        "EDI": 2.97
+    },
+    "72": {
+        "nom_departement": "Sarthe",
+        "EDI": 2.97
+    },
+    "73": {
+        "nom_departement": "Savoie",
+        "EDI": 1.77
+    },
+    "74": {
+        "nom_departement": "Haute-Savoie",
+        "EDI": 2.01
+    },
+    "75": {
+        "nom_departement": "Paris",
+        "EDI": 7.43
+    },
+    "76": {
+        "nom_departement": "Seine-Maritime",
+        "EDI": 5.17
+    },
+    "77": {
+        "nom_departement": "Seine-et-Marne",
+        "EDI": 3.55
+    },
+    "78": {
+        "nom_departement": "Yvelines",
+        "EDI": 1.3
+    },
+    "79": {
+        "nom_departement": "Deux-Sèvres",
+        "EDI": 1.48
+    },
+    "80": {
+        "nom_departement": "Somme",
+        "EDI": 4.57
+    },
+    "81": {
+        "nom_departement": "Tarn",
+        "EDI": 2.36
+    },
+    "82": {
+        "nom_departement": "Tarn-et-Garonne",
+        "EDI": 3.23
+    },
+    "83": {
+        "nom_departement": "Var",
+        "EDI": 3.74
+    },
+    "84": {
+        "nom_departement": "Vaucluse",
+        "EDI": 5.05
+    },
+    "85": {
+        "nom_departement": "Vendée",
+        "EDI": 0.65
+    },
+    "86": {
+        "nom_departement": "Vienne",
+        "EDI": 2.71
+    },
+    "87": {
+        "nom_departement": "Haute-Vienne",
+        "EDI": 3.11
+    },
+    "88": {
+        "nom_departement": "Vosges",
+        "EDI": 3.87
+    },
+    "89": {
+        "nom_departement": "Yonne",
+        "EDI": 3.65
+    },
+    "90": {
+        "nom_departement": "Territoire de Belfort",
+        "EDI": 4.5
+    },
+    "91": {
+        "nom_departement": "Essonne",
+        "EDI": 3.72
+    },
+    "92": {
+        "nom_departement": "Hauts-de-Seine",
+        "EDI": 4.18
+    },
+    "93": {
+        "nom_departement": "Seine-Saint-Denis",
+        "EDI": 13.26
+    },
+    "94": {
+        "nom_departement": "Val-de-Marne",
+        "EDI": 7.22
+    },
+    "95": {
+        "nom_departement": "Val-d'Oise",
+        "EDI": 5.58
+    }
+}
