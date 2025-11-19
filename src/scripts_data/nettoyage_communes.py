@@ -118,6 +118,37 @@ def supprimer_attribut_commune(communes: dict) -> dict:
     print(f"✅ Attribut 'Commune' supprimé pour {compteur_suppressions} entrées.")
     return communes
 
+# --- Fonction 3 : Suppression des communes sans Lat/Lon ---
+
+def supprimer_communes_sans_coordonnees(communes: dict) -> dict:
+    """
+    Supprime les communes dont les attributs 'lat' et 'lon' sont tous deux nuls.
+
+    Args:
+        communes (dict): Le dictionnaire contenant les données des communes.
+
+    Returns:
+        dict: Le dictionnaire de communes modifié.
+    """
+    codes_a_supprimer = []
+    compteur_suppressions = 0
+    print("--- 🌐 Suppression des communes sans coordonnées (lat/lon)...")
+    
+    for code_commune, data in communes.items():
+        lon = data.get("lon")
+        lat = data.get("lat")
+        
+        # Vérifie si les deux attributs sont None (ou null dans le JSON)
+        if lon is None and lat is None:
+            codes_a_supprimer.append(code_commune)
+            compteur_suppressions += 1
+            
+    for code in codes_a_supprimer:
+        del communes[code]
+            
+    print(f"✅ Communes sans coordonnées supprimées: {compteur_suppressions} entrées.")
+    return communes
+
 def executer_nettoyage_complet(chemin_entree: str = 'data/communes.json', 
                                chemin_sortie: str = 'data/communes.json') -> dict:
     """
@@ -149,8 +180,11 @@ def executer_nettoyage_complet(chemin_entree: str = 'data/communes.json',
     
     # --- 3. Application de la suppression de l'attribut 'Commune' ---
     communes = supprimer_attribut_commune(communes)
+
+    # --- 4. Suppression des communes sans coordonnées ---
+    communes = supprimer_communes_sans_coordonnees(communes)
     
-    # --- 4. Sauvegarde du nouveau fichier JSON ---
+    # --- 5. Sauvegarde du nouveau fichier JSON ---
     print(f"--- 💾 Sauvegarde du fichier : {chemin_sortie}")
     try:
         with open(chemin_sortie, 'w', encoding='utf-8') as f:
@@ -160,6 +194,8 @@ def executer_nettoyage_complet(chemin_entree: str = 'data/communes.json',
         print(f"❌ Erreur lors de la sauvegarde du fichier : {e}")
         
     return communes
+
+    
 
 
 if __name__ == "__main__":
