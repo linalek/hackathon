@@ -1,5 +1,6 @@
 import json
 import os
+import numpy as np
 
 # Définition des variables
 SOCIO_VARIABLES = {
@@ -43,7 +44,7 @@ def trouver_min_max(fichier_json, echelle):
     
     print(f"✓ {len(data)} enregistrements trouvés\n")
     
-    # Dictionnaire pour stocker les min/max temporaires
+    # Dictionnaire pour stocker les statistiques temporaires
     stats_temp = {}
     
     # Combiner toutes les variables
@@ -52,7 +53,7 @@ def trouver_min_max(fichier_json, echelle):
     # Créer un mapping inverse : code_variable -> nom_affiché
     code_to_nom = {code: nom for nom, code in toutes_variables.items()}
     
-    # Parcourir tous les enregistrements pour collecter les variables
+    # Parcourir tous les enregistrements pour collecter les valeurs
     for code, valeurs in data.items():
         if not isinstance(valeurs, dict):
             continue
@@ -72,19 +73,15 @@ def trouver_min_max(fichier_json, echelle):
             except (ValueError, TypeError):
                 continue
             
-            # Initialiser ou mettre à jour min/max
+            # Initialiser ou ajouter la valeur
             if variable not in stats_temp:
                 stats_temp[variable] = {
-                    'min': valeur_num,
-                    'max': valeur_num,
-                    'count': 1
+                    'values': [valeur_num]
                 }
             else:
-                stats_temp[variable]['min'] = min(stats_temp[variable]['min'], valeur_num)
-                stats_temp[variable]['max'] = max(stats_temp[variable]['max'], valeur_num)
-                stats_temp[variable]['count'] += 1
+                stats_temp[variable]['values'].append(valeur_num)
     
-    # Convertir au format final
+    # Convertir au format final avec calcul des statistiques
     stats_dict = {}
     
     for code_variable, donnees in stats_temp.items():
@@ -99,11 +96,19 @@ def trouver_min_max(fichier_json, echelle):
         else:
             type_variable = "autre"
         
+        # Calculer les statistiques
+        values = np.array(donnees['values'])
+        
         stats_dict[nom_affiche] = {
             "nom_col": code_variable,
             "type": type_variable,
-            "min": round(donnees['min'], 2),
-            "max": round(donnees['max'], 2)
+            "min": round(float(np.min(values)), 2),
+            "max": round(float(np.max(values)), 2),
+            "p5": round(float(np.percentile(values, 5)), 2),
+            "q1": round(float(np.percentile(values, 25)), 2),
+            "q2": round(float(np.percentile(values, 50)), 2),
+            "q3": round(float(np.percentile(values, 75)), 2),
+            "p95": round(float(np.percentile(values, 95)), 2)
         }
     
     return stats_dict
