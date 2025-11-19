@@ -149,8 +149,47 @@ def supprimer_communes_sans_coordonnees(communes: dict) -> dict:
     print(f"✅ Communes sans coordonnées supprimées: {compteur_suppressions} entrées.")
     return communes
 
+# --- NOUVELLE FONCTION 4 : Filtrage par population ---
+
+def filtrer_par_population(communes: dict, seuil_population: int) -> dict:
+    """
+    Supprime les communes dont la 'population_totale' ou 'population_standardisee'
+    est inférieure au seuil spécifié.
+
+    Args:
+        communes (dict): Le dictionnaire contenant les données des communes.
+        seuil_population (int): Le nombre minimal d'habitants requis.
+
+    Returns:
+        dict: Le dictionnaire de communes filtré.
+    """
+    codes_a_supprimer = []
+    compteur_suppressions = 0
+    print(f"--- 👤 Filtrage par population (Seuil minimal: {seuil_population} hab.)...")
+
+    for code_commune, data in communes.items():
+        # Utiliser la population totale si disponible, sinon la population standardisée
+        pop_totale = data.get("population_totale")
+        pop_stan = data.get("population_standardisee")
+        
+        # Le script s'appuie sur la population_totale après le nettoyage des arrondissements
+        # mais la population_standardisee est aussi une bonne valeur de secours.
+        population = pop_totale if pop_totale is not None else pop_stan
+        
+        # On s'assure que la population est un nombre et qu'elle est inférieure au seuil
+        if population is not None and isinstance(population, (int, float)) and population < seuil_population:
+            codes_a_supprimer.append(code_commune)
+            compteur_suppressions += 1
+            
+    for code in codes_a_supprimer:
+        del communes[code]
+
+    print(f"✅ Communes filtrées (sous {seuil_population} hab.): {compteur_suppressions} entrées.")
+    return communes
+
 def executer_nettoyage_complet(chemin_entree: str = 'data/communes.json', 
-                               chemin_sortie: str = 'data/communes.json') -> dict:
+                               chemin_sortie: str = 'data/communes.json',
+                               seuil_pop_min: int=0) -> dict:
     """
     Fonction principale qui orchestre le chargement, le nettoyage et la sauvegarde des données.
     
@@ -183,8 +222,12 @@ def executer_nettoyage_complet(chemin_entree: str = 'data/communes.json',
 
     # --- 4. Suppression des communes sans coordonnées ---
     communes = supprimer_communes_sans_coordonnees(communes)
+
+    # --- 5. Filtrage par population si seuil > 0 ---
+    if seuil_pop_min > 0:
+        communes = filtrer_par_population(communes, seuil_pop_min)
     
-    # --- 5. Sauvegarde du nouveau fichier JSON ---
+    # --- 6. Sauvegarde du nouveau fichier JSON ---
     print(f"--- 💾 Sauvegarde du fichier : {chemin_sortie}")
     try:
         with open(chemin_sortie, 'w', encoding='utf-8') as f:
@@ -195,9 +238,6 @@ def executer_nettoyage_complet(chemin_entree: str = 'data/communes.json',
         
     return communes
 
-    
-
-
 if __name__ == "__main__":
     
-    executer_nettoyage_complet()
+    executer_nettoyage_complet(seuil_pop_min=100)
