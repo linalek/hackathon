@@ -3,54 +3,99 @@
         "nom_col": "apl_dentistes",
         "type": "sante",
         "min": 0.0,
-        "max": 192.06
+        "max": 192.06,
+        "p5": 2.75,
+        "q1": 19.48,
+        "q2": 33.17,
+        "q3": 49.48,
+        "p95": 78.07
     },
     "Sages-femmes": {
         "nom_col": "apl_sagesfemmes",
         "type": "sante",
         "min": 0.0,
-        "max": 187.82
+        "max": 187.82,
+        "p5": 2.32,
+        "q1": 10.55,
+        "q2": 15.84,
+        "q3": 21.84,
+        "p95": 31.76
     },
     "Médecins généralistes": {
         "nom_col": "apl_medecins",
         "type": "sante",
         "min": 0.0,
-        "max": 40.03
+        "max": 40.03,
+        "p5": 1.17,
+        "q1": 2.19,
+        "q2": 2.93,
+        "q3": 3.74,
+        "p95": 5.14
     },
     "Infirmiers": {
         "nom_col": "apl_infirmiers",
         "type": "sante",
         "min": 0.0,
-        "max": 1665.35
+        "max": 1665.35,
+        "p5": 48.61,
+        "q1": 79.84,
+        "q2": 109.15,
+        "q3": 151.4,
+        "p95": 233.38
     },
     "Kinésithérapeutes": {
         "nom_col": "apl_kine",
         "type": "sante",
         "min": 0.0,
-        "max": 680.25
+        "max": 680.25,
+        "p5": 20.69,
+        "q1": 46.12,
+        "q2": 67.89,
+        "q3": 99.7,
+        "p95": 171.65
     },
     "Part des familles monoparentales": {
         "nom_col": "part_familles_monoparentales",
         "type": "socio",
         "min": 0.0,
-        "max": 75.0
+        "max": 75.0,
+        "p5": 0.0,
+        "q1": 7.2,
+        "q2": 11.4,
+        "q3": 16.1,
+        "p95": 24.9
     },
     "EDI": {
         "nom_col": "EDI",
         "type": "socio",
         "min": -24.21,
-        "max": 22.17
+        "max": 22.17,
+        "p5": -4.94,
+        "q1": -2.2,
+        "q2": -0.3,
+        "q3": 1.76,
+        "p95": 5.81
     },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
         "type": "socio",
         "min": 0.4,
-        "max": 51.1
+        "max": 51.1,
+        "p5": 4.6,
+        "q1": 7.2,
+        "q2": 9.5,
+        "q3": 12.5,
+        "p95": 18.4
     },
     "Taux de pauvreté": {
         "nom_col": "tx_pauvrete",
         "type": "socio",
         "min": 5.0,
-        "max": 31.8
+        "max": 31.8,
+        "p5": 7.1,
+        "q1": 11.4,
+        "q2": 14.2,
+        "q3": 16.8,
+        "p95": 21.2
     }
 }
