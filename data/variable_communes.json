@@ -8,7 +8,8 @@
         "q1": 19.48,
         "q2": 33.17,
         "q3": 49.48,
-        "p95": 78.07
+        "p95": 78.07,
+        "unit" : "En ETP pour 100 000 habitants"
     },
     "Sages-femmes": {
         "nom_col": "apl_sagesfemmes",
@@ -19,7 +20,8 @@
         "q1": 10.55,
         "q2": 15.84,
         "q3": 21.84,
-        "p95": 31.76
+        "p95": 31.76,
+        "unit" : "En ETP pour 100 000 habitantes"
     },
     "Médecins généralistes": {
         "nom_col": "apl_medecins",
@@ -30,7 +32,8 @@
         "q1": 2.19,
         "q2": 2.93,
         "q3": 3.74,
-        "p95": 5.14
+        "p95": 5.14,
+        "unit": "En nb de consultations accessibles par habitant et par an"
     },
     "Infirmiers": {
         "nom_col": "apl_infirmiers",
@@ -41,7 +44,8 @@
         "q1": 79.84,
         "q2": 109.15,
         "q3": 151.4,
-        "p95": 233.38
+        "p95": 233.38,
+        "unit" : "En ETP pour 100 000 habitants"
     },
     "Kinésithérapeutes": {
         "nom_col": "apl_kine",
@@ -52,7 +56,8 @@
         "q1": 46.12,
         "q2": 67.89,
         "q3": 99.7,
-        "p95": 171.65
+        "p95": 171.65,
+        "unit" : "En ETP pour 100 000 habitants"
     },
     "Part des familles monoparentales": {
         "nom_col": "part_familles_monoparentales",
@@ -63,7 +68,8 @@
         "q1": 7.2,
         "q2": 11.4,
         "q3": 16.1,
-        "p95": 24.9
+        "p95": 24.9,
+        "unit" : "En %"
     },
     "EDI": {
         "nom_col": "EDI",
@@ -74,7 +80,8 @@
         "q1": -2.2,
         "q2": -0.3,
         "q3": 1.76,
-        "p95": 5.81
+        "p95": 5.81,
+        "unit":"En ?"
     },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
@@ -85,7 +92,8 @@
         "q1": 7.2,
         "q2": 9.5,
         "q3": 12.5,
-        "p95": 18.4
+        "p95": 18.4,
+        "unit" : "En %"
     },
     "Taux de pauvreté": {
         "nom_col": "tx_pauvrete",
@@ -96,6 +104,7 @@
         "q1": 11.4,
         "q2": 14.2,
         "q3": 16.8,
-        "p95": 21.2
+        "p95": 21.2,
+        "unit" : "En %"
     }
 }

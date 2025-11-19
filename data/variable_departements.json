@@ -8,7 +8,8 @@
         "q1": 43.65,
         "q2": 51.84,
         "q3": 60.83,
-        "p95": 80.88
+        "p95": 80.88,
+        "unit": "En ETP pour 100 000 habitants"
     },
     "Sages-femmes": {
         "nom_col": "apl_sagesfemmes",
@@ -19,7 +20,8 @@
         "q1": 17.69,
         "q2": 21.68,
         "q3": 24.52,
-        "p95": 27.66
+        "p95": 27.66,
+        "unit": "En ETP pour 100 000 habitantes"
     },
     "Médecins généralistes": {
         "nom_col": "apl_medecins",
@@ -30,7 +32,8 @@
         "q1": 3.08,
         "q2": 3.53,
         "q3": 4.05,
-        "p95": 4.58
+        "p95": 4.58,
+        "unit": "En nb de consultations accessibles par hab et par an"
     },
     "Infirmiers": {
         "nom_col": "apl_infirmiers",
@@ -41,7 +44,8 @@
         "q1": 98.71,
         "q2": 130.6,
         "q3": 178.96,
-        "p95": 245.84
+        "p95": 245.84,
+        "unit" : "En ETP pour 100 000 habitants"
     },
     "Kinésithérapeutes": {
         "nom_col": "apl_kine",
@@ -52,7 +56,8 @@
         "q1": 72.58,
         "q2": 96.11,
         "q3": 129.23,
-        "p95": 190.53
+        "p95": 190.53,
+        "unit" : "En ETP pour 100 000 habitants"
     },
     "Part des familles monoparentales": {
         "nom_col": "part_familles_monoparentales",
@@ -63,7 +68,8 @@
         "q1": 14.28,
         "q2": 15.3,
         "q3": 16.92,
-        "p95": 20.52
+        "p95": 20.52,
+        "unit" : "En %"
     },
     "EDI": {
         "nom_col": "EDI",
@@ -74,7 +80,8 @@
         "q1": 2.19,
         "q2": 3.17,
         "q3": 4.13,
-        "p95": 5.67
+        "p95": 5.67,
+        "unit":"En ?"
     },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
@@ -85,7 +92,8 @@
         "q1": 9.5,
         "q2": 11.15,
         "q3": 12.8,
-        "p95": 14.3
+        "p95": 14.3,
+        "unit" : "En %"
     },
     "Taux de chômage moyen": {
         "nom_col": "tx_chomage_moyen",
@@ -96,7 +104,8 @@
         "q1": 6.2,
         "q2": 6.9,
         "q3": 7.7,
-        "p95": 9.97
+        "p95": 9.97,
+        "unit" : "En %"
     },
     "Taux de chômage moyen 15-24 ans": {
         "nom_col": "tx_chomage_moyen_15_24_ans",
@@ -107,7 +116,8 @@
         "q1": 16.05,
         "q2": 18.6,
         "q3": 20.62,
-        "p95": 26.02
+        "p95": 26.02,
+        "unit" : "En %"
     },
     "Taux de chômage moyen 25-49 ans": {
         "nom_col": "tx_chomage_moyen_25_49_ans",
@@ -118,7 +128,8 @@
         "q1": 5.5,
         "q2": 6.2,
         "q3": 7.0,
-        "p95": 9.0
+        "p95": 9.0,
+        "unit" : "En %"
     },
     "Taux de chômage moyen 50 ans et plus": {
         "nom_col": "tx_chomage_moyen_50_ans_plus",
@@ -129,7 +140,8 @@
         "q1": 4.0,
         "q2": 4.35,
         "q3": 5.1,
-        "p95": 6.6
+        "p95": 6.6,
+        "unit" : "En %"
     },
     "Taux de chômage moyen femmes": {
         "nom_col": "tx_chomage_moyen_femmes",
@@ -140,7 +152,8 @@
         "q1": 6.0,
         "q2": 6.75,
         "q3": 7.6,
-        "p95": 9.85
+        "p95": 9.85,
+        "unit" : "En %"
     },
     "Taux de chômage moyen hommes": {
         "nom_col": "tx_chomage_moyen_hommes",
@@ -151,7 +164,8 @@
         "q1": 6.3,
         "q2": 7.2,
         "q3": 7.8,
-        "p95": 10.15
+        "p95": 10.15,
+        "unit" : "En %"
     },
     "Taux de pauvreté": {
         "nom_col": "tx_pauvrete",
@@ -162,6 +176,7 @@
         "q1": 12.57,
         "q2": 14.8,
         "q3": 16.23,
-        "p95": 19.92
+        "p95": 19.92,
+        "unit" : "En %"
     }
 }

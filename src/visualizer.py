@@ -162,12 +162,18 @@ def plot_map(title, col_name, data, scope_mode, type_data):
     data_info = find_variable_info(all_vars, col_name, type_data)
     if data_info is None:
         p95 = 100
+        q1 = 25
+        q3 = 75
         q2  = 50
         p5  = 0
+        unit = "En %"
     else:
         p95 = data_info["p95"]
         q2  = data_info["q2"] 
         p5  = data_info["p5"]  
+        q1  = data_info["q1"]
+        q3  = data_info["q3"]
+        unit = data_info["unit"]
 
     legend_html = f"""
         <div style="
@@ -180,6 +186,7 @@ def plot_map(title, col_name, data, scope_mode, type_data):
             box-shadow:0 2px 6px rgba(0,0,0,0.25);
             z-index:9999;
             font-family: sans-serif;
+            max-width:120px;
         ">
 
             <!-- Conteneur barre + labels -->
@@ -202,16 +209,32 @@ def plot_map(title, col_name, data, scope_mode, type_data):
                 </div>
 
                 <!-- VALEURS -->
-                <div style="display:flex; flex-direction:column; justify-content:space-between; height:220px; font-size:0.85rem;">
-                    <div style="margin-top:-4px;">› {p95}</div>
-                    <div style="margin-top:0px;">{q2}</div>
-                    <div style="margin-bottom:-4px;">‹ {p5}</div>
+                 <div style="
+                    display:flex;
+                    flex-direction:column;
+                    justify-content:space-between;
+                    height:220px;
+                    font-size:0.85rem;
+                ">
+                    <div>› {p95}</div>
+                    <div>{q3}</div>
+                    <div>{q2}</div>
+                    <div>{q1}</div>
+                    <div>‹ {p5}</div>
                 </div>
             </div>
 
             <!-- Unité -->
-            <div style="margin-top:6px; text-align:center; font-size:0.75rem; opacity:0.8;">
-                en %
+            <div style="
+                margin-top:6px;
+                font-size:0.65rem;
+                opacity:0.8;
+                white-space:normal;
+                word-wrap:break-word;
+                margin-left:auto;
+                margin-right:auto;
+            ">
+                {unit}
             </div>
 
         </div>
