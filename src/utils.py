@@ -170,7 +170,7 @@ def compute_double_vulnerability(df, alpha=0.5):
     return tmp
 
 
-def get_color_scale(value, min_val, max_val, type_data, color_range=COLOR_RANGE):
+def get_color_scale(value, col_name, type_data, scope_mode, color_range=COLOR_RANGE):
     """
     Retourne une couleur RGBA en fonction d'une valeur normalisée entre min_val et max_val.
     
@@ -178,6 +178,18 @@ def get_color_scale(value, min_val, max_val, type_data, color_range=COLOR_RANGE)
         - "socio" → taux : faible = vert, élevé = rouge
         - "sante" → APL : élevé = vert, faible = rouge
     """
+
+    if scope_mode == "France":
+        all_vars = load_dico_departements()
+    else:
+        all_vars = load_dico_communes()
+
+    data_info = find_variable_info(all_vars, col_name, type_data)
+    if data_info is None:
+        return [128, 128, 128, 100]  # gris par défaut
+    
+    max_val = data_info["max"]
+    min_val = data_info["min"]
 
     # 1) Cas particulier : valeur manquante ou range nul
     if pd.isna(value) or max_val == min_val:
@@ -199,3 +211,11 @@ def get_color_scale(value, min_val, max_val, type_data, color_range=COLOR_RANGE)
     # 5) Couleur RGB + alpha
     r, g, b = color_range[index]
     return [r, g, b, 180]   # alpha 180 pour visible sur carte
+
+
+def find_variable_info(all_vars, col_name, type_data):
+    print(all_vars)
+    for key, info in all_vars.items():
+        if info["nom_col"] == col_name and info["type_data"] == type_data:
+            return info
+    return None

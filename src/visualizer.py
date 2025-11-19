@@ -1,10 +1,8 @@
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
-import numpy as np
 import json
 import geopandas as gpd
-from shapely.geometry import shape
 from src.utils import get_color_scale
 
 def plot_map(title, col_name, data, scope_mode, type_data):
@@ -73,7 +71,7 @@ def plot_map(title, col_name, data, scope_mode, type_data):
             if pd.isna(x):
                 # gris clair si pas de valeur
                 return [220, 220, 220, 60]
-            return get_color_scale(x, min_val, max_val, type_data=type_data)
+            return get_color_scale(x, col_name, type_data, scope_mode)
         
         data_plot['fill_color'] = data_plot[col_name].apply(_color_or_default)
 
@@ -106,7 +104,7 @@ def plot_map(title, col_name, data, scope_mode, type_data):
         
     
         data_plot['fill_color'] = data_plot[col_name].apply(
-            lambda x: get_color_scale(x, min_val, max_val, type_data)
+            lambda x: get_color_scale(x, col_name, type_data, scope_mode)
         )
         
         # Adapter la vue au centre du département sélectionné
@@ -123,7 +121,7 @@ def plot_map(title, col_name, data, scope_mode, type_data):
             data=data_plot,
             get_position=['lon', 'lat'],
             get_fill_color="fill_color",
-            get_radius=1000, # Taille fixe des points
+            get_radius=2000, # Taille fixe des points
             pickable=True,
         )
 
@@ -138,8 +136,43 @@ def plot_map(title, col_name, data, scope_mode, type_data):
         tooltip_text = f"{{{data.columns[1]}}} : {{{col_name}}}"
     
     st.pydeck_chart(pdk.Deck(
-        map_style="white",
+        map_style="light",
         layers=[layer],
         initial_view_state=initial_view_state,
         tooltip={"html": tooltip_text, "style": {"color": "white"}},
     ))
+
+    legend_html = """
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        ">
+            <div style="
+                height: 15px;
+                width: 200px;
+                background: linear-gradient(to right,
+                    rgb(0,100,0),
+                    rgb(0,140,0),
+                    rgb(50,170,0),
+                    rgb(120,200,0),
+                    rgb(240,240,0),
+                    rgb(255,200,0),
+                    rgb(255,150,0),
+                    rgb(255,80,0),
+                    rgb(200,0,0)
+                );
+                border-radius: 4px;
+                margin-right: 10px;
+            "></div>
+
+            <span style="color:white;">Faible</span>
+            &nbsp;&nbsp;
+            <span style="color:white;">→</span>
+            &nbsp;&nbsp;
+            <span style="color:white;">Élevé</span>
+        </div>
+        """
+
+    st.markdown(legend_html, unsafe_allow_html=True)
+
