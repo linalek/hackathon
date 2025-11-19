@@ -6,7 +6,7 @@ SOCIO_VARIABLES = {
     "Taux de pauvreté": "tx_pauvrete",
     "Part des familles monoparentales": "part_familles_monoparentales",
     "Part des 75 ans et +": "part_personnes_agees_75_plus",
-    "EDI": "edi",
+    "EDI": "EDI",
     "Taux de chômage moyen": "tx_chomage_moyen",
     "Taux de chômage moyen 15-24 ans": "tx_chomage_moyen_15_24_ans",
     "Taux de chômage moyen 25-49 ans": "tx_chomage_moyen_25_49_ans",
@@ -91,8 +91,17 @@ def trouver_min_max(fichier_json, echelle):
         # Récupérer le nom affiché à partir du code
         nom_affiche = code_to_nom.get(code_variable, code_variable)
         
+        # Déterminer le type : "socio" ou "sante"
+        if code_variable in SOCIO_VARIABLES.values():
+            type_variable = "socio"
+        elif code_variable in ACCESS_PROFESSIONS.values():
+            type_variable = "sante"
+        else:
+            type_variable = "autre"
+        
         stats_dict[nom_affiche] = {
             "nom_col": code_variable,
+            "type": type_variable,
             "min": round(donnees['min'], 2),
             "max": round(donnees['max'], 2)
         }

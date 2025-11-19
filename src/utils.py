@@ -1,10 +1,96 @@
 import numpy as np
-from src.variables import SOCIO_VARIABLES, COLOR_RANGE
+from src.variables import COLOR_RANGE
 import pandas as pd
+import json
+import os
 
 # ===========================
 # Fonctions utilitaires
 # ===========================
+
+def load_variables():
+    """Retourne la liste des différentes variables issue des fichiers
+    variable_communes.json et variable_departements.json
+    sous forme de dictionnaire {nom_humain: nom_colonne}"""
+    
+    variables = {}
+    
+    # Charger variable_communes.json
+    fichier_communes = "data/variable_communes.json"
+    if os.path.exists(fichier_communes):
+        with open(fichier_communes, 'r', encoding='utf-8') as f:
+            data_communes = json.load(f)
+            for nom_humain, infos in data_communes.items():
+                if nom_humain not in variables:
+                    variables[nom_humain] = infos.get("nom_col")
+    
+    # Charger variable_departements.json
+    fichier_departements = "data/variable_departements.json"
+    if os.path.exists(fichier_departements):
+        with open(fichier_departements, 'r', encoding='utf-8') as f:
+            data_departements = json.load(f)
+            for nom_humain, infos in data_departements.items():
+                if nom_humain not in variables:
+                    variables[nom_humain] = infos.get("nom_col")
+    
+    print("\n ✅ Variables chargées depuis les fichiers :", fichier_communes, "et", fichier_departements)
+    return variables
+
+
+def load_socio_variables():
+    """Retourne uniquement les variables socio-économiques issue des fichiers
+    variable_communes.json et variable_departements.json
+    sous forme de dictionnaire {nom_humain: nom_colonne}"""
+    
+    variables_socio = {}
+    
+    # Charger variable_communes.json
+    fichier_communes = "data/variable_communes.json"
+    if os.path.exists(fichier_communes):
+        with open(fichier_communes, 'r', encoding='utf-8') as f:
+            data_communes = json.load(f)
+            for nom_humain, infos in data_communes.items():
+                if infos.get("type") == "socio" and nom_humain not in variables_socio:
+                    variables_socio[nom_humain] = infos.get("nom_col")
+    
+    # Charger variable_departements.json
+    fichier_departements = "data/variable_departements.json"
+    if os.path.exists(fichier_departements):
+        with open(fichier_departements, 'r', encoding='utf-8') as f:
+            data_departements = json.load(f)
+            for nom_humain, infos in data_departements.items():
+                if infos.get("type") == "socio" and nom_humain not in variables_socio:
+                    variables_socio[nom_humain] = infos.get("nom_col")
+    
+    return variables_socio
+
+
+def load_sante_variables():
+    """Retourne uniquement les variables de santé issue des fichiers
+    variable_communes.json et variable_departements.json
+    sous forme de dictionnaire {nom_humain: nom_colonne}"""
+    
+    variables_sante = {}
+    
+    # Charger variable_communes.json
+    fichier_communes = "data/variable_communes.json"
+    if os.path.exists(fichier_communes):
+        with open(fichier_communes, 'r', encoding='utf-8') as f:
+            data_communes = json.load(f)
+            for nom_humain, infos in data_communes.items():
+                if infos.get("type") == "sante" and nom_humain not in variables_sante:
+                    variables_sante[nom_humain] = infos.get("nom_col")
+    
+    # Charger variable_departements.json
+    fichier_departements = "data/variable_departements.json"
+    if os.path.exists(fichier_departements):
+        with open(fichier_departements, 'r', encoding='utf-8') as f:
+            data_departements = json.load(f)
+            for nom_humain, infos in data_departements.items():
+                if infos.get("type") == "sante" and nom_humain not in variables_sante:
+                    variables_sante[nom_humain] = infos.get("nom_col")
+    
+    return variables_sante
 
 def compute_socio_score(df, selected_vars, weights):
     """
@@ -20,13 +106,12 @@ def compute_socio_score(df, selected_vars, weights):
         return df
 
     # Normalisation simple min-max + combinaison pondérée
-    # TODO : à adapter/raffiner selon ta méthode exacte
     tmp = df.copy()
     score = 0
     total_weight = sum(weights[v] for v in selected_vars)
 
     for var_label in selected_vars:
-        col = SOCIO_VARIABLES[var_label]
+        col = load_socio_variables()[var_label]
         if col not in tmp.columns:
             continue
 
