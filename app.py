@@ -316,6 +316,9 @@ def main():
         else: 
             cols_to_show = [c for c in ["nom_departement", "score_double",  "score_socio", "score_acces", "population_totale"] if c in df_final.columns]
 
+        # Créer une copie du DataFrame pour la modification
+        df_display = df_final[cols_to_show].copy()
+        
         #Renommer les colonnes dans le DataFrame d'affichage
         renaming_dict = {
             original_col: new_name 
@@ -323,12 +326,12 @@ def main():
             if original_col in cols_to_show
         }
     
-        df_final.rename(columns=renaming_dict, inplace=True)
+        df_display.rename(columns=renaming_dict, inplace=True)
 
         # Trier et Afficher (en utilisant le NOUVEAU nom de la colonne de tri)
         sort_column_name = COLUMN_MAPPING.get("score_double", "score_double") # Récupère le nouveau nom ou garde l'ancien par défaut
         st.dataframe(
-            df_final[cols_to_show].sort_values(sort_column_name, ascending=False),
+            df_display.sort_values(sort_column_name, ascending=False),
             width='stretch',
         )
     else:
