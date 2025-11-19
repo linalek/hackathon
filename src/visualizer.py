@@ -154,47 +154,69 @@ def plot_map(title, col_name, data, scope_mode, type_data):
         tooltip={"html": tooltip_text, "style": {"color": "white"}},
     ))
 
+    if scope_mode == "France":
+        all_vars = load_dico_departements()
+    else:
+        all_vars = load_dico_communes()
+
+    data_info = find_variable_info(all_vars, col_name, type_data)
+    if data_info is None:
+        p95 = 100
+        q2  = 50
+        p5  = 0
+    else:
+        p95 = data_info["p95"]
+        q2  = data_info["q2"] 
+        p5  = data_info["p5"]  
+
     legend_html = f"""
-    <div style="
-        position: absolute;
-        bottom: 50px;      /* hauteur depuis le bas */
-        left: 30px;        /* distance depuis le bord gauche */
-        background: rgba(255,255,255,0.85);
-        padding: 8px 10px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        z-index: 9999;
-
-    ">
-
-        <!-- Couleurs (vertical gradient) -->
         <div style="
-            display: flex;
-            flex-direction: column;
-            height: 200px;
-            width: 28px;
-            border-radius: 4px;
-            overflow: hidden;
+            position:absolute;
+            bottom:20px;
+            left:15px;
+            background:rgba(255,255,255,0.9);
+            padding:8px 10px;
+            border-radius:10px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.25);
+            z-index:9999;
+            font-family: sans-serif;
         ">
-            {''.join([
-                f'<div style="flex:1;background:rgb({c[0]}, {c[1]}, {c[2]});"></div>'
-                for c in COLOR_RANGE[::-1]   # inversé pour rouge en haut, vert en bas
-            ])}
-        </div>
 
-        <!-- Valeurs Min / Max -->
-        <div style="
-            display:flex;
-            flex-direction:column;
-            margin-top:6px;
-            font-size:0.75rem;
-            text-align:center;
-            width:100%;
-        ">
-            <div style="margin-bottom:2px;">{max_val:.0f}</div>
-            <div style="margin-top:2px;">{min_val:.0f}</div>
+            <!-- Conteneur barre + labels -->
+            <div style="display:flex; flex-direction:row; align-items:center;">
+
+                <!-- BARRE VERTICALE -->
+                <div style="
+                    display:flex;
+                    flex-direction:column;
+                    height:220px;
+                    width:16px;
+                    border-radius:4px;
+                    overflow:hidden;
+                    margin-right:5px;
+                ">
+                    {''.join([
+                        f'<div style="flex:1;background:rgb({c[0]}, {c[1]}, {c[2]});"></div>'
+                        for c in COLOR_RANGE[::-1]
+                    ])}
+                </div>
+
+                <!-- VALEURS -->
+                <div style="display:flex; flex-direction:column; justify-content:space-between; height:220px; font-size:0.85rem;">
+                    <div style="margin-top:-4px;">› {p95}</div>
+                    <div style="margin-top:0px;">{q2}</div>
+                    <div style="margin-bottom:-4px;">‹ {p5}</div>
+                </div>
+            </div>
+
+            <!-- Unité -->
+            <div style="margin-top:6px; text-align:center; font-size:0.75rem; opacity:0.8;">
+                en %
+            </div>
+
         </div>
-    </div>
-    """
+        """
+
+    
     st.html(legend_html)
 
