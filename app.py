@@ -311,7 +311,11 @@ def main():
     )
 
     if "score_double" in df_final.columns and not df_final.empty:
-        cols_to_show = [c for c in ["code_dep", "nom_dep", "score_socio", "score_acces", "score_double"] if c in df_final.columns]
+        if scope_mode == "Département":
+            cols_to_show = [c for c in ["nom_departement", "population_totale", "score_socio", "score_acces", "score_double"] if c in df_final.columns]
+        else: 
+            cols_to_show = [c for c in ["nom_commune", "population_totale", "score_socio", "score_acces", "score_double"] if c in df_final.columns]
+
         st.dataframe(
             df_final[cols_to_show].sort_values("score_double", ascending=False),
             width='stretch',
