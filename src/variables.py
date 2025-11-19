@@ -3,12 +3,7 @@
 # ===========================
 
 SOCIO_VARIABLES = {
-    "Taux de pauvreté":{
-        "nom_col" :"tx_pauvrete",
-        "echelle": ["departement", "commune "],
-        "min": 0,
-        "max": 100
-    },
+    "Taux de pauvreté": "tx_pauvrete",
     "Part des familles monoparentales": "part_familles_monoparentales",
     "Part des 75 ans et +": "part_personnes_agees_75_plus",
     "Taux de chômage": "tx_chomage",
@@ -24,6 +19,7 @@ ACCESS_PROFESSIONS = {
 
 CHEMIN_COMMUNES = "data/communes.json"
 CHEMIN_DEPARTEMENTS = "data/departements.json"
+CHEMIN_GEOJSON = "data/departements_polygon.geojson"
 
 COLOR_RANGE = [
     [0, 102, 204],   # Bleu foncé

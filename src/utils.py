@@ -89,7 +89,7 @@ def get_color_scale(value, min_val, max_val, color_range=COLOR_RANGE):
     """Calcule la couleur basée sur la valeur dans la plage min/max."""
     if pd.isna(value) or max_val == min_val:
         return [128, 128, 128, 100] # Gris pour les données manquantes ou si le range est nul
-
+    
     # Normalisation de la valeur entre 0 et 1
     normalized = (value - min_val) / (max_val - min_val)
     

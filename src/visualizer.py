@@ -2,24 +2,24 @@ import streamlit as st
 import pydeck as pdk
 import pandas as pd
 import numpy as np
+import json
 import geopandas as gpd
 from shapely.geometry import shape
 from src.utils import get_color_scale
 
-def plot_map(title, subtitle, data, scope_mode):
+def plot_map(title, col_name, data, scope_mode):
     """
     Affiche une carte PyDeck pour visualiser une variable selon le périmètre (France/Département).
     
     Args:
         title (str): Le titre de la carte (ex: "Taux de pauvreté").
-        subtitle (str): Le nom de la colonne de la variable (ex: "tx_pauvrete").
+        col_name (str): Le nom de la colonne de la variable (ex: "tx_pauvrete").
         data (pd.DataFrame): Le DataFrame filtré (départements ou communes).
         scope_mode (str): "France" (départements) ou "Département" (communes).
     """
-    col_name = subtitle
     st.subheader(f"Carte : {title}")
     
-    if data.empty or col_name not in data.columns:
+    if data is None or data.empty or col_name not in data.columns:
         st.info(f"Aucune donnée disponible pour {title} ou la colonne '{col_name}' est manquante.")
         return
 
@@ -36,7 +36,7 @@ def plot_map(title, subtitle, data, scope_mode):
     initial_view_state = pdk.ViewState(
         latitude=46.6,
         longitude=2.2,
-        zoom=5,
+        zoom=4,
         pitch=0,
     )
     
@@ -44,56 +44,54 @@ def plot_map(title, subtitle, data, scope_mode):
     # CAS 1: MODE FRANCE
     # ----------------------------------------------------------------
     if scope_mode == "France":
-        
-        # Vérification des données de géométrie
-        if 'geojson_geometry' not in data_plot.columns:
-            st.error("La colonne 'geojson_geometry' est manquante. Assurez-vous d'avoir enrichi les données départementales.")
+        if "geometry" not in data_plot.columns:
+            st.error("La colonne 'geometry' est absente du DataFrame pour le mode France.")
             return
-        
-         
-        # Application de la fonction de couleur sur chaque ligne
-        data_plot['fill_color'] = data_plot.apply(
-            lambda row: get_color_scale(row[col_name], min_val, max_val), axis=1
-        )
 
-        # Conversion temporaire en GeoDataFrame à partir du JSON (plus fiable)
-        try:
-            # Re-créer la colonne 'geometry' de type Shapely
-            geometry_series = data_plot['geojson_geometry'].apply(shape)
-            
-            # Créer le GeoDataFrame temporaire avec la colonne de couleur
-            gdf_temp = gpd.GeoDataFrame(
-                data_plot.drop(columns=['geojson_geometry']), 
-                geometry=geometry_series, 
-                crs=4326 # WGS84
-            )
-            
-            # 3. Exporter au format GeoJSON (FeatureCollection)
-            # La colonne 'fillColor' passe dans les propriétés de la Feature.
-            data_geo_json = gdf_temp.to_json() 
-            
-        except Exception as e:
-            st.error(f"Erreur lors de la conversion GeoJSON pour PyDeck : {e}")
-            return
+        # S'assurer que c'est bien un GeoDataFrame
+        if not isinstance(data_plot, gpd.GeoDataFrame):
+            data_plot = gpd.GeoDataFrame(data_plot, geometry="geometry", crs="EPSG:4326")
+
+        # S'assurer qu'on est bien en WGS84 (lat/lon)
+        if data_plot.crs is None or data_plot.crs.to_epsg() != 4326:
+            data_plot = data_plot.to_crs(epsg=4326)
+
+        # Virer les géométries vides
+        data_plot = data_plot.dropna(subset=["geometry"]).copy()
+
+        # Simplifier les polygones pour alléger l'affichage
+        data_plot["geometry"] = data_plot["geometry"].simplify(tolerance=0.02, preserve_topology=True)
+
+        # Colonne code département (pour tooltip)
+        if "DEP" not in data_plot.columns:
+            if "code_insee" in data_plot.columns:
+                data_plot["DEP"] = data_plot["code_insee"].astype(str).str.zfill(2)
+            else:
+                data_plot["DEP"] = ""
+
+        def _color_or_default(x):
+            if pd.isna(x):
+                # gris clair si pas de valeur
+                return [220, 220, 220, 60]
+            return get_color_scale(x, min_val, max_val)
         
-        # Le GeoJSONLayer utilise une colonne GeoJSON pour la visualisation des polygones
+        data_plot['fill_color'] = data_plot[col_name].apply(_color_or_default)
+
+        geojson_dict = json.loads(data_plot.to_json())
+        
         layer = pdk.Layer(
             "GeoJsonLayer",
-            # Passer la chaîne GeoJSON (FeatureCollection)
-            data=data_geo_json, 
-            opacity=0.8,
+            data=geojson_dict,
+            pickable=True,
             stroked=True,
             filled=True,
-            extruded=False,
-            wireframe=True,
-            # Accès à la propriété 'fillColor' qui est dans les Feature properties
-            get_fill_color="properties.fillColor", 
-            get_line_color=[0, 0, 0, 255],   
-            get_line_width=10, # 10 mètres de large pour le trait
-            pickable=True,
+            get_fill_color="properties.fill_color",
+            get_line_color=[100, 100, 100],
+            line_width_min_pixels=0.5,
         )
-        # Mettre à jour la vue pour la France entière
-        
+
+
+    
     # ----------------------------------------------------------------
     # CAS 2: MODE DÉPARTEMENT (CARTE À POINTS DES COMMUNES)
     # ----------------------------------------------------------------
@@ -108,7 +106,7 @@ def plot_map(title, subtitle, data, scope_mode):
         
         # Application de la fonction de couleur sur chaque point (pour la taille du point)
         data_plot['radius'] = data_plot[col_name].apply(
-            lambda x: 100 + (x - min_val) / (max_val - min_val) * 800 if not pd.isna(x) else 0 
+            lambda x: 100 + (x - min_val) / (max_val - min_val) * 1000 if not pd.isna(x) else 0 
         )
         data_plot['fill_color'] = data_plot[col_name].apply(
             lambda x: get_color_scale(x, min_val, max_val)

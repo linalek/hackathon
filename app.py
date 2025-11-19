@@ -4,9 +4,10 @@ import streamlit as st
 import pandas as pd
 import geopandas as gpd
 import numpy as np
+import json
 from src.data_loader import load_data
 from src.utils import compute_socio_score, compute_access_score, compute_double_vulnerability
-from src.variables import SOCIO_VARIABLES, ACCESS_PROFESSIONS, CHEMIN_COMMUNES, CHEMIN_DEPARTEMENTS
+from src.variables import SOCIO_VARIABLES, ACCESS_PROFESSIONS, CHEMIN_COMMUNES, CHEMIN_DEPARTEMENTS, CHEMIN_GEOJSON
 from src.visualizer import plot_map
 
 # ===========================
@@ -41,8 +42,8 @@ def main():
 
     st.divider()
 
-    # Chargement des données json
-    data_communes, data_departements = load_data(CHEMIN_COMMUNES, CHEMIN_DEPARTEMENTS)
+    # Chargement des dataframes
+    df_communes, df_departements = load_data(CHEMIN_COMMUNES, CHEMIN_DEPARTEMENTS, CHEMIN_GEOJSON)
 
     # ===========================
     # SIDEBAR : Paramètres globaux
@@ -80,15 +81,15 @@ def main():
         st.sidebar.subheader("Choix du département")
 
         dep_options = []
-        if data_departements:
+        if df_departements is not None and not df_departements.empty:
             # Obtient les codes triés (ex: '01', '02', '03'...)
-            codes_dep_tries = sorted(data_departements.keys())
+            df_departements = df_departements.sort_values("code_insee")
             
             # Construit la liste d'options au format "Code - Nom"
-            dep_options = [
-                f"{code} - {data_departements[code]['nom_departement']}"
-                for code in codes_dep_tries
-            ]
+            dep_options = df_departements.apply(
+                lambda row: f"{row['code_insee']} - {row['nom_departement']}",
+                axis=1
+            ).tolist()
 
         selected_dep = st.sidebar.selectbox(
             "Département",
@@ -106,33 +107,21 @@ def main():
         code_dep_selected = selected_dep
 
     if scope_mode == "France":
-        if data_departements:
-            df_view = pd.DataFrame.from_dict(data_departements, orient='index')
-            df_view.index.name = "DEP"
-            df_view = df_view.reset_index()
+        if df_departements is not None and not df_departements.empty:
+            df_view = df_departements.copy()
+            df_view = df_view.reset_index(drop=True)
 
     elif scope_mode == "Département" and code_dep_selected:    
-        if data_communes:
-            # Le code CODGEO commence par le code DEP
-            donnees_communes_filtrees = {
-                code: data
-                for code, data in data_communes.items()
-                if code.startswith(code_dep_selected)
-            }
-
-            if donnees_communes_filtrees:
-                df_view = pd.DataFrame.from_dict(donnees_communes_filtrees, orient='index')
-                df_view.index.name = "CODGEO"
-                df_view = df_view.reset_index()
-
-    print(df_view.head())
+        if df_communes is not None and not df_communes.empty:
+            mask = df_communes["code_insee"].astype(str).str.startswith(code_dep_selected)
+            df_view = df_communes.loc[mask].copy()
+            df_view = df_view.reset_index(drop=True)
 
 
     # ===========================
     # 1) Vulnérabilité socio-économique
     # ===========================
     st.header("Vulnérabilité socio-économique")
-    st.write(df_view.head())
 
     st.markdown(
         """
@@ -165,7 +154,7 @@ def main():
         )
 
     with add_col2:
-        add_clicked = st.button("Ajouter", use_container_width=True)
+        add_clicked = st.button("Ajouter", width='stretch')
 
     if add_clicked and crit_to_add != "— Sélectionner —":
         st.session_state.socio_criteria.append(crit_to_add)
@@ -228,7 +217,7 @@ def main():
             with cols[i % 2]:
                 plot_map(
                     title=var,
-                    subtitle=SOCIO_VARIABLES[var],
+                    col_name=SOCIO_VARIABLES[var],
                     data=df_view,
                     scope_mode=scope_mode
                 )
@@ -237,7 +226,7 @@ def main():
     st.subheader("Carte du score de vulnérabilité socio-économique")
     plot_map(
         title="Score socio-économique agrégé",
-        subtitle="Combinaison normalisée et pondérée des variables sélectionnées.",
+        col_name="score_socio",
         data=df_socio,
         scope_mode=scope_mode
     )
@@ -273,7 +262,7 @@ def main():
         st.markdown("#### Carte de l’indicateur d’accès aux soins")
         plot_map(
             title=f"Accès aux soins – {prof_label}",
-            subtitle=f"Données APL : colonne {access_col}",
+            col_name=access_col,
             data=df_access,
             scope_mode=scope_mode
         )
@@ -309,7 +298,7 @@ def main():
     st.subheader("Carte des zones à double vulnérabilité")
     plot_map(
         title="Score de double vulnérabilité",
-        subtitle="Combinaison du score socio-économique et de la difficulté d’accès aux soins.",
+        col_name="score_acces",
         data=df_final,
         scope_mode=scope_mode
     )
@@ -327,10 +316,10 @@ def main():
         cols_to_show = [c for c in ["code_dep", "nom_dep", "score_socio", "score_acces", "score_double"] if c in df_final.columns]
         st.dataframe(
             df_final[cols_to_show].sort_values("score_double", ascending=False),
-            use_container_width=True,
+            width='stretch',
         )
     else:
-        st.info("Les données finales ne sont pas encore disponibles (squelette).")
+        st.info("Les données finales ne sont pas encore disponibles.")
 
 
 # ===========================
