@@ -2,21 +2,6 @@
 # Constantes / Métadonnées
 # ===========================
 
-SOCIO_VARIABLES = {
-    "Taux de pauvreté": "tx_pauvrete",
-    "Part des familles monoparentales": "part_familles_monoparentales",
-    "Part des 75 ans et +": "part_personnes_agees_75_plus",
-    "Taux de chômage": "tx_chomage",
-}
-
-ACCESS_PROFESSIONS = {
-    "Dentistes": "apl_dentistes",
-    "Sages-femmes": "apl_sagesfemmes",
-    "Médecins généralistes": "apl_medecins",
-    "Infirmiers": "apl_infirmiers",
-    "Kinésithérapeutes": "apl_kine",
-}
-
 CHEMIN_COMMUNES = "data/communes.json"
 CHEMIN_DEPARTEMENTS = "data/departements.json"
 CHEMIN_GEOJSON = "data/departements_polygon.geojson"

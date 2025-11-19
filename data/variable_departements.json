@@ -1,71 +1,91 @@
 {
     "Dentistes": {
         "nom_col": "apl_dentistes",
+        "type": "sante",
         "min": 24.35,
         "max": 117.92
     },
     "Sages-femmes": {
         "nom_col": "apl_sagesfemmes",
+        "type": "sante",
         "min": 9.39,
         "max": 30.32
     },
     "Médecins généralistes": {
         "nom_col": "apl_medecins",
+        "type": "sante",
         "min": 2.25,
         "max": 5.01
     },
     "Infirmiers": {
         "nom_col": "apl_infirmiers",
+        "type": "sante",
         "min": 68.18,
         "max": 451.77
     },
     "Kinésithérapeutes": {
         "nom_col": "apl_kine",
+        "type": "sante",
         "min": 53.69,
         "max": 223.01
     },
     "Part des familles monoparentales": {
         "nom_col": "part_familles_monoparentales",
+        "type": "socio",
         "min": 10.3,
         "max": 25.3
     },
+    "EDI": {
+        "nom_col": "EDI",
+        "type": "socio",
+        "min": 0.65,
+        "max": 13.26
+    },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
+        "type": "socio",
         "min": 5.3,
         "max": 15.2
     },
     "Taux de chômage moyen": {
         "nom_col": "tx_chomage_moyen",
+        "type": "socio",
         "min": 4.2,
         "max": 12.2
     },
     "Taux de chômage moyen 15-24 ans": {
         "nom_col": "tx_chomage_moyen_15_24_ans",
+        "type": "socio",
         "min": 12.0,
         "max": 31.5
     },
     "Taux de chômage moyen 25-49 ans": {
         "nom_col": "tx_chomage_moyen_25_49_ans",
+        "type": "socio",
         "min": 3.9,
         "max": 10.9
     },
     "Taux de chômage moyen 50 ans et plus": {
         "nom_col": "tx_chomage_moyen_50_ans_plus",
+        "type": "socio",
         "min": 2.7,
         "max": 8.2
     },
     "Taux de chômage moyen femmes": {
         "nom_col": "tx_chomage_moyen_femmes",
+        "type": "socio",
         "min": 4.1,
         "max": 11.5
     },
     "Taux de chômage moyen hommes": {
         "nom_col": "tx_chomage_moyen_hommes",
+        "type": "socio",
         "min": 4.4,
         "max": 12.9
     },
     "Taux de pauvreté": {
         "nom_col": "tx_pauvrete",
+        "type": "socio",
         "min": 9.1,
         "max": 28.4
     }

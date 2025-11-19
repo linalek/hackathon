@@ -6,8 +6,8 @@ import geopandas as gpd
 import numpy as np
 import json
 from src.data_loader import load_data
-from src.utils import compute_socio_score, compute_access_score, compute_double_vulnerability
-from src.variables import SOCIO_VARIABLES, ACCESS_PROFESSIONS, CHEMIN_COMMUNES, CHEMIN_DEPARTEMENTS, CHEMIN_GEOJSON
+from src.utils import compute_socio_score, compute_access_score, compute_double_vulnerability, load_sante_variables, load_socio_variables
+from src.variables import CHEMIN_COMMUNES, CHEMIN_DEPARTEMENTS, CHEMIN_GEOJSON
 from src.visualizer import plot_map
 
 # ===========================
@@ -137,7 +137,7 @@ def main():
 
     # Liste des critères encore disponibles à ajouter
     available_criteria = [
-        label for label in SOCIO_VARIABLES.keys()
+        label for label in load_socio_variables().keys()
         if label not in st.session_state.socio_criteria
     ]
 
@@ -211,13 +211,12 @@ def main():
     if selected_vars:
         st.subheader("Cartes des variables sélectionnées")
 
-        # TODO : tu peux faire un layout en grille, par ex. 2 colonnes
         cols = st.columns(2)
         for i, var in enumerate(selected_vars):
             with cols[i % 2]:
                 plot_map(
                     title=var,
-                    col_name=SOCIO_VARIABLES[var],
+                    col_name=load_socio_variables()[var],
                     data=df_view,
                     scope_mode=scope_mode
                 )
@@ -250,10 +249,10 @@ def main():
     with col_access_left:
         prof_label = st.selectbox(
             "Profession utilisée pour le score d'accès aux soins :",
-            options=list(ACCESS_PROFESSIONS.keys()),
+            options=list(load_sante_variables().keys()),
             index=0,
         )
-        access_col = ACCESS_PROFESSIONS[prof_label]
+        access_col = load_sante_variables()[prof_label]
 
     # Calcul du score d'accès
     df_access = compute_access_score(df_socio, access_col)
@@ -267,8 +266,6 @@ def main():
             scope_mode=scope_mode
         )
 
-    # Tu peux ajouter d'autres cartes pour d'autres professions en dessous si tu veux
-    # Exemple : plot_map_placeholder("Accès aux soins – Infirmiers", "...")
 
     st.divider()
 
@@ -290,9 +287,6 @@ def main():
 
     # Calcul du score final
     df_final = compute_double_vulnerability(df_access, alpha=alpha)
-
-    # TODO : ici tu peux définir une typologie (ex : quantiles) et créer une catégorie
-    # df_final["classe_vulnerabilite"] = ...
 
     # Carte finale
     st.subheader("Carte des zones à double vulnérabilité")

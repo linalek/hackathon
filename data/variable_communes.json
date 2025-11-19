@@ -1,41 +1,55 @@
 {
     "Dentistes": {
         "nom_col": "apl_dentistes",
+        "type": "sante",
         "min": 0.0,
         "max": 192.06
     },
     "Sages-femmes": {
         "nom_col": "apl_sagesfemmes",
+        "type": "sante",
         "min": 0.0,
         "max": 187.82
     },
     "Médecins généralistes": {
         "nom_col": "apl_medecins",
+        "type": "sante",
         "min": 0.0,
         "max": 40.03
     },
     "Infirmiers": {
         "nom_col": "apl_infirmiers",
+        "type": "sante",
         "min": 0.0,
         "max": 1665.35
     },
     "Kinésithérapeutes": {
         "nom_col": "apl_kine",
+        "type": "sante",
         "min": 0.0,
         "max": 680.25
     },
     "Part des familles monoparentales": {
         "nom_col": "part_familles_monoparentales",
+        "type": "socio",
         "min": 0.0,
         "max": 100.0
     },
+    "EDI": {
+        "nom_col": "EDI",
+        "type": "socio",
+        "min": -24.21,
+        "max": 30.18
+    },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
+        "type": "socio",
         "min": 0.0,
         "max": 51.1
     },
     "Taux de pauvreté": {
         "nom_col": "tx_pauvrete",
+        "type": "socio",
         "min": 5.0,
         "max": 31.8
     }
