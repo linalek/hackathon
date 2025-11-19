@@ -27,7 +27,7 @@ def convertir_csv_json(nom_csv, index_ligne, info_cle, info_colonnes, delimiteur
     dossier_src = os.path.dirname(dossier_actuel)
     chemin_entree = os.path.join(os.path.dirname(dossier_src), 'data', 'fedi', nom_csv)
     
-    nom_json = os.path.splitext(nom_csv)[0] + ".json"
+    nom_json = os.path.splitext(nom_csv)[0] + "_communes" + ".json"
     chemin_sortie = os.path.join(os.path.dirname(dossier_src), 'data', 'fedi', nom_json)
 
     if not os.path.exists(chemin_entree):
@@ -104,6 +104,8 @@ def convertir_csv_json(nom_csv, index_ligne, info_cle, info_colonnes, delimiteur
                                 valeur_finale = None 
                             else:
                                 valeur_finale = fonction_type(valeur_brute)
+                                if type_col_str == 'float':
+                                    valeur_finale = round(valeur_finale, 2)
 
                         objet_temp[nom_cle_json] = valeur_finale
 
