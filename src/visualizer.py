@@ -3,7 +3,8 @@ import pydeck as pdk
 import pandas as pd
 import json
 import geopandas as gpd
-from src.utils import get_color_scale
+from src.utils import *
+from src.variables import COLOR_RANGE
 
 def plot_map(title, col_name, data, scope_mode, type_data):
     """
@@ -26,8 +27,19 @@ def plot_map(title, col_name, data, scope_mode, type_data):
     data_plot[col_name] = pd.to_numeric(data_plot[col_name], errors='coerce')
     
     # Calcul des min/max pour l'échelle de couleur 
-    min_val = data_plot[col_name].min(skipna=True)
-    max_val = data_plot[col_name].max(skipna=True)
+    if scope_mode == "France":
+        all_vars = load_dico_departements()
+    else:
+        all_vars = load_dico_communes()
+
+    data_info = find_variable_info(all_vars, col_name, type_data)
+    if col_name.startswith("score"):
+        min_val = 0
+        max_val = 100
+    else:
+        min_val = data_info["min"]
+        max_val = data_info["max"]    
+
 
     # Détermination de l'état initial de la vue
     # Centre de la France par défaut (ou centre des données si disponible)
@@ -142,37 +154,47 @@ def plot_map(title, col_name, data, scope_mode, type_data):
         tooltip={"html": tooltip_text, "style": {"color": "white"}},
     ))
 
-    legend_html = """
+    legend_html = f"""
+    <div style="
+        position: absolute;
+        bottom: 50px;      /* hauteur depuis le bas */
+        left: 30px;        /* distance depuis le bord gauche */
+        background: rgba(255,255,255,0.85);
+        padding: 8px 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        z-index: 9999;
+
+    ">
+
+        <!-- Couleurs (vertical gradient) -->
         <div style="
             display: flex;
-            align-items: center;
-            margin-top: 10px;
+            flex-direction: column;
+            height: 200px;
+            width: 28px;
+            border-radius: 4px;
+            overflow: hidden;
         ">
-            <div style="
-                height: 15px;
-                width: 200px;
-                background: linear-gradient(to right,
-                    rgb(0,100,0),
-                    rgb(0,140,0),
-                    rgb(50,170,0),
-                    rgb(120,200,0),
-                    rgb(240,240,0),
-                    rgb(255,200,0),
-                    rgb(255,150,0),
-                    rgb(255,80,0),
-                    rgb(200,0,0)
-                );
-                border-radius: 4px;
-                margin-right: 10px;
-            "></div>
-
-            <span style="color:white;">Faible</span>
-            &nbsp;&nbsp;
-            <span style="color:white;">→</span>
-            &nbsp;&nbsp;
-            <span style="color:white;">Élevé</span>
+            {''.join([
+                f'<div style="flex:1;background:rgb({c[0]}, {c[1]}, {c[2]});"></div>'
+                for c in COLOR_RANGE[::-1]   # inversé pour rouge en haut, vert en bas
+            ])}
         </div>
-        """
 
-    st.markdown(legend_html, unsafe_allow_html=True)
+        <!-- Valeurs Min / Max -->
+        <div style="
+            display:flex;
+            flex-direction:column;
+            margin-top:6px;
+            font-size:0.75rem;
+            text-align:center;
+            width:100%;
+        ">
+            <div style="margin-bottom:2px;">{max_val:.0f}</div>
+            <div style="margin-top:2px;">{min_val:.0f}</div>
+        </div>
+    </div>
+    """
+    st.html(legend_html)
 

@@ -173,7 +173,7 @@ def compute_access_score(df, access_col):
     else:
         norm_apl = (apl - apl_min) / (apl_max - apl_min)
 
-    tmp["score_acces"] = 1 - norm_apl  # 1 = difficulté max
+    tmp["score_acces"] = 100 - norm_apl * 100  # 100 = difficulté max
     return tmp
 
 
@@ -193,50 +193,71 @@ def compute_double_vulnerability(df, alpha=0.5):
 
 def get_color_scale(value, col_name, type_data, scope_mode, color_range=COLOR_RANGE):
     """
-    Retourne une couleur RGBA en fonction d'une valeur normalisée entre min_val et max_val.
-    
+    Retourne une couleur RGBA pour une valeur.
+
+    - L’échelle est globale : min/max (ou p5/p95) viennent de toutes les données.
+    - Pour les variables non "score", on utilise p5/p95 pour éviter que les extrêmes
+      écrasent la palette. Les valeurs < p5 prennent la couleur de p5,
+      les valeurs > p95 prennent la couleur de p95.
+
     type_data :
         - "socio" → taux : faible = vert, élevé = rouge
         - "sante" → APL : élevé = vert, faible = rouge
     """
-
     if scope_mode == "France":
         all_vars = load_dico_departements()
     else:
         all_vars = load_dico_communes()
 
     data_info = find_variable_info(all_vars, col_name, type_data)
-    if data_info is None:
-        return [128, 128, 128, 100]  # gris par défaut
-    
-    max_val = data_info["max"]
-    min_val = data_info["min"]
 
-    # 1) Cas particulier : valeur manquante ou range nul
+    # 1) Définition de la plage utilisée pour la couleur
+    if col_name.startswith("score"):
+        # scores déjà normalisés 0–100
+        min_val = 0
+        max_val = 100
+    else:
+        # on privilégie p5/p95 si disponibles et cohérents
+        p5 = data_info["p5"]
+        p95 = data_info["p95"]
+
+        if p5 is not None and p95 is not None and p95 > p5:
+            min_val = p5
+            max_val = p95
+        else:
+            # fallback : min/max classiques
+            min_val = data_info["min"]
+            max_val = data_info["max"]
+
+    # 2) Cas particulier : valeur manquante ou range nul
     if pd.isna(value) or max_val == min_val:
         return [128, 128, 128, 100]   # gris
 
-    # 2) Normalisation de 0 à 1
-    normalized = (value - min_val) / (max_val - min_val)
-    normalized = max(0, min(1, normalized))  # clamp pour éviter dépassements
+    # 3) Clipping sur [min_val, max_val] pour saturer les extrêmes
+    if value < min_val:
+        value_clipped = min_val
+    elif value > max_val:
+        value_clipped = max_val
+    else:
+        value_clipped = value
 
-    # 3) Inversion selon le type de données
-    # socio : plus c'est haut → pire → vers le rouge → donc normal
-    # sante : plus c'est haut → mieux → on inverse pour aller vers le vert
+    # 4) Normalisation de 0 à 1
+    normalized = (value_clipped - min_val) / (max_val - min_val)
+
+    # 5) Inversion selon le type de données
     if type_data == "sante":
         normalized = 1 - normalized
 
-    # 4) Index dans la palette
+    # 6) Index dans la palette
     index = int(normalized * (len(color_range) - 1))
 
-    # 5) Couleur RGB + alpha
+    # 7) Couleur RGB + alpha
     r, g, b = color_range[index]
-    return [r, g, b, 180]   # alpha 180 pour visible sur carte
+    return [r, g, b, 180]
 
 
 def find_variable_info(all_vars, col_name, type_data):
-    print(all_vars)
     for key, info in all_vars.items():
-        if info["nom_col"] == col_name and info["type_data"] == type_data:
+        if info["nom_col"] == col_name and info["type"] == type_data:
             return info
     return None
