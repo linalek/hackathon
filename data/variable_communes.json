@@ -33,18 +33,18 @@
         "nom_col": "part_familles_monoparentales",
         "type": "socio",
         "min": 0.0,
-        "max": 100.0
+        "max": 75.0
     },
     "EDI": {
         "nom_col": "EDI",
         "type": "socio",
         "min": -24.21,
-        "max": 30.18
+        "max": 22.17
     },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
         "type": "socio",
-        "min": 0.0,
+        "min": 0.4,
         "max": 51.1
     },
     "Taux de pauvreté": {
