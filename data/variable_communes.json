@@ -1,0 +1,42 @@
+{
+    "Dentistes": {
+        "nom_col": "apl_dentistes",
+        "min": 0.0,
+        "max": 192.06
+    },
+    "Sages-femmes": {
+        "nom_col": "apl_sagesfemmes",
+        "min": 0.0,
+        "max": 187.82
+    },
+    "Médecins généralistes": {
+        "nom_col": "apl_medecins",
+        "min": 0.0,
+        "max": 40.03
+    },
+    "Infirmiers": {
+        "nom_col": "apl_infirmiers",
+        "min": 0.0,
+        "max": 1665.35
+    },
+    "Kinésithérapeutes": {
+        "nom_col": "apl_kine",
+        "min": 0.0,
+        "max": 680.25
+    },
+    "Part des familles monoparentales": {
+        "nom_col": "part_familles_monoparentales",
+        "min": 0.0,
+        "max": 100.0
+    },
+    "Part des 75 ans et +": {
+        "nom_col": "part_personnes_agees_75_plus",
+        "min": 0.0,
+        "max": 51.1
+    },
+    "Taux de pauvreté": {
+        "nom_col": "tx_pauvrete",
+        "min": 5.0,
+        "max": 31.8
+    }
+}

@@ -15,10 +15,14 @@ def fusionner_communes_json():
     
     # Dictionnaire principal pour stocker toutes les données fusionnées
     communes_fusionnees = {}
+    communes_exclues = 0
     
     # Rechercher tous les fichiers se terminant par 'communes.json'
     pattern = os.path.join(DATA_DIR, '**', '*communes.json')
-    fichiers_communes = glob.glob(pattern, recursive=True)
+    tous_fichiers = glob.glob(pattern, recursive=True)
+    
+    # Exclure variable_communes.json
+    fichiers_communes = [f for f in tous_fichiers if not f.endswith('variable_communes.json')]
     
     print(f"Fichiers communes trouvés : {len(fichiers_communes)}")
     
@@ -32,6 +36,11 @@ def fusionner_communes_json():
             
             # Fusionner les données
             for code_insee, donnees_commune in data.items():
+                # Exclure les communes d'outre-mer (code commençant par 97)
+                if code_insee.startswith('97'):
+                    communes_exclues += 1
+                    continue
+                
                 if code_insee not in communes_fusionnees:
                     # Créer une nouvelle entrée pour cette commune
                     communes_fusionnees[code_insee] = donnees_commune
@@ -39,50 +48,26 @@ def fusionner_communes_json():
                     # Fusionner avec les données existantes
                     communes_fusionnees[code_insee].update(donnees_commune)
             
-            print(f"     ✓ {len(data)} communes ajoutées/mises à jour")
+            print(f"     ✓ {len(data)} communes traitées")
             
         except Exception as e:
             print(f"     ✗ ERREUR lors du traitement de {fichier}: {e}")
             continue
     
-    # # Compter les paramètres pour détecter les données manquantes
-    # print("\nSTATISTIQUES DES PARAMÈTRES PAR COMMUNE :")
-    # print("-" * 60)
+    if communes_exclues > 0:
+        print(f"\n{communes_exclues} commune(s) d'outre-mer exclue(s)")
     
-    # # Collecter tous les paramètres uniques
-    # tous_parametres = set()
-    # for donnees in communes_fusionnees.values():
-    #     tous_parametres.update(donnees.keys())
-    
-    # # Compter pour chaque paramètre
-    # comptage_parametres = {}
-    # for parametre in sorted(tous_parametres):
-    #     count = sum(1 for commune in communes_fusionnees.values() 
-    #                if parametre in commune and commune[parametre] is not None)
-    #     comptage_parametres[parametre] = count
-        
-    #     # Calculer le pourcentage
-    #     pourcentage = (count / len(communes_fusionnees)) * 100 if len(communes_fusionnees) > 0 else 0
-        
-    #     # Afficher avec indication visuelle
-    #     if pourcentage == 100:
-    #         statut = "✅"
-    #     elif pourcentage >= 80:
-    #         statut = "⚠️ "
-    #     else:
-    #         statut = "❌"
-        
-    #     print(f"{statut} {parametre:40s} : {count:5d} / {len(communes_fusionnees):5d} ({pourcentage:6.2f}%)")
+    # Trier les communes par ordre croissant de code INSEE
+    communes_triees = dict(sorted(communes_fusionnees.items()))
     
     # Sauvegarder le fichier fusionné
     fichier_output = os.path.join(OUTPUT_DIR, 'communes.json')
     with open(fichier_output, 'w', encoding='utf-8') as f:
-        json.dump(communes_fusionnees, f, ensure_ascii=False, indent=4)
+        json.dump(communes_triees, f, ensure_ascii=False, indent=4)
     
     print("\n" + "=" * 60)
     print(f"Fichier communes fusionné créé : {fichier_output}")
-    print(f"   Nombre total de communes : {len(communes_fusionnees)}")
-    # print(f"   Nombre de paramètres uniques : {len(tous_parametres)}")
+    print(f"   Nombre total de communes : {len(communes_triees)}")
     
     return communes_fusionnees
 
@@ -100,7 +85,10 @@ def fusionner_departements_json():
     
     # Rechercher tous les fichiers se terminant par 'departements.json'
     pattern = os.path.join(DATA_DIR, '**', '*departements.json')
-    fichiers_departements = glob.glob(pattern, recursive=True)
+    tous_fichiers = glob.glob(pattern, recursive=True)
+    
+    # Exclure variable_departements.json
+    fichiers_departements = [f for f in tous_fichiers if not f.endswith('variable_departements.json')]
     
     print(f"Fichiers départements trouvés : {len(fichiers_departements)}")
     

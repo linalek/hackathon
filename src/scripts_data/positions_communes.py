@@ -132,4 +132,4 @@ CHEMIN_JSON_COMMUNES = "data/communes.json"
 CHEMIN_JSON_DEPARTEMENTS = "data/departements.json"
 
 enrichir_communes_et_sauvegarder(CHEMIN_JSON_COMMUNES, CHEMIN_GPKG)
-enrichir_departements_et_sauvegarder(CHEMIN_JSON_DEPARTEMENTS, CHEMIN_GPKG)
+#enrichir_departements_et_sauvegarder(CHEMIN_JSON_DEPARTEMENTS, CHEMIN_GPKG)
