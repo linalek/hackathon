@@ -149,7 +149,7 @@ def compute_socio_score(df, selected_vars, weights):
         w = weights[var_label] / total_weight if total_weight > 0 else 0
         score = score + w * norm
 
-    tmp["score_socio"] = score * 100
+    tmp["score_socio"] = round(score * 100, 2)
     return tmp
 
 
@@ -173,7 +173,7 @@ def compute_access_score(df, access_col):
     else:
         norm_apl = (apl - apl_min) / (apl_max - apl_min)
 
-    tmp["score_acces"] = 100 - norm_apl * 100  # 100 = difficulté max
+    tmp["score_acces"] = round(100 - norm_apl * 100, 2)  # 100 = difficulté max
     return tmp
 
 
