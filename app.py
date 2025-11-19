@@ -211,7 +211,6 @@ def main():
     if selected_vars:
         st.subheader("Cartes des variables sélectionnées")
 
-        # TODO : tu peux faire un layout en grille, par ex. 2 colonnes
         cols = st.columns(2)
         for i, var in enumerate(selected_vars):
             with cols[i % 2]:
@@ -219,7 +218,8 @@ def main():
                     title=var,
                     col_name=SOCIO_VARIABLES[var],
                     data=df_view,
-                    scope_mode=scope_mode
+                    scope_mode=scope_mode,
+                    type_data="socio"
                 )
 
     # Carte du score socio-éco
@@ -228,7 +228,8 @@ def main():
         title="Score socio-économique agrégé",
         col_name="score_socio",
         data=df_socio,
-        scope_mode=scope_mode
+        scope_mode=scope_mode,
+        type_data="socio"
     )
 
     st.divider()
@@ -264,7 +265,8 @@ def main():
             title=f"Accès aux soins – {prof_label}",
             col_name=access_col,
             data=df_access,
-            scope_mode=scope_mode
+            scope_mode=scope_mode,
+            type_data="sante"
         )
 
     # Tu peux ajouter d'autres cartes pour d'autres professions en dessous si tu veux
@@ -300,7 +302,8 @@ def main():
         title="Score de double vulnérabilité",
         col_name="score_acces",
         data=df_final,
-        scope_mode=scope_mode
+        scope_mode=scope_mode,
+        type_data="socio"
     )
 
     # Tableau de classement

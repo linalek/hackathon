@@ -43,7 +43,7 @@ def compute_socio_score(df, selected_vars, weights):
         w = weights[var_label] / total_weight if total_weight > 0 else 0
         score = score + w * norm
 
-    tmp["score_socio"] = score
+    tmp["score_socio"] = score * 100
     return tmp
 
 
@@ -85,16 +85,32 @@ def compute_double_vulnerability(df, alpha=0.5):
     return tmp
 
 
-def get_color_scale(value, min_val, max_val, color_range=COLOR_RANGE):
-    """Calcule la couleur basée sur la valeur dans la plage min/max."""
+def get_color_scale(value, min_val, max_val, type_data, color_range=COLOR_RANGE):
+    """
+    Retourne une couleur RGBA en fonction d'une valeur normalisée entre min_val et max_val.
+    
+    type_data :
+        - "socio" → taux : faible = vert, élevé = rouge
+        - "sante" → APL : élevé = vert, faible = rouge
+    """
+
+    # 1) Cas particulier : valeur manquante ou range nul
     if pd.isna(value) or max_val == min_val:
-        return [128, 128, 128, 100] # Gris pour les données manquantes ou si le range est nul
-    
-    # Normalisation de la valeur entre 0 et 1
+        return [128, 128, 128, 100]   # gris
+
+    # 2) Normalisation de 0 à 1
     normalized = (value - min_val) / (max_val - min_val)
-    
-    # Trouver l'index dans la plage de couleurs
+    normalized = max(0, min(1, normalized))  # clamp pour éviter dépassements
+
+    # 3) Inversion selon le type de données
+    # socio : plus c'est haut → pire → vers le rouge → donc normal
+    # sante : plus c'est haut → mieux → on inverse pour aller vers le vert
+    if type_data == "sante":
+        normalized = 1 - normalized
+
+    # 4) Index dans la palette
     index = int(normalized * (len(color_range) - 1))
-    
-    # Simplement retourner la couleur à cet index (sans interpolation linéaire pour simplifier)
-    return color_range[index]
+
+    # 5) Couleur RGB + alpha
+    r, g, b = color_range[index]
+    return [r, g, b, 180]   # alpha 180 pour visible sur carte

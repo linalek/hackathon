@@ -7,7 +7,7 @@ import geopandas as gpd
 from shapely.geometry import shape
 from src.utils import get_color_scale
 
-def plot_map(title, col_name, data, scope_mode):
+def plot_map(title, col_name, data, scope_mode, type_data):
     """
     Affiche une carte PyDeck pour visualiser une variable selon le périmètre (France/Département).
     
@@ -73,7 +73,7 @@ def plot_map(title, col_name, data, scope_mode):
             if pd.isna(x):
                 # gris clair si pas de valeur
                 return [220, 220, 220, 60]
-            return get_color_scale(x, min_val, max_val)
+            return get_color_scale(x, min_val, max_val, type_data=type_data)
         
         data_plot['fill_color'] = data_plot[col_name].apply(_color_or_default)
 
@@ -104,12 +104,9 @@ def plot_map(title, col_name, data, scope_mode):
         # Nettoyage des coordonnées (éviter les NaNs)
         data_plot = data_plot.dropna(subset=['lon', 'lat']).copy()
         
-        # Application de la fonction de couleur sur chaque point (pour la taille du point)
-        data_plot['radius'] = data_plot[col_name].apply(
-            lambda x: 100 + (x - min_val) / (max_val - min_val) * 1000 if not pd.isna(x) else 0 
-        )
+    
         data_plot['fill_color'] = data_plot[col_name].apply(
-            lambda x: get_color_scale(x, min_val, max_val)
+            lambda x: get_color_scale(x, min_val, max_val, type_data)
         )
         
         # Adapter la vue au centre du département sélectionné
@@ -126,9 +123,7 @@ def plot_map(title, col_name, data, scope_mode):
             data=data_plot,
             get_position=['lon', 'lat'],
             get_fill_color="fill_color",
-            get_radius='radius', # Utilise la taille calculée
-            radius_min_pixels=2,
-            radius_max_pixels=30,
+            get_radius=1000, # Taille fixe des points
             pickable=True,
         )
 
@@ -137,10 +132,14 @@ def plot_map(title, col_name, data, scope_mode):
     # ----------------------------------------------------------------
     
     # Ajout du Tooltip pour l'interaction
-    tooltip_text = f"**{title}**\n\n{{{'CODGEO' if scope_mode == 'Département' else 'DEP' if scope_mode == 'France' else 'Code'}}}: {{{data.columns[0]}}}\n{title}: {{{col_name}}}"
+    if type_data == "socio":
+        tooltip_text = f"{{{data.columns[1]}}} : {{{col_name}}} %"
+    else:
+        tooltip_text = f"{{{data.columns[1]}}} : {{{col_name}}}"
     
     st.pydeck_chart(pdk.Deck(
+        map_style="white",
         layers=[layer],
         initial_view_state=initial_view_state,
-        tooltip={"html": tooltip_text, "style": {"color": "black"}},
+        tooltip={"html": tooltip_text, "style": {"color": "white"}},
     ))
