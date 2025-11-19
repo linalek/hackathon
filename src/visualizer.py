@@ -44,7 +44,55 @@ def plot_map(title, subtitle, data, scope_mode):
     # CAS 1: MODE FRANCE
     # ----------------------------------------------------------------
     if scope_mode == "France":
-        pass
+        
+        # Vérification des données de géométrie
+        if 'geojson_geometry' not in data_plot.columns:
+            st.error("La colonne 'geojson_geometry' est manquante. Assurez-vous d'avoir enrichi les données départementales.")
+            return
+        
+         
+        # Application de la fonction de couleur sur chaque ligne
+        data_plot['fill_color'] = data_plot.apply(
+            lambda row: get_color_scale(row[col_name], min_val, max_val), axis=1
+        )
+
+        # Conversion temporaire en GeoDataFrame à partir du JSON (plus fiable)
+        try:
+            # Re-créer la colonne 'geometry' de type Shapely
+            geometry_series = data_plot['geojson_geometry'].apply(shape)
+            
+            # Créer le GeoDataFrame temporaire avec la colonne de couleur
+            gdf_temp = gpd.GeoDataFrame(
+                data_plot.drop(columns=['geojson_geometry']), 
+                geometry=geometry_series, 
+                crs=4326 # WGS84
+            )
+            
+            # 3. Exporter au format GeoJSON (FeatureCollection)
+            # La colonne 'fillColor' passe dans les propriétés de la Feature.
+            data_geo_json = gdf_temp.to_json() 
+            
+        except Exception as e:
+            st.error(f"Erreur lors de la conversion GeoJSON pour PyDeck : {e}")
+            return
+        
+        # Le GeoJSONLayer utilise une colonne GeoJSON pour la visualisation des polygones
+        layer = pdk.Layer(
+            "GeoJsonLayer",
+            # Passer la chaîne GeoJSON (FeatureCollection)
+            data=data_geo_json, 
+            opacity=0.8,
+            stroked=True,
+            filled=True,
+            extruded=False,
+            wireframe=True,
+            # Accès à la propriété 'fillColor' qui est dans les Feature properties
+            get_fill_color="properties.fillColor", 
+            get_line_color=[0, 0, 0, 255],   
+            get_line_width=10, # 10 mètres de large pour le trait
+            pickable=True,
+        )
+        # Mettre à jour la vue pour la France entière
         
     # ----------------------------------------------------------------
     # CAS 2: MODE DÉPARTEMENT (CARTE À POINTS DES COMMUNES)

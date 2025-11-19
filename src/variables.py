@@ -3,7 +3,12 @@
 # ===========================
 
 SOCIO_VARIABLES = {
-    "Taux de pauvreté": "tx_pauvrete",
+    "Taux de pauvreté":{
+        "nom_col" :"tx_pauvrete",
+        "echelle": ["departement", "commune "],
+        "min": 0,
+        "max": 100
+    },
     "Part des familles monoparentales": "part_familles_monoparentales",
     "Part des 75 ans et +": "part_personnes_agees_75_plus",
     "Taux de chômage": "tx_chomage",
