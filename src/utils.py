@@ -92,6 +92,27 @@ def load_sante_variables():
     
     return variables_sante
 
+def load_dico_communes():
+    """ Retourne le dictionnaire des variables pour les communes sous le même forme que le json"""
+    
+    fichier_communes = "data/variable_communes.json"
+    if os.path.exists(fichier_communes):
+        with open(fichier_communes, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    
+    return {}
+
+
+def load_dico_departements():
+    """ Retourne le dictionnaire des variables pour les départements sous le même forme que le json"""
+    
+    fichier_departements = "data/variable_departements.json"
+    if os.path.exists(fichier_departements):
+        with open(fichier_departements, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    
+    return {}
+
 def compute_socio_score(df, selected_vars, weights):
     """
     Calcule le score de vulnérabilité socio-économique V
