@@ -25,19 +25,21 @@ def main():
     # -----------------------
     # Titre & explication
     # -----------------------
-    st.title("Diagnostic territorial : zones à double vulnérabilité")
+    st.title("Votre présence fait la différence 🩺")
+    st.subheader("Professionnel de santé ? Député ? Représentant local ? Entreprise de la santé ? ONG ? Identifiez les zones où votre installation de santé serait la plus utile.")
+    st.markdown(
+        """
+        Cette application interactive vous permet de mettre en évidence les zones de **double vulnérabilité** caractérisées par :
+        * une **vulnérabilité socio-économique élevée**,
+        * une **difficulté d’accès aux soins** liée à une offre insuffisante.
+        """
+    )
 
     st.markdown(
         """
-        Cette application permet d’identifier, à l’échelle des **départements**,
-        les **zones à double vulnérabilité** :
-        - vulnérabilité **socio-économique** élevée  
-        - **difficulté d’accès aux soins** (offre de soins insuffisante)
+        ► &nbsp; Vous hésitez encore sur la zone où vous installer ? Explorez d’abord les résultats à l’**échelle nationale** pour identifier les départements les plus prioritaires.
 
-        Vous pouvez :
-        - choisir les **facteurs socio-économiques** pris en compte et leurs **poids**,
-        - visualiser les **cartes intermédiaires**,
-        - explorer la **carte finale** des zones prioritaires.
+        ► &nbsp; Vous avez déjà un département en tête ? Accédez directement au **détail des communes** pour affiner votre analyse.
         """
     )
 
@@ -63,7 +65,7 @@ def main():
     )
 
     # 2) Choix du périmètre
-    st.sidebar.subheader("Périmètre des données")
+    st.sidebar.header("Périmètre des données :")
 
     # Initialisation d’état
     if "scope_mode" not in st.session_state:
@@ -126,8 +128,8 @@ def main():
 
     st.markdown(
         """
-        Ajoutez des **critères socio-économiques** à prendre en compte dans le score,
-        ajustez leur **poids** puis visualisez les cartes associées.
+        Choisissez les **indicateurs socio-économiques** que vous souhaitez inclure,
+        définissez leur **pondération**, puis observez l’impact sur la carte du score.
         """
     )
 
@@ -135,13 +137,22 @@ def main():
     if "socio_criteria" not in st.session_state:
         st.session_state.socio_criteria = []
 
+    if "crit_to_add_select" not in st.session_state:
+        st.session_state.crit_to_add_select = "— Sélectionner —"
+
+    def add_criterion_callback():
+        crit = st.session_state.crit_to_add_select
+        if crit != "— Sélectionner —":
+            st.session_state.socio_criteria.append(crit)
+        # Reset du selecteur
+        st.session_state.crit_to_add_select = "— Sélectionner —"
+
+
     # Liste des critères encore disponibles à ajouter
     available_criteria = [
         label for label in load_socio_variables().keys()
         if label not in st.session_state.socio_criteria
     ]
-
-    st.markdown("#### Ajouter un critère")
 
     add_col1, add_col2 = st.columns([3, 1])
 
@@ -154,12 +165,11 @@ def main():
         )
 
     with add_col2:
-        add_clicked = st.button("Ajouter", width='stretch')
+        add_clicked = st.button("Ajouter", width='stretch', on_click=add_criterion_callback)
 
     if add_clicked and crit_to_add != "— Sélectionner —":
         st.session_state.socio_criteria.append(crit_to_add)
 
-    st.markdown("---")
 
     # --- affichage des critères sélectionnés (1 ligne = label + slider + poubelle) ---
     selected_vars = list(st.session_state.socio_criteria)
@@ -168,7 +178,6 @@ def main():
     if not selected_vars:
         st.info("Ajoutez au moins un critère pour calculer un score socio-économique.")
     else:
-        st.markdown("#### Critères utilisés et poids associés")
 
         # On stocke ici les critères à supprimer pour ne pas modifier la liste pendant la boucle
         to_remove = []
@@ -226,7 +235,7 @@ def main():
 
     # Carte du score socio-éco
     plot_map(
-        title="Score socio-économique",
+        title="Votre score socio-économique : ",
         col_name="score_socio",
         data=df_socio,
         scope_mode=scope_mode,
@@ -242,29 +251,38 @@ def main():
     # ===========================
     st.header("Accès aux soins")
 
-    st.markdown(
-        """
-        Les scores d’accès aux soins sont calculés à partir des indicateurs d’**accessibilité potentielle localisée (APL)**.  
-        Vous pouvez choisir la **profession de santé** considérée.
-        """
-    )
 
-    col_access_left, col_access_right = st.columns([1, 2])
+    col_access_left, col_access_right = st.columns([1, 1])
 
     with col_access_left:
+        st.markdown(
+            """
+            Indiquez votre profession de santé :
+            """
+        )
         prof_label = st.selectbox(
             "Profession utilisée pour le score d'accès aux soins :",
             options=list(load_sante_variables().keys()),
+            label_visibility="collapsed",
             index=0,
+            width=300
         )
         access_col = load_sante_variables()[prof_label]
+
+        st.markdown("""
+            L’**APL (Accessibilité Potentielle Localisée)** est un indicateur qui mesure la facilité pour les habitants d’accéder à un professionnel de santé, en tenant compte de l’offre disponible et du type de population.
+            - **Médecins généralistes** : unité = **nombre de consultations accessibles par habitant et par an**.
+            - **Autres professions de santé** : unité = **ETP pour 100 000 habitants** (un ETP correspond à un professionnel travaillant à temps plein — par exemple deux mi-temps = 1 ETP).
+            """
+        )
+
 
     # Calcul du score d'accès
     df_access = compute_access_score(df_socio, access_col, scope_mode)
 
     with col_access_right:
         plot_map(
-            title=f"Accès aux soins – {prof_label}",
+            title=f"Accessibilité Potentielle Localisée – {prof_label}",
             col_name=access_col,
             data=df_access,
             scope_mode=scope_mode,
@@ -282,12 +300,9 @@ def main():
 
     st.markdown(
         """
-        Le score de **double vulnérabilité** combine :  
-        - le score de **vulnérabilité socio-économique**,  
-        - la **difficulté d’accès aux soins**.  
+        Un score élevé indique une zone où les populations sont à la fois **socialement fragilisées** *et* **peu couvertes par l’offre de soins** — des territoires particulièrement **stratégiques** pour des actions de prévention, l’installation de nouveaux professionnels ou le renforcement des services existants.
 
-        Les territoires avec un score élevé peuvent être considérés comme **prioritaires**
-        pour des actions de prévention ou l’installation de nouvelles offres de soins.
+        Cet outil vous aide à **identifier en un coup d’œil** où votre présence pourrait avoir **le plus d’impact** :
         """
     )
 
@@ -305,13 +320,23 @@ def main():
         change_var=[code_dep_selected, access_col, alpha, weights, selected_vars]
     )
     # Tableau de classement
-    st.subheader("Classement des départements")
-    st.markdown(
-        """
-        Classement des départements selon le score de double vulnérabilité
-        (du plus vulnérable au moins vulnérable).
-        """
-    )
+
+    if scope_mode == "France":
+        st.subheader("Classement des départements")
+        st.markdown(
+            """
+            Découvrez les **10 départements les plus vulnérables**, selon leur score de double vulnérabilité : du **plus vulnérable** au **moins vulnérable**.  
+            """
+        )
+
+    elif scope_mode == "Département":
+        st.subheader("Classement des communes")
+        st.markdown(
+            """
+            Découvrez les **10 communes les plus vulnérables** de ce département, classées du **score le plus élevé** (vulnérabilité forte) au **moins élevé**.  
+            """
+        )
+
     required_cols = ["score_double", "score_socio", "score_acces"]
     if all(col in df_final.columns for col in required_cols):
         all_scores_computed = all(
