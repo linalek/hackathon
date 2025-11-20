@@ -128,6 +128,7 @@ def plot_map(title, col_name, data, scope_mode, type_data, df_scores=None, chang
 
 @st.cache_data
 def build_map_deck(title, col_name, _data, scope_mode, type_data, _df_scores=None, change_var=None):
+    print(f"🔄 Construction de la carte pour {title} en mode {scope_mode}")
     data = _data.copy()
     df_scores = _df_scores.copy() if _df_scores is not None else None
 

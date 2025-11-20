@@ -88,7 +88,7 @@
         "q3": 4.13,
         "p95": 5.67,
         "unit":"",
-        "order": false
+        "order": true
     },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",

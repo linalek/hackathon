@@ -116,8 +116,7 @@ def load_dico_departements():
     
     return {}
 
-@st.cache_data
-def compute_socio_score(_df, selected_vars, weights, scope_mode, code_dep_selected=None):
+def compute_socio_score(df, selected_vars, weights, scope_mode):
     """
     Calcule le score de vulnérabilité socio-économique V en [0,100].
 
@@ -126,7 +125,7 @@ def compute_socio_score(_df, selected_vars, weights, scope_mode, code_dep_select
     weights : dict {label_humain: poids_float}
     scope_mode : "France" ou "Departement" (ou ce que tu utilises)
     """
-    df = _df.copy()
+    print("🔄 Calcul du score socio-économique avec les variables :", selected_vars)
     if not selected_vars:
         df["score_socio"] = np.nan
         return df
@@ -196,37 +195,50 @@ def compute_socio_score(_df, selected_vars, weights, scope_mode, code_dep_select
     tmp["score_socio"] = (score * 100).round(2)
     return tmp
 
-@st.cache_data
-def compute_access_score(_df, access_col, code_dep_selected=None):
+def compute_access_score(df, access_col, scope_mode):
     """
     Calcule le score de difficulté d'accès aux soins
     à partir d'une colonne APL (plus APL est haut, meilleur est l'accès).
     On renverse pour obtenir une "difficulté".
     """
-    tmp = _df.copy()
+    print(f"🔄 Calcul du score d'accès aux soins à partir de la colonne {access_col}")
+    tmp = df.copy()
 
     if access_col not in tmp.columns:
         tmp["score_acces"] = np.nan
         return tmp
 
     apl = tmp[access_col].astype(float)
-    apl_min = apl.min()
-    apl_max = apl.max()
-    if apl_max == apl_min:
-        norm_apl = 0
+
+    if scope_mode == "France":
+        all_vars = load_dico_departements()
+    else:
+        all_vars = load_dico_communes()
+
+    data_info = find_variable_info(all_vars, access_col, "sante")
+    if data_info is not None and "min" in data_info and "max" in data_info:
+        apl_min = data_info["min"]
+        apl_max = data_info["max"]
+    else:
+        apl_min = apl.min()
+        apl_max = apl.max()
+
+    if pd.isna(apl_min) or pd.isna(apl_max) or apl_max == apl_min:
+        norm_apl = pd.Series(0.0, index=tmp.index)
     else:
         norm_apl = (apl - apl_min) / (apl_max - apl_min)
+    difficulte = 1 - norm_apl
 
-    tmp["score_acces"] = round(100 - norm_apl * 100, 2)  # 100 = difficulté max
+    tmp["score_acces"] = (difficulte * 100).round(2)  # 100 = difficulté max
     return tmp
 
-@st.cache_data
-def compute_double_vulnerability(_df, alpha=0.5, code_dep_selected=None):
+def compute_double_vulnerability(df, alpha=0.5):
     """
     Combine les scores socio (V) et accès (D_access) en un score DV.
     DV = alpha * V + (1 - alpha) * score_acces
     """
-    tmp = _df.copy()
+    print(f"🔄 Calcul du score de double vulnérabilité avec alpha={alpha}")
+    tmp = df.copy()
     if "score_socio" not in tmp.columns or "score_acces" not in tmp.columns:
         tmp["score_double"] = np.nan
         return tmp

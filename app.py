@@ -21,6 +21,7 @@ st.set_page_config(
 
 
 def main():
+    print("\n✴️  Rerun de la page")
     # -----------------------
     # Titre & explication
     # -----------------------
@@ -132,8 +133,7 @@ def main():
 
     # --- gestion de l'état des critères sélectionnés ---
     if "socio_criteria" not in st.session_state:
-        # valeur de départ : par exemple taux de pauvreté
-        st.session_state.socio_criteria = ["Taux de pauvreté"]
+        st.session_state.socio_criteria = []
 
     # Liste des critères encore disponibles à ajouter
     available_criteria = [
@@ -205,7 +205,7 @@ def main():
         weights = {crit: weights.get(crit, 0.0) for crit in selected_vars}
 
     # Calcul du score socio-éco
-    df_socio = compute_socio_score(df_view, selected_vars, weights, scope_mode, code_dep_selected)
+    df_socio = compute_socio_score(df_view, selected_vars, weights, scope_mode)
 
     # Mini-cartes par variable
     if selected_vars:
@@ -260,7 +260,7 @@ def main():
         access_col = load_sante_variables()[prof_label]
 
     # Calcul du score d'accès
-    df_access = compute_access_score(df_socio, access_col, code_dep_selected)
+    df_access = compute_access_score(df_socio, access_col, scope_mode)
 
     with col_access_right:
         plot_map(
@@ -292,7 +292,7 @@ def main():
     )
 
     # Calcul du score final
-    df_final = compute_double_vulnerability(df_access, alpha, code_dep_selected)
+    df_final = compute_double_vulnerability(df_access, alpha)
 
     # Carte finale
     plot_map(
@@ -302,7 +302,7 @@ def main():
         scope_mode=scope_mode,
         type_data="socio",
         df_scores=df_final,
-        change_var=[code_dep_selected, access_col, alpha, weights]
+        change_var=[code_dep_selected, access_col, alpha, weights, selected_vars]
     )
 
     # Tableau de classement
