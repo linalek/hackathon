@@ -293,7 +293,7 @@ def main():
 
     # Calcul du score final
     df_final = compute_double_vulnerability(df_access, alpha)
-    st.write(df_final.head())
+
     # Carte finale
     plot_map(
         title="Score de double vulnérabilité",
