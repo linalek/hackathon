@@ -205,31 +205,34 @@ def main():
         weights = {crit: weights.get(crit, 0.0) for crit in selected_vars}
 
     # Calcul du score socio-éco
-    df_socio = compute_socio_score(df_view, selected_vars, weights)
+    df_socio = compute_socio_score(df_view, selected_vars, weights, scope_mode, code_dep_selected)
 
     # Mini-cartes par variable
     if selected_vars:
         st.subheader("Cartes des variables sélectionnées")
 
-        cols = st.columns(2)
+        cols = st.columns(3)
         for i, var in enumerate(selected_vars):
-            with cols[i % 2]:
+            with cols[i % 3]:
                 plot_map(
                     title=var,
                     col_name=load_socio_variables()[var],
                     data=df_view,
                     scope_mode=scope_mode,
-                    type_data="socio"
+                    type_data="socio",
+                    df_scores=None,
+                    change_var=[code_dep_selected]
                 )
 
     # Carte du score socio-éco
-    st.subheader("Carte du score de vulnérabilité socio-économique")
     plot_map(
-        title="Score socio-économique agrégé",
+        title="Score socio-économique",
         col_name="score_socio",
         data=df_socio,
         scope_mode=scope_mode,
-        type_data="socio"
+        type_data="socio",
+        df_scores=df_socio,
+        change_var=[code_dep_selected, selected_vars, weights]
     )
 
     st.divider()
@@ -257,16 +260,16 @@ def main():
         access_col = load_sante_variables()[prof_label]
 
     # Calcul du score d'accès
-    df_access = compute_access_score(df_socio, access_col)
+    df_access = compute_access_score(df_socio, access_col, code_dep_selected)
 
     with col_access_right:
-        st.markdown("#### Carte de l’indicateur d’accès aux soins")
         plot_map(
             title=f"Accès aux soins – {prof_label}",
             col_name=access_col,
             data=df_access,
             scope_mode=scope_mode,
-            type_data="sante"
+            type_data="sante",
+            change_var=[code_dep_selected, access_col]
         )
 
 
@@ -289,16 +292,17 @@ def main():
     )
 
     # Calcul du score final
-    df_final = compute_double_vulnerability(df_access, alpha=alpha)
+    df_final = compute_double_vulnerability(df_access, alpha, code_dep_selected)
 
     # Carte finale
-    st.subheader("Carte des zones à double vulnérabilité")
     plot_map(
         title="Score de double vulnérabilité",
-        col_name="score_acces",
+        col_name="score_double",
         data=df_final,
         scope_mode=scope_mode,
-        type_data="socio"
+        type_data="socio",
+        df_scores=df_final,
+        change_var=[code_dep_selected, access_col, alpha, weights]
     )
 
     # Tableau de classement

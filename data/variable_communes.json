@@ -9,7 +9,8 @@
         "q2": 33.17,
         "q3": 49.48,
         "p95": 78.07,
-        "unit" : "En ETP pour 100 000 habitants"
+        "unit" : "En ETP pour 100 000 habitants",
+        "order": false
     },
     "Sages-femmes": {
         "nom_col": "apl_sagesfemmes",
@@ -21,7 +22,8 @@
         "q2": 15.84,
         "q3": 21.84,
         "p95": 31.76,
-        "unit" : "En ETP pour 100 000 habitantes"
+        "unit" : "En ETP pour 100 000 habitantes",
+        "order": false
     },
     "Médecins généralistes": {
         "nom_col": "apl_medecins",
@@ -33,7 +35,8 @@
         "q2": 2.93,
         "q3": 3.74,
         "p95": 5.14,
-        "unit": "En nb de consultations accessibles par habitant et par an"
+        "unit": "En nb de consultations accessibles par habitant et par an",
+        "order": false
     },
     "Infirmiers": {
         "nom_col": "apl_infirmiers",
@@ -45,7 +48,8 @@
         "q2": 109.15,
         "q3": 151.4,
         "p95": 233.38,
-        "unit" : "En ETP pour 100 000 habitants"
+        "unit" : "En ETP pour 100 000 habitants",
+        "order": false
     },
     "Kinésithérapeutes": {
         "nom_col": "apl_kine",
@@ -57,7 +61,8 @@
         "q2": 67.89,
         "q3": 99.7,
         "p95": 171.65,
-        "unit" : "En ETP pour 100 000 habitants"
+        "unit" : "En ETP pour 100 000 habitants",
+        "order": false
     },
     "Part des familles monoparentales": {
         "nom_col": "part_familles_monoparentales",
@@ -69,9 +74,10 @@
         "q2": 11.4,
         "q3": 16.1,
         "p95": 24.9,
-        "unit" : "En %"
+        "unit" : "En %",
+        "order": true
     },
-    "EDI": {
+    "EDI (indice européen de défavorisation matérielle)": {
         "nom_col": "EDI",
         "type": "socio",
         "min": -24.21,
@@ -81,7 +87,8 @@
         "q2": -0.3,
         "q3": 1.76,
         "p95": 5.81,
-        "unit":"En ?"
+        "unit":"",
+        "order": false
     },
     "Part des 75 ans et +": {
         "nom_col": "part_personnes_agees_75_plus",
@@ -93,7 +100,8 @@
         "q2": 9.5,
         "q3": 12.5,
         "p95": 18.4,
-        "unit" : "En %"
+        "unit" : "En %",
+        "order": true
     },
     "Taux de pauvreté": {
         "nom_col": "tx_pauvrete",
@@ -105,6 +113,7 @@
         "q2": 14.2,
         "q3": 16.8,
         "p95": 21.2,
-        "unit" : "En %"
+        "unit" : "En %",
+        "order": true
     }
 }
