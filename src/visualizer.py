@@ -33,84 +33,84 @@ def plot_map(title, col_name, data, scope_mode, type_data, df_scores=None, chang
             # autres variables → on prend les stats sur data
             stats = get_variable_stats(col_name, type_data, scope_mode)
            
+        if stats is not None:
+            # AFFICHAGE DE LA LÉGENDE
+            legend_colors = COLOR_RANGE[::-1]     # haut=rouge, bas=vert
 
-        # AFFICHAGE DE LA LÉGENDE
-        legend_colors = COLOR_RANGE[::-1]     # haut=rouge, bas=vert
-
-        # valeurs affichées dans la légende
-        if stats["order_normal"]:
-            legend_values = ["> " + str(stats["p95"]), stats["q3"], stats["q2"], stats["q1"], "< " + str(stats["p5"])]
-        else:
-            # inverser l'ordre pour que la valeur haute soit en bas
-            legend_values = ["< " + str(stats["p5"]), stats["q1"], stats["q2"], stats["q3"], "> " + str(stats["p95"])]
-       
-        legend_html = f"""
-            <div style="
-                position:absolute;
-                bottom:20px;
-                left:15px;
-                background:rgba(255,255,255,0.9);
-                padding:8px 10px;
-                border-radius:10px;
-                box-shadow:0 2px 6px rgba(0,0,0,0.25);
-                z-index:9999;
-                font-family: sans-serif;
-                max-width:120px;
-            ">
-
-                <!-- Conteneur barre + labels -->
-                <div style="display:flex; flex-direction:row; align-items:center;">
-
-                    <!-- BARRE VERTICALE -->
-                    <div style="
-                        display:flex;
-                        flex-direction:column;
-                        height:220px;
-                        width:16px;
-                        border-radius:4px;
-                        overflow:hidden;
-                        margin-right:5px;
-                    ">
-                        {''.join([
-                            f'<div style="flex:1;background:rgb({c[0]}, {c[1]}, {c[2]});"></div>'
-                            for c in legend_colors
-                        ])}
-                    </div>
-
-                    <!-- VALEURS -->
-                    <div style="
-                        display:flex;
-                        flex-direction:column;
-                        justify-content:space-between;
-                        height:220px;
-                        font-size:0.85rem;
-                    ">
-                        <div>{legend_values[0]}</div>
-                        <div>{legend_values[1]}</div>
-                        <div>{legend_values[2]}</div>
-                        <div>{legend_values[3]}</div>
-                        <div>{legend_values[4]}</div>
-                    </div>
-                </div>
-
-                <!-- Unité -->
-                <div style="
-                    margin-top:6px;
-                    font-size:0.65rem;
-                    opacity:0.8;
-                    white-space:normal;
-                    word-wrap:break-word;
-                    margin-left:auto;
-                    margin-right:auto;
-                ">
-                    {stats["unit"]}
-                </div>
-
-            </div>
-            """
-
+            # valeurs affichées dans la légende
+            if stats["order_normal"]:
+                legend_values = ["> " + str(stats["p95"]), stats["q3"], stats["q2"], stats["q1"], "< " + str(stats["p5"])]
+            else:
+                # inverser l'ordre pour que la valeur haute soit en bas
+                legend_values = ["< " + str(stats["p5"]), stats["q1"], stats["q2"], stats["q3"], "> " + str(stats["p95"])]
         
-        st.html(legend_html)
+            legend_html = f"""
+                <div style="
+                    position:absolute;
+                    bottom:20px;
+                    left:15px;
+                    background:rgba(255,255,255,0.9);
+                    padding:8px 10px;
+                    border-radius:10px;
+                    box-shadow:0 2px 6px rgba(0,0,0,0.25);
+                    z-index:9999;
+                    font-family: sans-serif;
+                    max-width:120px;
+                ">
+
+                    <!-- Conteneur barre + labels -->
+                    <div style="display:flex; flex-direction:row; align-items:center;">
+
+                        <!-- BARRE VERTICALE -->
+                        <div style="
+                            display:flex;
+                            flex-direction:column;
+                            height:220px;
+                            width:16px;
+                            border-radius:4px;
+                            overflow:hidden;
+                            margin-right:5px;
+                        ">
+                            {''.join([
+                                f'<div style="flex:1;background:rgb({c[0]}, {c[1]}, {c[2]});"></div>'
+                                for c in legend_colors
+                            ])}
+                        </div>
+
+                        <!-- VALEURS -->
+                        <div style="
+                            display:flex;
+                            flex-direction:column;
+                            justify-content:space-between;
+                            height:220px;
+                            font-size:0.85rem;
+                        ">
+                            <div>{legend_values[0]}</div>
+                            <div>{legend_values[1]}</div>
+                            <div>{legend_values[2]}</div>
+                            <div>{legend_values[3]}</div>
+                            <div>{legend_values[4]}</div>
+                        </div>
+                    </div>
+
+                    <!-- Unité -->
+                    <div style="
+                        margin-top:6px;
+                        font-size:0.65rem;
+                        opacity:0.8;
+                        white-space:normal;
+                        word-wrap:break-word;
+                        margin-left:auto;
+                        margin-right:auto;
+                    ">
+                        {stats["unit"]}
+                    </div>
+
+                </div>
+                """
+
+            
+            st.html(legend_html)
 
 @st.cache_data
 def build_map_deck(title, col_name, _data, scope_mode, type_data, _df_scores=None, change_var=None):

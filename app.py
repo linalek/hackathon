@@ -304,7 +304,6 @@ def main():
         df_scores=df_final,
         change_var=[code_dep_selected, access_col, alpha, weights, selected_vars]
     )
-
     # Tableau de classement
     st.subheader("Classement des départements")
     st.markdown(
@@ -313,31 +312,37 @@ def main():
         (du plus vulnérable au moins vulnérable).
         """
     )
-
-    if "score_double" in df_final.columns and not df_final.empty:
-        if scope_mode == "Département":
-            cols_to_show = [c for c in ["nom_commune", "score_double",  "score_socio", "score_acces", "population_totale"] if c in df_final.columns]
-        else: 
-            cols_to_show = [c for c in ["nom_departement", "score_double",  "score_socio", "score_acces", "population_totale"] if c in df_final.columns]
-
-        # Créer une copie du DataFrame pour la modification
-        df_display = df_final[cols_to_show].copy()
-        
-        #Renommer les colonnes dans le DataFrame d'affichage
-        renaming_dict = {
-            original_col: new_name 
-            for original_col, new_name in COLUMN_MAPPING.items()
-            if original_col in cols_to_show
-        }
-    
-        df_display.rename(columns=renaming_dict, inplace=True)
-
-        # Trier et Afficher (en utilisant le NOUVEAU nom de la colonne de tri)
-        sort_column_name = COLUMN_MAPPING.get("score_double", "score_double") # Récupère le nouveau nom ou garde l'ancien par défaut
-        st.dataframe(
-            df_display.sort_values(sort_column_name, ascending=False),
-            width='stretch',
+    required_cols = ["score_double", "score_socio", "score_acces"]
+    if all(col in df_final.columns for col in required_cols):
+        all_scores_computed = all(
+            df_final[col].notna().any() for col in required_cols
         )
+
+        if all_scores_computed:
+            if scope_mode == "Département":
+                cols_to_show = [c for c in ["nom_commune", "code_postal", "score_double",  "score_socio", access_col, "population_totale"] if c in df_final.columns]
+            else: 
+                cols_to_show = [c for c in ["nom_departement", "code_insee", "score_double",  "score_socio", access_col, "population_totale"] if c in df_final.columns]
+
+            # Créer une copie du DataFrame pour la modification
+            df_display = df_final[cols_to_show].copy()
+            
+            #Renommer les colonnes dans le DataFrame d'affichage
+            renaming_dict = {
+                original_col: new_name 
+                for original_col, new_name in COLUMN_MAPPING.items()
+                if original_col in cols_to_show
+            }
+        
+            df_display.rename(columns=renaming_dict, inplace=True)
+
+            # Trier et Afficher (en utilisant le NOUVEAU nom de la colonne de tri)
+            sort_column_name = COLUMN_MAPPING.get("score_double", "score_double") # Récupère le nouveau nom ou garde l'ancien par défaut
+            df_display = df_display.sort_values(sort_column_name, ascending=False).reset_index(drop=True).head(20)
+            df_display.index = df_display.index + 1
+            st.dataframe(df_display)
+        else:
+            st.info("Les données finales ne sont pas encore disponibles.")
     else:
         st.info("Les données finales ne sont pas encore disponibles.")
 

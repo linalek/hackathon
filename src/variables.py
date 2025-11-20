@@ -6,14 +6,19 @@ CHEMIN_COMMUNES = "data/communes.json"
 CHEMIN_DEPARTEMENTS = "data/departements.json"
 CHEMIN_GEOJSON = "data/departements_polygon.geojson"
 
-# 📝 Définition du mapping pour renommer les colonnes
 COLUMN_MAPPING = {
     "nom_commune": "Commune",
+    "code_postal": "Code Postal",
+    "code_insee": "Numéro",
     "nom_departement": "Département",
-    "score_double": "Score Double",  # Nouveau nom souhaité
-    "score_socio": "Score Social",    # Nouveau nom souhaité
-    "score_acces": "Score Accès",    # Nouveau nom souhaité
-    "population_totale": "Population Totale", # Nouveau nom souhaité
+    "score_double": "Score Double Vulnérabilité (en %)", 
+    "score_socio": "Score Vulnérabilité socio-économique (en %)", 
+    "apl_dentistes": "Accès aux dentistes (en ETP/100 000 hab)",
+    "apl_medecins": "Accès aux médecins généralistes (en ETP/100 000 hab)",
+    "apl_infirmiers": "Accès aux infirmiers (en ETP/100 000 hab)",
+    "apl_sagesfemmes": "Accès aux sages-femmes (en ETP/100 000 hab)",
+    "apl_kine": "Accès aux kinésithérapeutes (en ETP/100 000 hab)",
+    "population_totale": "Population",
 }
 
 COLOR_RANGE = [
