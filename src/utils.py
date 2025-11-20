@@ -6,7 +6,7 @@ import os
 import streamlit as st
 
 # ===========================
-# Fonctions utilitaires
+# Chargement des données des variables
 # ===========================
 
 @st.cache_data
@@ -116,6 +116,10 @@ def load_dico_departements():
     
     return {}
 
+
+# ===========================
+# Calcul des scores
+# ===========================
 def compute_socio_score(df, selected_vars, weights, scope_mode):
     """
     Calcule le score de vulnérabilité socio-économique V en [0,100].
@@ -243,96 +247,115 @@ def compute_double_vulnerability(df, alpha=0.5):
         tmp["score_double"] = np.nan
         return tmp
 
-    tmp["score_double"] = alpha * tmp["score_socio"] + (1 - alpha) * tmp["score_acces"]
+    tmp["score_double"] = (alpha * tmp["score_socio"] + (1 - alpha) * tmp["score_acces"]).round(2)
     return tmp
 
+# ===========================
+# Couleurs pour les cartes
+# ===========================
 def get_color_scale(value, col_name, type_data, scope_mode, color_range=COLOR_RANGE, df_scores=None):
     """
     Retourne une couleur RGBA pour une valeur.
-
-    - Pour les variables "simples" : on utilise p5/p95 ou min/max
-      issus de data_info (load_dico_* + find_variable_info).
-    - Pour les colonnes de SCORE (col_name.startswith("score")) :
-      on utilise les percentiles p5/p95 calculés directement sur
-      la colonne de scores (df_scores[col_name]), pour éviter que
-      l'échelle de couleur aille jusqu'à 0 ou 100 si personne n'y est.
-
-    type_data :
-        - "socio" → taux : faible = vert, élevé = rouge (order=True)
-        - "sante" → APL : élevé = vert, faible = rouge (order=False)
     """
-    # -----------------------------
-    # 1) Cas des variables non "score"
-    # -----------------------------
     if not col_name.startswith("score"):
+        stats = get_variable_stats(col_name, type_data, scope_mode)
+    else :
+        stats = get_score_stats(df_scores, col_name)
 
-        if scope_mode == "France":
-            all_vars = load_dico_departements()
-        else:
-            all_vars = load_dico_communes()
-
-        data_info = find_variable_info(all_vars, col_name, type_data)
-
-        # sécurité
-        if data_info is None:
-            return [128, 128, 128, 100]
-
-        # ordre (haut = vulnérable ?)
-        if "order" in data_info:
-            order_normal = data_info["order"]
-        else:
-            order_normal = True
-
-        # on privilégie p5/p95 si dispo
-        p5 = data_info["p5"]
-        p95 = data_info["p95"]
-
-        if p5 is not None and p95 is not None and p95 > p5:
-            min_val = p5
-            max_val = p95
-        else:
-            min_val = data_info["min"]
-            max_val = data_info["max"]  
-
-    # -----------------------------
-    # 2) Cas des colonnes de SCORE
-    # -----------------------------
+    if stats is not None:
+        min_val = stats["p5"]
+        max_val = stats["p95"]
+        order_normal = stats["order_normal"]
     else:
-        order_normal = True  # un score plus haut = plus vulnérable
+        # fallback si pas d'info
+        min_val = 0.0
+        max_val = 100.0
+        order_normal = True
 
-        # si on a les données des scores -> percentiles empiriques
-        if df_scores is not None and col_name in df_scores.columns:
-            col_scores = df_scores[col_name].astype(float)
-            col_scores_valid = col_scores.dropna()
-
-            if not col_scores_valid.empty:
-                p5 = np.percentile(col_scores_valid, 5)
-                p95 = np.percentile(col_scores_valid, 95)
-
-                if p95 > p5:
-                    min_val = p5
-                    max_val = p95
-                else:
-                    min_val = float(col_scores_valid.min())
-                    max_val = float(col_scores_valid.max())
-            else:
-                # fallback si toutes les valeurs sont NaN
-                min_val = 0.0
-                max_val = 100.0
-        else:
-            # fallback si on n'a pas passé df_scores
-            min_val = 0.0
-            max_val = 100.0
-
-    # -----------------------------
-    # 3) Valeur manquante ou plage nulle
-    # -----------------------------
+    
     if pd.isna(value) or max_val == min_val:
         return [128, 128, 128, 100]   # gris
+    
+    normalized = clip_and_normalize_value(
+        value=value,
+        min_val=min_val,
+        max_val=max_val,
+        order_normal=order_normal
+    )
 
-    # -----------------------------
-    # 4) Clipping + normalisation
-    # -----------------------------
+    return normalized_to_color(normalized, color_range=color_range, alpha=180)
+
+def get_score_stats(df_scores: pd.DataFrame, col_name: str) -> dict | None:
+    """
+    Calcule les stats de base pour une colonne de scores :
+    p5, q1 (25%), q2 (médiane), q3 (75%), p95, min, max, unit.
+
+    Retourne un dict ou None si la colonne n'existe pas ou est vide.
+    """
+    if df_scores is None or col_name not in df_scores.columns:
+        return None
+
+    col_scores = df_scores[col_name].astype(float)
+    col_scores_valid = col_scores.dropna()
+
+    if col_scores_valid.empty:
+        return None
+
+    stats = {
+        "min": round(float(col_scores_valid.min()),1),
+        "max": round(float(col_scores_valid.max()),1),
+        "p5":  round(float(np.percentile(col_scores_valid, 5)),1),
+        "q1":  round(float(np.percentile(col_scores_valid, 25)),1),
+        "q2":  round(float(np.percentile(col_scores_valid, 50)),1),
+        "q3":  round(float(np.percentile(col_scores_valid, 75)),1),
+        "p95": round(float(np.percentile(col_scores_valid, 95)),1),
+        "order_normal": True,
+        "unit": "En %"
+    }
+    return stats
+
+def get_variable_stats(col_name: str, type_data: str, scope_mode: str):
+    """
+    Récupère les informations pour une variable 'simple' (non score) :
+    - stats : {min, max, p5, q1, q2, q3, p95, order}
+    """
+    # Charger le dictionnaire adéquat
+    if scope_mode == "France":
+        all_vars = load_dico_departements()
+    else:
+        all_vars = load_dico_communes()
+
+    data_info = find_variable_info(all_vars, col_name, type_data)
+
+    if data_info is None:
+        return None, None, True, None
+
+    stats = {
+        "min": round(float(data_info["min"]),1),
+        "max": round(float(data_info["max"]),1),
+        "p5":  round(float(data_info["p5"]),1),
+        "q1":  round(float(data_info["q1"]),1),
+        "q2":  round(float(data_info["q2"]),1),
+        "q3":  round(float(data_info["q3"]),1),
+        "p95": round(float(data_info["p95"]),1),
+        "order_normal": data_info["order"],
+        "unit": data_info["unit"]
+    }
+
+    return stats
+
+def clip_and_normalize_value(value, min_val: float, max_val: float, order_normal: bool):
+    """
+    Gère :
+    - NaN ou plage nulle -> None
+    - clipping à [min_val, max_val]
+    - normalisation en [0,1]
+    - inversion si order_normal = False
+    """
+    if pd.isna(value) or min_val == max_val:
+        return None
+
+    # clipping
     if value < min_val:
         value_clipped = min_val
     elif value > max_val:
@@ -342,17 +365,23 @@ def get_color_scale(value, col_name, type_data, scope_mode, color_range=COLOR_RA
 
     normalized = (value_clipped - min_val) / (max_val - min_val)
 
-    # inversion si besoin
     if not order_normal:
         normalized = 1 - normalized
 
-    # -----------------------------
-    # 5) Index palette + couleur
-    # -----------------------------
+    return normalized
+
+def normalized_to_color(normalized: float, color_range=COLOR_RANGE, alpha: int = 180):
+    """
+    Convertit un score normalisé [0,1] en couleur RGBA
+    à partir de la palette color_range.
+    """
+    if normalized is None:
+        # gris pour valeur manquante / plage nulle
+        return [128, 128, 128, 100]
+
     index = int(normalized * (len(color_range) - 1))
     r, g, b = color_range[index]
-    return [r, g, b, 180]
-
+    return [r, g, b, alpha]
 
 @st.cache_data
 def find_variable_info(all_vars, col_name, type_data):

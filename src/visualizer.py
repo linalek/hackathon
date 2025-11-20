@@ -15,6 +15,8 @@ def plot_map(title, col_name, data, scope_mode, type_data, df_scores=None, chang
         col_name (str): Le nom de la colonne de la variable (ex: "tx_pauvrete").
         data (pd.DataFrame): Le DataFrame filtré (départements ou communes).
         scope_mode (str): "France" (départements) ou "Département" (communes).
+        type_data (str): Le type de donnée ("socio" ou "sante").
+        df_scores (pd.DataFrame, optional): DataFrame des scores pour les variables de score
     """
     deck = build_map_deck(title, col_name, data, scope_mode, type_data, df_scores, change_var)
     if deck:
@@ -23,41 +25,25 @@ def plot_map(title, col_name, data, scope_mode, type_data, df_scores=None, chang
         else:
             st.pydeck_chart(deck, width='stretch')
 
+        # RÉCUP DES STATS POUR LA LÉGENDE
+        if col_name.startswith("score"):
+            # scores → on prend les quantiles calculés sur df_scores
+            stats = get_score_stats(df_scores, col_name) if df_scores is not None else None
+        else :
+            # autres variables → on prend les stats sur data
+            stats = get_variable_stats(col_name, type_data, scope_mode)
+           
+
         # AFFICHAGE DE LA LÉGENDE
-        if scope_mode == "France":
-            all_vars = load_dico_departements()
-        else:
-            all_vars = load_dico_communes()
-
-        data_info = find_variable_info(all_vars, col_name, type_data)
-        if data_info is None:
-            p95 = 100
-            q1 = 25
-            q3 = 75
-            q2  = 50
-            p5  = 0
-            unit = "En %"
-            order_normal = True
-
-        else:
-            p95 = "> " + str(data_info["p95"])
-            q2  = data_info["q2"] 
-            p5  = "< " + str(data_info["p5"])  
-            q1  = data_info["q1"]
-            q3  = data_info["q3"]
-            unit = data_info["unit"]
-            order_normal = data_info["order"]
-
-        # palette pour la légende
         legend_colors = COLOR_RANGE[::-1]     # haut=rouge, bas=vert
 
         # valeurs affichées dans la légende
-        if order_normal:
-            legend_values = [p95, q3, q2, q1, p5]
+        if stats["order_normal"]:
+            legend_values = ["> " + str(stats["p95"]), stats["q3"], stats["q2"], stats["q1"], "< " + str(stats["p5"])]
         else:
             # inverser l'ordre pour que la valeur haute soit en bas
-            legend_values = [p5, q1, q2, q3, p95]
-
+            legend_values = ["< " + str(stats["p5"]), stats["q1"], stats["q2"], stats["q3"], "> " + str(stats["p95"])]
+       
         legend_html = f"""
             <div style="
                 position:absolute;
@@ -117,7 +103,7 @@ def plot_map(title, col_name, data, scope_mode, type_data, df_scores=None, chang
                     margin-left:auto;
                     margin-right:auto;
                 ">
-                    {unit}
+                    {stats["unit"]}
                 </div>
 
             </div>
