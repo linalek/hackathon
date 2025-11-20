@@ -1,10 +1,11 @@
 # Hackathon : Diagnostic Territorial de Santé Publique
 
 ## Défi Open Data University & Fondation Roche
-Ce projet a été réalisé dans le cadre du défi "Réaliser un diagnostic territorial de santé publique", proposé par la Fondation Roche et l'Open Data University, hébergé sur le SSP Cloud de l'INSEE.
+Ce projet a été réalisé dans le cadre du défi **"Réaliser un diagnostic territorial de santé publique"**, proposé par la Fondation Roche et l'Open Data University.
 
 ## Sommaire
-- [Description du projet](#description-du-projet)
+- [Contexte et objectif du projet](#contexte-et-objectif-du-projet)
+- [Description de la solution](#description-de-la-solution)
 - [Préparation de l'environnement](#préparation-de-lenvironnement)
 - [Acquisition des données](#acquisition-des-données)
 - [Explication des indicateurs utilisés](#explication-des-indicateurs-utilisés)
@@ -13,11 +14,27 @@ Ce projet a été réalisé dans le cadre du défi "Réaliser un diagnostic terr
 - [Technologies Utilisées](#technologies-utilisées)
 
 
-## Description du projet
+## Contexte et objectif du projet
+
+Pour améliorer la santé d'une population, les pouvoirs publics doivent identifier les besoins locaux et organiser l'offre de soins. La santé est influencée par des facteurs multiples : l'offre médicale, mais aussi les pratiques sociales, les revenus ou l'environnement.
+
+Notre projet répond à la problématique suivante : **Comment aider les acteurs locaux à réaliser un diagnostic de santé publique sur leur territoire ?**
+
+Pour répondre à cette problématique, 2 questions se posent : 
+- **Existe-t-il des territoires qui souffrent d’un manque d’accès à la prévention et aux soins ?**
+- **Où sont situées les populations a priori les plus vulnérables ?**
+
+C'est en combinant ces deux dimensions que nous pourrons identifier les zones à risque et c'est l'objectif de notre application.
+
+L'objectif est de fournir un outil d'aide à la décision permettant de guider les collectivités (élaboration de Contrats Locaux de Santé, installation de maisons de santé) en identifiant les territoires à risque.
+
+## Description de la solution
 
 Notre application permet d'identifier et de viualiser, à l'échelle des communes ou à l'échelle des départements, les zones à double vulnérabilité combinant :
 - **La vulnérabilité socio-économique** : mesuré par les indices, tels que le taux de pauvreté, chômage, composition familiale, proportion de personnes âgées, indice EDI.
 - **La difficulté d'accés au soin** : basé sur des indicateurs d'accessibilité potentielle localisée (APL), pour diverses professions de santé (médecins généralistes, infirmières, sages-femmes, chirurgiens dentistes, kinésithérapeutes).
+
+### Fonctionnalités principales
 
 Notre application offre une interface interactive permettant de :
 * Sélectionner et pondérer les critères socio-économiques
@@ -48,7 +65,7 @@ Notre application offre une interface interactive permettant de :
 
 ### Acquisition des données
 
-Les données utilisées proviennent de différentes sources :
+Les données utilisées proviennent de différentes sources (Open Data) :
 * **APL (Accessibilité Potentielle Localisée)** : Fichiers excel par profession : https://defis.data.gouv.fr/datasets/62263314072c63d4d53e0c50
 * **FEDI (French European Deprivation Index)** : https://odisse.santepubliquefrance.fr/explore/dataset/french-european-deprivation-index-f-edi-2021-par-commune/information/?disjunctive.reglib&disjunctive.libgeo&sort=commune_code 
 * **Famille monoparentale, Part des personnes agées, Taux de chômage, Taux de pauvreté** : Les colonnes nécessaires ont été extraites de la base de données suivantes : https://statistiques-locales.insee.fr/#bbox=-637658,6637052,2480,1361&c=indicator&i=rp.pt_fammonop&s=2022&view=map1
@@ -93,9 +110,8 @@ Le site a aussi été déployé et est accessible à l'adresse suivante : https:
 - Lucine GIRAUD
 - Lina LEKBOURI
 
-## Technologies Utilisées
-- Python
-- Streamlit
-- JSON
-- Pandas
-- Geopandas
+## Technologies utilisées
+- **Langage** : Python 3.9+
+- **Interface Web** : Streamlit
+- **Manipulation de données** : Pandas, NumPy, JSON
+- **Géomatique** : Geopandas
