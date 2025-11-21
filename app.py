@@ -15,7 +15,7 @@ from src.visualizer import plot_map
 # ===========================
 
 st.set_page_config(
-    page_title="Santé & Territoires - Double vulnérabilité",
+    page_title="VULNERIS",
     layout="wide"
 )
 
@@ -25,7 +25,7 @@ def main():
     # -----------------------
     # Titre & explication
     # -----------------------
-    st.title("Votre présence fait la différence 🩺")
+    st.title("VULNERIS : Votre présence fait la différence 🩺")
     st.subheader("Professionnel de santé ? Député ? Représentant local ? Entreprise de la santé ? ONG ? Identifiez les zones où votre installation de santé serait la plus utile.")
     st.markdown(
         """
