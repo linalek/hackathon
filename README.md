@@ -15,6 +15,11 @@ Ce projet a été réalisé dans le cadre du défi **"Réaliser un diagnostic te
 - [Contributeurs](#contributeurs)
 - [Technologies Utilisées](#technologies-utilisées)
 
+<img width="1803" height="867" alt="image" src="https://github.com/user-attachments/assets/6144c7cd-6820-4752-9c9c-74a3df9ed0e4" /> <img width="1856" height="624" alt="image" src="https://github.com/user-attachments/assets/c46a9485-3680-46ca-9a45-cf2f222bae42" />
+
+
+
+
 ## Contexte et objectif du projet
 
 Pour améliorer la santé d'une population, les pouvoirs publics doivent identifier les besoins locaux et organiser l'offre de soins. La santé est influencée par des facteurs multiples : l'offre médicale, mais aussi les pratiques sociales, les revenus ou l'environnement.
