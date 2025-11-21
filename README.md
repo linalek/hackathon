@@ -1,4 +1,4 @@
-# Hackathon : Diagnostic Territorial de Santé Publique
+# Vulneris : Diagnostic Territorial de Santé Publique
 
 ## Défi Open Data University & Fondation Roche
 
